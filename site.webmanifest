@@ -1,0 +1,9 @@
+{
+  "name": "عيادة الدكتور عبده الباسط",
+  "short_name": "د. عبده الباسط",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#477537",
+  "icons": []
+}

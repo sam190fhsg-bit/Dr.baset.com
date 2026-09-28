@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sam190fhsg-bit.github.io/Dr.baset.com/sitemap.xml
