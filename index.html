@@ -1490,7 +1490,48 @@
 >
   W
 </a>
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(event){
 
+  event.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const age = document.getElementById("age").value;
+  const gender = document.getElementById("gender").value;
+  const service = document.getElementById("service").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+  const reason = document.getElementById("reason").value;
+  const notes = document.getElementById("notes").value;
+
+  const message =
+`طلب حجز موعد جديد
+
+الاسم: ${name}
+رقم الهاتف: ${phone}
+العمر: ${age || "غير محدد"}
+الجنس: ${gender || "غير محدد"}
+الخدمة: ${service}
+التاريخ: ${date || "غير محدد"}
+الوقت: ${time || "غير محدد"}
+سبب الزيارة: ${reason || "غير محدد"}
+الملاحظات: ${notes || "لا توجد"}
+
+عيادة الدكتور عبده الباسط عبده الحاج مقبل`;
+
+  const whatsappNumber = "967777560603";
+
+  const whatsappURL =
+    "https://wa.me/" +
+    whatsappNumber +
+    "?text=" +
+    encodeURIComponent(message);
+
+  window.open(whatsappURL, "_blank");
+
+});
+</script>
 
 </body>
 </html>
