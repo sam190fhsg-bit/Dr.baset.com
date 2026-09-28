@@ -93,7 +93,7 @@
       font-size:14px;
       transition:.2s;
     }
-
+<nav class="nav-links">
     .nav-links a:hover{
       color:#477537;
     }
@@ -104,7 +104,9 @@
       padding:9px 16px;
       border-radius:8px;
     }
-
+<button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="القائمة">
+  ☰
+</button>
     .hero{
       background:
         radial-gradient(circle at 20% 20%, #edf5e9 0, transparent 35%),
@@ -202,15 +204,50 @@
       transform:translateX(-50%);
       z-index:0;
     }
+.doctor-image{
+  position:relative;
+  z-index:1;
+  width:100%;
+  height:500px;
+  object-fit:contain;
+  object-position:center bottom;
+  display:block;
+  margin:auto;
+}
 
-    .doctor-image{
-      position:relative;
-      z-index:1;
-      width:100%;
-      height:500px;
-      object-fit:contain;
-      object-position:center bottom;
-      display:block;
+.mobile-menu-btn{
+  display:none;
+  background:#477537;
+  color:#fff;
+  border:none;
+  width:42px;
+  height:42px;
+  border-radius:8px;
+  font-size:23px;
+  cursor:pointer;
+}
+
+.mobile-menu{
+  display:none;
+  background:#fff;
+  border-top:1px solid #e9eee7;
+  padding:12px 20px 18px;
+}
+
+.mobile-menu a{
+  display:block;
+  color:#303830;
+  padding:10px 0;
+  border-bottom:1px solid #eef1ed;
+}
+
+.mobile-menu a:last-child{
+  border-bottom:none;
+}
+
+.mobile-menu.open{
+  display:block;
+}
     }
 
     section{
@@ -461,7 +498,18 @@
       .nav-links{
         display:none;
       }
+.mobile-menu-btn{
+  display:block;
+}
 
+.doctor-card{
+  min-height:420px;
+  padding-top:10px;
+}
+
+.doctor-image{
+  height:410px;
+}
       .hero-grid,
       .about-grid,
       .booking-grid{
