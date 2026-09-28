@@ -615,16 +615,18 @@
         <span>الباطنة والكبد ومناظير الجهاز الهضمي</span>
       </div>
     </div>
+<button class="menu-toggle" onclick="toggleMenu()" aria-label="فتح القائمة">
+  ☰
+</button>
 
-    <nav class="nav-links">
-      <a href="#home">الرئيسية</a>
-      <a href="#about">عن الدكتور</a>
-      <a href="#services">الخدمات</a>
-      <a href="#diseases">التخصصات</a>
-      <a href="#contact">تواصل معنا</a>
-      <a href="#booking" class="nav-btn">احجز موعدًا</a>
-    </nav>
-
+<nav class="nav-links" id="mobileMenu">
+  <a href="#home" onclick="toggleMenu()">الرئيسية</a>
+  <a href="#about" onclick="toggleMenu()">عن الدكتور</a>
+  <a href="#services" onclick="toggleMenu()">الخدمات</a>
+  <a href="#diseases" onclick="toggleMenu()">التخصصات</a>
+  <a href="#booking" onclick="toggleMenu()">احجز موعدًا</a>
+  <a href="#contact" onclick="toggleMenu()">تواصل معنا</a>
+</nav>
   </div>
 </header>
 
