@@ -1156,59 +1156,98 @@
 <!-- =========================
      BOOKING
 ========================= -->
+<section class="booking" id="booking">
 
-<section
-  class="booking"
-  id="booking"
->
+  <div class="container">
 
-  <div class="container booking-grid">
-
-    <div>
-
-      <h2>
-        احجز موعدك
-      </h2>
-
-      <p>
-        للحجز والاستفسار يمكنكم التواصل مباشرة
-        عبر الهاتف أو واتساب.
+    <div class="section-heading" style="margin-bottom:30px;">
+      <span style="color:#fff;">الحجز</span>
+      <h2 style="color:#fff;">احجز موعدك</h2>
+      <p style="color:#eef5ec;">
+        املأ البيانات التالية وسيتم إرسال طلب الحجز عبر واتساب.
       </p>
-
     </div>
 
+    <div class="booking-form-box">
 
-    <div class="booking-box">
+      <form id="bookingForm">
 
-      <h3>
-        الحجز والاستفسار
-      </h3>
+        <div class="form-grid">
 
-      <p>
-        اختر الطريقة المناسبة للتواصل مع العيادة.
-      </p>
+          <div class="form-group">
+            <label for="name">الاسم الكامل</label>
+            <input type="text" id="name" required>
+          </div>
 
+          <div class="form-group">
+            <label for="phone">رقم الهاتف</label>
+            <input type="tel" id="phone" required>
+          </div>
 
-      <a
-        href="tel:777560603"
-        class="btn btn-primary"
-      >
-        777560603
-      </a>
+          <div class="form-group">
+            <label for="age">العمر</label>
+            <input type="number" id="age" min="1" max="120">
+          </div>
 
+          <div class="form-group">
+            <label for="gender">الجنس</label>
+            <select id="gender">
+              <option value="">اختر</option>
+              <option value="ذكر">ذكر</option>
+              <option value="أنثى">أنثى</option>
+            </select>
+          </div>
 
-      <a
-        href="https://wa.me/967777560603"
-        class="btn btn-outline"
-      >
-        واتساب
-      </a>
+          <div class="form-group">
+            <label for="service">الخدمة</label>
+            <select id="service" required>
+              <option value="">اختر الخدمة</option>
+              <option value="أمراض الباطنة">أمراض الباطنة</option>
+              <option value="أمراض الكبد">أمراض الكبد</option>
+              <option value="أمراض الجهاز الهضمي">أمراض الجهاز الهضمي</option>
+              <option value="منظار المعدة">منظار المعدة</option>
+              <option value="منظار القولون">منظار القولون</option>
+              <option value="استشارة طبية">استشارة طبية</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="date">التاريخ</label>
+            <input type="date" id="date">
+          </div>
+
+          <div class="form-group">
+            <label for="time">الوقت</label>
+            <input type="time" id="time">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="reason">سبب الزيارة</label>
+            <input type="text" id="reason">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="notes">ملاحظات</label>
+            <textarea id="notes" rows="4"></textarea>
+          </div>
+
+        </div>
+
+        <button type="submit" class="booking-submit">
+          إرسال طلب الحجز عبر واتساب
+        </button>
+
+        <p class="booking-note">
+          للحجز المباشر: 777560603 – 777554626
+        </p>
+
+      </form>
 
     </div>
 
   </div>
 
-</section>
+</section>>
 
 
 <!-- =========================
