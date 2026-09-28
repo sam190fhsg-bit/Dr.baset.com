@@ -3,74 +3,458 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>الدكتور عبده الباسط عبده الحاج مقبل</title>
+
   <style>
+
+    *{
+      box-sizing:border-box;
+    }
+
     body{
       margin:0;
       font-family:Tahoma,Arial,sans-serif;
-      background:#f7f9f7;
+      background:#f7faf7;
       color:#222;
+      line-height:1.8;
     }
+
     header{
-      background:#477537;
-      color:white;
-      padding:25px;
-      text-align:center;
-    }
-    main{
-      max-width:900px;
-      margin:auto;
-      padding:30px 20px;
-    }
-    .card{
       background:white;
-      padding:30px;
-      border-radius:16px;
-      box-shadow:0 4px 18px rgba(0,0,0,.08);
-      text-align:center;
+      border-bottom:1px solid #e7e7e7;
+      position:sticky;
+      top:0;
+      z-index:1000;
     }
-    h1{
+
+    .nav{
+      max-width:1200px;
+      margin:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 20px;
+    }
+
+    .brand{
       color:#477537;
+      font-size:21px;
+      font-weight:bold;
     }
+
+    .nav a{
+      text-decoration:none;
+      color:#333;
+      margin:0 10px;
+      font-size:15px;
+    }
+
+    .hero{
+      min-height:500px;
+      background:linear-gradient(135deg,#f5faf3,#e8f1e4);
+      display:flex;
+      align-items:center;
+      padding:60px 20px;
+    }
+
+    .hero-content{
+      max-width:1200px;
+      margin:auto;
+      width:100%;
+      display:grid;
+      grid-template-columns:1.2fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .hero h1{
+      color:#3f6f32;
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .hero h2{
+      font-size:23px;
+      font-weight:normal;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:17px;
+      color:#555;
+    }
+
+    .buttons{
+      margin-top:25px;
+    }
+
     .btn{
       display:inline-block;
-      margin:8px;
-      padding:12px 22px;
+      padding:13px 24px;
+      margin:5px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    .primary{
       background:#477537;
       color:white;
-      text-decoration:none;
-      border-radius:8px;
     }
+
+    .secondary{
+      border:2px solid #477537;
+      color:#477537;
+      background:white;
+    }
+
+    .doctor-box{
+      background:white;
+      border-radius:20px;
+      padding:50px 25px;
+      text-align:center;
+      box-shadow:0 10px 35px rgba(0,0,0,.07);
+    }
+
+    .doctor-box .placeholder{
+      width:180px;
+      height:180px;
+      background:#edf3e9;
+      margin:auto;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#477537;
+      font-weight:bold;
+    }
+
+    section{
+      padding:70px 20px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:40px;
+    }
+
+    .title h2{
+      color:#477537;
+      font-size:31px;
+      margin-bottom:5px;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .service{
+      background:white;
+      padding:28px 20px;
+      border-radius:14px;
+      text-align:center;
+      box-shadow:0 5px 25px rgba(0,0,0,.05);
+      border-top:4px solid #477537;
+    }
+
+    .service h3{
+      color:#477537;
+    }
+
+    .about{
+      background:white;
+    }
+
+    .about-box{
+      max-width:850px;
+      margin:auto;
+      text-align:center;
+      font-size:17px;
+    }
+
+    .contact{
+      background:#477537;
+      color:white;
+    }
+
+    .contact .title h2{
+      color:white;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      text-align:center;
+    }
+
+    .contact-box{
+      background:rgba(255,255,255,.1);
+      padding:25px;
+      border-radius:12px;
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      background:#345829;
+      color:white;
+    }
+
+    @media(max-width:800px){
+
+      .hero-content{
+        grid-template-columns:1fr;
+        text-align:center;
+      }
+
+      .hero h1{
+        font-size:30px;
+      }
+
+      .services{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .contact-grid{
+        grid-template-columns:1fr;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+    }
+
+    @media(max-width:500px){
+
+      .services{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding:40px 15px;
+      }
+
+    }
+
   </style>
+
 </head>
+
 <body>
 
 <header>
-  <h2>عيادة الدكتور عبده الباسط عبده الحاج مقبل</h2>
-  <p>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي</p>
+
+  <div class="nav">
+
+    <div class="brand">
+      عيادة الدكتور عبده الباسط
+    </div>
+
+    <div class="nav-links">
+      <a href="#home">الرئيسية</a>
+      <a href="#about">عن الدكتور</a>
+      <a href="#services">الخدمات</a>
+      <a href="#contact">تواصل معنا</a>
+    </div>
+
+  </div>
+
 </header>
 
-<main>
-  <div class="card">
-    <h1>مرحبًا بكم</h1>
+<section class="hero" id="home">
 
-    <p>
-      رعاية طبية متخصصة في أمراض الباطنة والكبد
-      والجهاز الهضمي والمناظير.
-    </p>
+  <div class="hero-content">
 
-    <p>
-      مركز المأمون الطبي التشخيصي<br>
-      صنعاء – شارع تعز – جولة تعز
-    </p>
+    <div>
 
-    <a class="btn" href="tel:777560603">اتصال</a>
+      <p>رعاية طبية متخصصة</p>
 
-    <a class="btn" href="https://wa.me/967777560603">
-      واتساب
-    </a>
+      <h1>
+        الدكتور / عبده الباسط عبده الحاج مقبل
+      </h1>
+
+      <h2>
+        استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي
+      </h2>
+
+      <p>
+        تشخيص ومتابعة أمراض الباطنة والكبد والجهاز الهضمي
+        وإجراء المناظير التشخيصية والعلاجية.
+      </p>
+
+      <div class="buttons">
+
+        <a class="btn primary"
+           href="tel:777560603">
+           اتصل الآن
+        </a>
+
+        <a class="btn secondary"
+           href="https://wa.me/967777560603">
+           واتساب
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="doctor-box">
+
+      <div class="placeholder">
+        صورة الدكتور
+      </div>
+
+      <h3>
+        الدكتور عبده الباسط عبده الحاج مقبل
+      </h3>
+
+      <p>
+        استشاري الباطنة والكبد ومناظير الجهاز الهضمي
+      </p>
+
+    </div>
+
   </div>
-</main>
+
+</section>
+
+<section id="services">
+
+  <div class="container">
+
+    <div class="title">
+
+      <h2>الخدمات الطبية</h2>
+
+      <p>
+        خدمات تشخيصية وعلاجية متخصصة
+      </p>
+
+    </div>
+
+    <div class="services">
+
+      <div class="service">
+        <h3>أمراض الباطنة</h3>
+        <p>
+          تشخيص ومتابعة الأمراض الباطنية والحالات المزمنة.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3>أمراض الكبد</h3>
+        <p>
+          تقييم وتشخيص ومتابعة أمراض الكبد المختلفة.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3>الجهاز الهضمي</h3>
+        <p>
+          تشخيص أمراض المعدة والأمعاء والقولون.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3>المناظير</h3>
+        <p>
+          مناظير الجهاز الهضمي التشخيصية والعلاجية.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="about" id="about">
+
+  <div class="container">
+
+    <div class="title">
+      <h2>عن الدكتور</h2>
+    </div>
+
+    <div class="about-box">
+
+      <p>
+        الدكتور عبده الباسط عبده الحاج مقبل
+        استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي،
+        يقدم خدمات التشخيص والمتابعة والعلاج للحالات المتعلقة
+        بالجهاز الهضمي والكبد وأمراض الباطنة.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+  <div class="container">
+
+    <div class="title">
+
+      <h2>تواصل معنا</h2>
+
+      <p>
+        للحجز والاستفسار
+      </p>
+
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-box">
+        <h3>العنوان</h3>
+        <p>
+          مركز المأمون الطبي التشخيصي<br>
+          صنعاء – شارع تعز – جولة تعز
+        </p>
+      </div>
+
+      <div class="contact-box">
+        <h3>الهاتف</h3>
+        <p>
+          777560603<br>
+          777554626
+        </p>
+      </div>
+
+      <div class="contact-box">
+        <h3>واتساب</h3>
+
+        <a
+          href="https://wa.me/967777560603"
+          style="color:white">
+          تواصل عبر واتساب
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer>
+
+  جميع الحقوق محفوظة © عيادة الدكتور عبده الباسط
+
+</footer>
 
 </body>
 </html>
