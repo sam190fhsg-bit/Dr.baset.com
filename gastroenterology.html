@@ -1,378 +1,157 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>أمراض الجهاز الهضمي | عيادة الدكتور عبده الباسط</title>
-
-  <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-    }
-
-    body{
-      font-family:Tahoma,Arial,sans-serif;
-      background:#f7f9f7;
-      color:#202520;
-      line-height:1.8;
-    }
-
-    a{
-      text-decoration:none;
-    }
-
-    .container{
-      width:92%;
-      max-width:1180px;
-      margin:auto;
-    }
-
-    header{
-      background:#fff;
-      border-bottom:1px solid #e8ede6;
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
-
-    .nav{
-      min-height:80px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:15px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .brand img{
-      width:58px;
-      height:58px;
-      object-fit:contain;
-    }
-
-    .brand strong{
-      color:#356b35;
-      font-size:18px;
-    }
-
-    .back-btn{
-      background:#477537;
-      color:white;
-      padding:9px 16px;
-      border-radius:8px;
-    }
-
-    .hero{
-      padding:65px 20px;
-      text-align:center;
-      background:linear-gradient(135deg,#ffffff,#edf5e9);
-    }
-
-    .hero h1{
-      color:#356b35;
-      font-size:38px;
-      margin-bottom:10px;
-    }
-
-    .hero p{
-      color:#667266;
-      max-width:750px;
-      margin:auto;
-    }
-
-    .section{
-      padding:60px 0;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .disease{
-      background:#fff;
-      padding:24px;
-      border-radius:18px;
-      border:1px solid #e8ede6;
-      box-shadow:0 7px 24px rgba(0,0,0,.04);
-    }
-
-    .disease h3{
-      color:#477537;
-      margin-bottom:8px;
-      font-size:20px;
-    }
-
-    .disease p{
-      color:#687168;
-      font-size:14px;
-    }
-
-    .cta{
-      background:#477537;
-      color:white;
-      padding:50px 20px;
-      text-align:center;
-    }
-
-    .cta h2{
-      margin-bottom:10px;
-      font-size:30px;
-    }
-
-    .cta p{
-      margin-bottom:20px;
-    }
-
-    .cta a{
-      display:inline-block;
-      background:white;
-      color:#477537;
-      padding:12px 22px;
-      border-radius:9px;
-      font-weight:bold;
-    }
-
-    footer{
-      background:#284f28;
-      color:#fff;
-      padding:25px;
-      text-align:center;
-    }
-
-    @media(max-width:900px){
-      .grid{
-        grid-template-columns:1fr 1fr;
-      }
-    }
-
-    @media(max-width:600px){
-      .grid{
-        grid-template-columns:1fr;
-      }
-
-      .hero h1{
-        font-size:28px;
-      }
-
-      .brand strong{
-        font-size:14px;
-      }
-
-      .brand img{
-        width:48px;
-        height:48px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>أمراض الجهاز الهضمي | عيادة الدكتور عبده الباسط</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Tahoma,Arial,sans-serif;background:#f7f9f7;color:#202520;line-height:1.8}
+a{text-decoration:none}
+.container{width:92%;max-width:1180px;margin:auto}
+header{background:#fff;border-bottom:1px solid #e8ede6;position:sticky;top:0;z-index:1000}
+.nav{min-height:80px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:58px;height:58px;object-fit:contain}
+.brand strong{color:#356b35;font-size:18px}
+.back-btn{background:#477537;color:#fff;padding:9px 16px;border-radius:8px}
+.hero{padding:65px 20px;text-align:center;background:linear-gradient(135deg,#fff,#edf5e9)}
+.hero h1{color:#356b35;font-size:38px;margin-bottom:10px}
+.hero p{color:#667266;max-width:800px;margin:auto}
+.section{padding:60px 0}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.disease{display:block;background:#fff;padding:24px;border-radius:18px;border:1px solid #e8ede6;box-shadow:0 7px 24px rgba(0,0,0,.04);transition:.2s;color:inherit}
+.disease:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.disease h3{color:#477537;margin-bottom:8px;font-size:20px}
+.disease p{color:#687168;font-size:14px}
+.more{display:inline-block;margin-top:12px;color:#477537;font-weight:bold;font-size:14px}
+.warning{margin-top:35px;background:#f3f7f1;border-right:4px solid #477537;padding:20px;border-radius:12px;color:#556255}
+.cta{background:#477537;color:#fff;padding:50px 20px;text-align:center}
+.cta h2{margin-bottom:10px;font-size:30px}
+.cta p{margin-bottom:20px}
+.cta a{display:inline-block;background:#fff;color:#477537;padding:12px 22px;border-radius:9px;font-weight:bold;margin:5px}
+footer{background:#284f28;color:#fff;padding:25px;text-align:center}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.hero h1{font-size:28px}.brand strong{font-size:14px}.brand img{width:48px;height:48px}}
+</style>
 </head>
-
 <body>
-
 <header>
   <div class="container nav">
-
-    <div class="brand">
-      <img src="logo.jpg?v=3" alt="شعار العيادة">
-      <strong>عيادة الدكتور عبده الباسط</strong>
-    </div>
-
-    <a href="index.html" class="back-btn">
-      الرئيسية
-    </a>
-
+    <div class="brand"><img src="logo.jpg?v=3" alt="شعار العيادة"><strong>عيادة الدكتور عبده الباسط</strong></div>
+    <a href="index.html" class="back-btn">الرئيسية</a>
   </div>
 </header>
 
 <section class="hero">
-
-  <h1>
-    أمراض الجهاز الهضمي
-  </h1>
-
-  <p>
-    تشخيص ومتابعة أمراض المريء والمعدة والأمعاء والقولون
-    والمشكلات الهضمية المختلفة.
-  </p>
-
+  <h1>أمراض الجهاز الهضمي</h1>
+  <p>تشخيص ومتابعة أمراض المريء والمعدة والأمعاء والقولون والمشكلات الهضمية المختلفة.</p>
 </section>
 
 <section class="section">
-
   <div class="container">
-
     <div class="grid">
-
-      <div class="disease">
-        <h3>ارتجاع المريء</h3>
-        <p>
-          حرقة وارتجاع محتويات المعدة إلى المريء
-          وقد يصاحبه ألم أو صعوبة في البلع.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>التهاب المريء</h3>
-        <p>
-          التهاب قد يسبب الألم أثناء البلع
-          أو الشعور بالحرقان خلف عظمة الصدر.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>صعوبة البلع</h3>
-        <p>
-          شعور بصعوبة مرور الطعام أو السوائل
-          ويحتاج إلى تقييم السبب.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>فتق الحجاب الحاجز</h3>
-        <p>
-          حالة قد ترتبط بالارتجاع وحرقة المعدة
-          وأعراض أعلى الجهاز الهضمي.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>التهاب المعدة</h3>
-        <p>
-          التهاب بطانة المعدة وقد يسبب الألم
-          والغثيان وعسر الهضم.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>جرثومة المعدة</h3>
-        <p>
-          عدوى بكتيرية قد ترتبط بالتهاب المعدة
-          والقرحة الهضمية.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>قرحة المعدة والاثني عشر</h3>
-        <p>
-          تقرحات في بطانة المعدة أو الاثني عشر
-          وقد تسبب ألمًا أو نزيفًا.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>القولون العصبي</h3>
-        <p>
-          اضطراب وظيفي قد يسبب آلام البطن
-          والانتفاخ وتغير نمط الإخراج.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>التهاب القولون</h3>
-        <p>
-          التهاب قد يسبب ألم البطن
-          والإسهال أو النزيف حسب السبب.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>الإمساك</h3>
-        <p>
-          صعوبة أو قلة التبرز وقد تكون مرتبطة
-          بالنظام الغذائي أو أسباب أخرى.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>الإسهال</h3>
-        <p>
-          زيادة عدد مرات التبرز أو سيولة البراز
-          مع ضرورة تقييم الحالات المستمرة.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>النزيف الهضمي</h3>
-        <p>
-          ظهور دم مع القيء أو البراز
-          ويحتاج إلى تقييم طبي سريع.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>آلام البطن</h3>
-        <p>
-          قد ترتبط بأسباب متعددة في الجهاز الهضمي
-          وتحتاج إلى تقييم حسب الأعراض.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>انتفاخ البطن</h3>
-        <p>
-          الشعور بالامتلاء أو الغازات
-          وقد يكون مرتبطًا بعوامل غذائية أو هضمية.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>عسر الهضم</h3>
-        <p>
-          شعور بالامتلاء أو الانزعاج
-          في أعلى البطن بعد تناول الطعام.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>أمراض المرارة</h3>
-        <p>
-          تشمل الحصوات والالتهابات
-          واضطرابات المرارة المختلفة.
-        </p>
-      </div>
-
-      <div class="disease">
-        <h3>القنوات الصفراوية</h3>
-        <p>
-          تقييم المشكلات والانسدادات
-          والاضطرابات المرتبطة بالقنوات الصفراوية.
-        </p>
-      </div>
-
+      
+        <a class="disease" href="disease.html?disease=gerd">
+          <h3>ارتجاع المريء</h3>
+          <p>حرقة وارتجاع محتويات المعدة إلى المريء.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=esophagitis">
+          <h3>التهاب المريء</h3>
+          <p>التهاب قد يسبب الألم أثناء البلع أو الحرقان.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=dysphagia">
+          <h3>صعوبة البلع</h3>
+          <p>صعوبة مرور الطعام أو السوائل وتحتاج إلى تقييم السبب.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=hiatal-hernia">
+          <h3>فتق الحجاب الحاجز</h3>
+          <p>قد يرتبط بالارتجاع وحرقة المعدة.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=gastritis">
+          <h3>التهاب المعدة</h3>
+          <p>التهاب بطانة المعدة وقد يسبب الألم والغثيان.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=h-pylori">
+          <h3>جرثومة المعدة</h3>
+          <p>عدوى بكتيرية قد ترتبط بالتهاب المعدة والقرحة.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=peptic-ulcer">
+          <h3>قرحة المعدة والاثني عشر</h3>
+          <p>تقرحات قد تسبب الألم أو النزيف.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=ibs">
+          <h3>القولون العصبي</h3>
+          <p>اضطراب وظيفي قد يسبب ألم البطن والانتفاخ.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=colitis">
+          <h3>التهاب القولون</h3>
+          <p>التهاب قد يسبب ألم البطن والإسهال أو النزيف.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=constipation">
+          <h3>الإمساك</h3>
+          <p>صعوبة أو قلة التبرز بصورة متكررة.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=diarrhea">
+          <h3>الإسهال</h3>
+          <p>زيادة عدد مرات التبرز أو سيولة البراز.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=gi-bleeding">
+          <h3>النزيف الهضمي</h3>
+          <p>قد يظهر بقيء دموي أو براز أسود أو دم أحمر.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=abdominal-pain">
+          <h3>آلام البطن</h3>
+          <p>عرض شائع وله أسباب متعددة.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=bloating">
+          <h3>انتفاخ البطن</h3>
+          <p>شعور بالامتلاء أو الغازات.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=dyspepsia">
+          <h3>عسر الهضم</h3>
+          <p>انزعاج أو امتلاء في أعلى البطن.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=gallbladder">
+          <h3>أمراض المرارة</h3>
+          <p>تشمل الحصوات والالتهابات واضطرابات أخرى.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
+        <a class="disease" href="disease.html?disease=bile-ducts">
+          <h3>أمراض القنوات الصفراوية</h3>
+          <p>قد تسبب الألم أو اليرقان أو تغيرات وظائف الكبد.</p>
+          <span class="more">عرض التفاصيل ←</span>
+        </a>
     </div>
-
+    <div class="warning">
+      اضغط على أي حالة لعرض صفحة تفصيلية تحتوي على النبذة والأعراض والأسباب والتشخيص وخيارات العلاج العامة.
+    </div>
   </div>
-
 </section>
 
 <section class="cta">
-
-  <h2>
-    هل تعاني من أعراض بالجهاز الهضمي؟
-  </h2>
-
-  <p>
-    يمكنك التواصل مع العيادة للحجز والاستفسار.
-  </p>
-
-  <a href="https://wa.me/967777560603">
-    احجز عبر واتساب
-  </a>
-
+  <h2>للحجز والاستفسار</h2>
+  <p>يمكنكم التواصل مع العيادة عبر الهاتف أو واتساب.</p>
+  <a href="tel:777560603">777560603</a>
+  <a href="tel:777554626">777554626</a>
+  <a href="https://wa.me/967777560603">واتساب</a>
 </section>
 
-<footer>
-  جميع الحقوق محفوظة © عيادة الدكتور عبده الباسط عبده الحاج مقبل
-</footer>
-
+<footer>جميع الحقوق محفوظة © عيادة الدكتور عبده الباسط عبده الحاج مقبل</footer>
 </body>
 </html>
