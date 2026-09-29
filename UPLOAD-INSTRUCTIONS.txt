@@ -1,0 +1,30 @@
+حزمة الموقع الكاملة قبل Supabase
+=================================
+
+هذه الحزمة تجمع كل الملحقات والنواقص الحالية في نسخة واحدة:
+- index.html بواجهة طبية وسلايدات.
+- صفحات الأقسام الأربعة.
+- disease.html الديناميكية لكل الحالات.
+- about / services / booking / contact / faq / articles / gallery / search.
+- privacy.html
+- medical-disclaimer.html
+- accessibility.html
+- 404.html
+- robots.txt
+- sitemap.xml
+- site.webmanifest
+
+مهم:
+1) أبقِ الملفين الموجودين لديك أصلًا في جذر المستودع:
+   doctor.jpg
+   logo.jpg
+
+2) ارفع جميع الملفات الموجودة في هذه الحزمة إلى جذر مستودع GitHub.
+3) وافق على استبدال الملفات القديمة التي تحمل نفس الأسماء.
+4) اضغط Commit changes.
+5) لا ترفع ZIP نفسه؛ فك الضغط أولًا ثم ارفع الملفات.
+
+الرابط الحالي:
+https://sam190fhsg-bit.github.io/Dr.baset.com/
+
+بعد رفع هذه الحزمة يكون الجزء الثابت من الموقع جاهزًا للانتقال إلى Supabase.

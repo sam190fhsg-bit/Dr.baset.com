@@ -1,196 +1,70 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>البحث في الموقع | عيادة الدكتور عبده الباسط</title>
-<meta name="description" content="بحث داخل موقع عيادة الدكتور عبده الباسط عن الأمراض والخدمات والمناظير.">
-<style>
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>البحث في الموقع | عيادة الدكتور عبده الباسط</title><meta name="description" content="بحث داخل موقع العيادة."><meta name="theme-color" content="#477537">
+<link rel="canonical" href="https://sam190fhsg-bit.github.io/Dr.baset.com/search.html"><style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Tahoma,Arial,sans-serif;background:#f7f9f7;color:#202520;line-height:1.8}
-a{text-decoration:none}
-.container{width:92%;max-width:1100px;margin:auto}
-header{background:#fff;border-bottom:1px solid #e8ede6;position:sticky;top:0;z-index:1000}
-.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:15px}
-.brand{display:flex;align-items:center;gap:12px}
-.brand img{width:56px;height:56px;object-fit:contain}
-.brand strong{color:#356b35}
-.back{background:#477537;color:#fff;padding:9px 16px;border-radius:8px}
-.hero{padding:55px 20px;text-align:center;background:linear-gradient(135deg,#fff,#edf5e9)}
-.hero h1{color:#356b35;font-size:34px;margin-bottom:8px}
-.hero p{color:#687168}
-.search-wrap{padding:40px 0 70px}
-.search-box{background:#fff;padding:20px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.06);margin-bottom:25px}
-.search-box input{width:100%;padding:15px 16px;border:1px solid #dfe7dc;border-radius:12px;font-family:inherit;font-size:17px;outline:none}
-.search-box input:focus{border-color:#477537}
-.results-count{color:#687168;margin:0 0 15px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.result{display:block;background:#fff;border:1px solid #e8ede6;padding:20px;border-radius:16px;color:inherit;transition:.2s}
-.result:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.07)}
-.result .cat{display:inline-block;background:#edf3e9;color:#477537;padding:4px 9px;border-radius:20px;font-size:12px;margin-bottom:8px}
-.result h3{color:#356b35;margin-bottom:6px;font-size:19px}
-.result p{color:#687168;font-size:14px}
-.empty{background:#fff;padding:30px;text-align:center;border-radius:16px;color:#687168}
-footer{background:#284f28;color:#fff;padding:25px;text-align:center}
-@media(max-width:850px){.grid{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.grid{grid-template-columns:1fr}.hero h1{font-size:27px}.brand strong{font-size:14px}.brand img{width:48px;height:48px}}
-</style>
-</head>
-<body>
-
+html{scroll-behavior:smooth}
+body{font-family:Tahoma,Arial,sans-serif;background:#f7faf7;color:#1f2a1f;line-height:1.85}
+a{text-decoration:none} img{max-width:100%;display:block}.container{width:92%;max-width:1180px;margin:auto}
+header{background:rgba(255,255,255,.97);backdrop-filter:blur(10px);border-bottom:1px solid #e7eee5;position:sticky;top:0;z-index:1000;box-shadow:0 4px 18px rgba(0,0,0,.04)}
+.nav{min-height:82px;display:flex;align-items:center;justify-content:space-between;gap:18px;position:relative}
+.brand-area{display:flex;align-items:center;gap:12px}.logo{width:58px;height:58px;object-fit:contain;border-radius:12px;background:#fff}
+.brand-text strong{display:block;color:#356b35;font-size:17px}.brand-text span{font-size:12px;color:#6a766a}
+.desktop-links{display:flex;align-items:center;gap:14px}.desktop-links a{color:#304030;font-size:14px}.desktop-links a:hover{color:#477537}
+.nav-btn{background:#477537;color:#fff!important;padding:9px 16px;border-radius:10px}.search-btn{width:40px;height:40px;border-radius:10px;display:flex!important;align-items:center;justify-content:center;background:#edf3e9;color:#477537!important}
+.mobile-menu{display:none;position:relative}.mobile-menu summary{list-style:none;cursor:pointer;background:#477537;color:#fff;width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:25px}
+.mobile-menu summary::-webkit-details-marker{display:none}.mobile-links{position:absolute;top:60px;left:0;width:265px;background:#fff;border-radius:16px;padding:10px;box-shadow:0 14px 40px rgba(0,0,0,.14);z-index:9999}
+.mobile-links a{display:block;padding:12px;color:#304030;border-bottom:1px solid #edf0ec}.mobile-links a:last-child{border-bottom:none;background:#477537;color:#fff;border-radius:9px;text-align:center;margin-top:5px}
+.page-hero{padding:68px 20px;background:radial-gradient(circle at 15% 20%,rgba(86,140,62,.12),transparent 35%),linear-gradient(135deg,#fff,#edf5e9);text-align:center}
+.page-hero .crumb{display:inline-block;background:#edf3e9;color:#477537;padding:6px 12px;border-radius:20px;font-size:13px;margin-bottom:12px}
+.page-hero h1{font-size:38px;color:#315f31;margin-bottom:10px}.page-hero p{max-width:820px;margin:auto;color:#667266}
+.section{padding:60px 0}.section-heading{text-align:center;margin-bottom:34px}.section-heading span{color:#477537;font-size:14px;font-weight:bold}.section-heading h2{font-size:30px;color:#2f5f2e;margin:5px 0}.section-heading p{color:#727b72}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid.two{grid-template-columns:repeat(2,1fr)}.grid.four{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;padding:24px;border-radius:18px;border:1px solid #e8ede6;box-shadow:0 7px 24px rgba(0,0,0,.04);color:inherit;display:block;transition:.2s}
+.card:hover{transform:translateY(-4px);box-shadow:0 11px 30px rgba(0,0,0,.08)}.card h3{color:#477537;margin-bottom:8px}.card p,.card li{color:#687168}.card ul{padding-right:20px}.more{display:inline-block;margin-top:10px;color:#477537;font-weight:bold}
+.info-box{background:#fff;padding:27px;border-radius:18px;border:1px solid #e8ede6;box-shadow:0 7px 24px rgba(0,0,0,.04);margin-bottom:18px}.info-box h2{color:#477537;margin-bottom:10px}.info-box ul{padding-right:22px;color:#616b61}.info-box p{color:#616b61}
+.warning{background:#f1f6ef;border-right:4px solid #477537}
+.cta{background:linear-gradient(135deg,#356b35,#477537);color:#fff;text-align:center;padding:50px 20px}.cta h2{font-size:29px;margin-bottom:8px}.cta p{margin-bottom:18px}.cta a{display:inline-block;background:#fff;color:#477537;padding:12px 20px;border-radius:9px;font-weight:bold;margin:5px}
+.form-box{max-width:900px;margin:auto;background:#fff;padding:30px;border-radius:22px;box-shadow:0 15px 40px rgba(0,0,0,.08)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.form-group{display:flex;flex-direction:column}.form-group label{margin-bottom:7px;color:#365f34;font-weight:bold}.form-group input,.form-group select,.form-group textarea{width:100%;padding:13px 14px;border:1px solid #dfe7dc;border-radius:10px;font-family:inherit;font-size:15px;background:#fbfcfb}.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:#477537}.full{grid-column:1/-1}.submit{width:100%;border:none;background:#477537;color:#fff;padding:14px;border-radius:10px;font-family:inherit;font-size:17px;font-weight:bold;cursor:pointer;margin-top:20px}
+.search-box{background:#fff;padding:20px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.06);margin-bottom:25px}.search-box input{width:100%;padding:15px 16px;border:1px solid #dfe7dc;border-radius:12px;font-family:inherit;font-size:17px;outline:none}.search-box input:focus{border-color:#477537}
+.gallery-placeholder{min-height:210px;background:linear-gradient(135deg,#edf3e9,#f7faf6);border-radius:16px;display:flex;align-items:center;justify-content:center;color:#477537;font-weight:bold;margin-bottom:12px}
+footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}footer h3{margin-bottom:10px}footer a{color:#fff;opacity:.9;display:block;margin:6px 0}footer p{opacity:.9}.copy{text-align:center;margin-top:25px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+.floating-whatsapp{position:fixed;left:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:#477537;color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold;z-index:1200;box-shadow:0 6px 22px rgba(0,0,0,.22)}
+@media(max-width:950px){.desktop-links{display:none}.mobile-menu{display:block}.grid,.grid.two,.grid.four{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.brand-text strong{font-size:14px}.brand-text span{display:none}.logo{width:48px;height:48px}.page-hero h1{font-size:28px}.grid,.grid.two,.grid.four,.footer-grid,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.mobile-links{width:245px}.form-box{padding:20px}}
+</style></head><body>
 <header>
 <div class="container nav">
-  <div class="brand">
-    <img src="logo.jpg?v=4" alt="شعار العيادة">
-    <strong>عيادة الدكتور عبده الباسط</strong>
+  <div class="brand-area">
+    <img src="logo.jpg?v=6" alt="شعار العيادة" class="logo">
+    <div class="brand-text"><strong>عيادة الدكتور عبده الباسط</strong><span>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي</span></div>
   </div>
-  <a href="index.html" class="back">الرئيسية</a>
+  <nav class="desktop-links">
+    <a href="index.html">الرئيسية</a><a href="about.html">عن الدكتور</a><a href="services.html">الخدمات</a>
+    <a href="articles.html">التوعية</a><a href="faq.html">الأسئلة الشائعة</a><a href="gallery.html">الصور والفيديو</a>
+    <a href="search.html" class="search-btn">🔍</a><a href="contact.html">تواصل معنا</a><a href="booking.html" class="nav-btn">احجز موعدًا</a>
+  </nav>
+  <details class="mobile-menu"><summary>☰</summary><nav class="mobile-links">
+    <a href="index.html">الرئيسية</a><a href="about.html">عن الدكتور</a><a href="services.html">الخدمات</a>
+    <a href="internal-medicine.html">أمراض الباطنة</a><a href="liver.html">أمراض الكبد</a><a href="gastroenterology.html">الجهاز الهضمي</a><a href="endoscopy.html">المناظير</a>
+    <a href="articles.html">التوعية الصحية</a><a href="faq.html">الأسئلة الشائعة</a><a href="gallery.html">الصور والفيديو</a><a href="search.html">🔍 البحث</a><a href="contact.html">تواصل معنا</a><a href="booking.html">احجز موعدًا</a>
+  </nav></details>
 </div>
 </header>
-
-<section class="hero">
-  <h1>البحث في الموقع</h1>
-  <p>ابحث عن مرض أو خدمة أو منظار.</p>
-</section>
-
-<section class="search-wrap">
-<div class="container">
-
-  <div class="search-box">
-    <input id="searchInput" type="search" placeholder="مثال: ارتجاع المريء، الكبد الدهني، منظار المعدة..." autocomplete="off">
-  </div>
-
-  <p class="results-count" id="resultsCount"></p>
-  <div class="grid" id="results"></div>
-
-</div>
-</section>
-
-<footer>
-جميع الحقوق محفوظة © عيادة الدكتور عبده الباسط عبده الحاج مقبل
-</footer>
-
+<section class="page-hero"><span class="crumb">البحث</span><h1>البحث في الموقع</h1><p>ابحث عن مرض أو خدمة أو منظار.</p></section>
+<section class="section"><div class="container"><div class="search-box"><input id="q" type="search" placeholder="مثال: ارتجاع المريء، الكبد الدهني، منظار المعدة..."></div><p id="count" style="color:#687168;margin-bottom:15px"></p><div class="grid" id="results"></div></div></section>
 <script>
-const items = [
-  {t:"أمراض الباطنة",c:"قسم",d:"تشخيص ومتابعة الأمراض الباطنية والحالات المزمنة.",u:"internal-medicine.html"},
-  {t:"أمراض الكبد",c:"قسم",d:"تشخيص ومتابعة أمراض الكبد واضطرابات وظائفه.",u:"liver.html"},
-  {t:"أمراض الجهاز الهضمي",c:"قسم",d:"المريء والمعدة والأمعاء والقولون.",u:"gastroenterology.html"},
-  {t:"مناظير الجهاز الهضمي",c:"قسم",d:"مناظير تشخيصية وعلاجية.",u:"endoscopy.html"},
-
-  {t:"ارتجاع المريء",c:"الجهاز الهضمي",d:"حرقة وارتجاع محتويات المعدة إلى المريء.",u:"disease.html?disease=gerd"},
-  {t:"التهاب المريء",c:"الجهاز الهضمي",d:"التهاب قد يسبب ألمًا أو صعوبة في البلع.",u:"disease.html?disease=esophagitis"},
-  {t:"صعوبة البلع",c:"الجهاز الهضمي",d:"صعوبة مرور الطعام أو السوائل.",u:"disease.html?disease=dysphagia"},
-  {t:"فتق الحجاب الحاجز",c:"الجهاز الهضمي",d:"قد يرتبط بالارتجاع وحرقة المعدة.",u:"disease.html?disease=hiatal-hernia"},
-  {t:"التهاب المعدة",c:"الجهاز الهضمي",d:"التهاب بطانة المعدة وقد يسبب الألم والغثيان.",u:"disease.html?disease=gastritis"},
-  {t:"جرثومة المعدة",c:"الجهاز الهضمي",d:"عدوى بكتيرية قد ترتبط بالتهاب المعدة والقرحة.",u:"disease.html?disease=h-pylori"},
-  {t:"قرحة المعدة والاثني عشر",c:"الجهاز الهضمي",d:"تقرحات قد تسبب الألم أو النزيف.",u:"disease.html?disease=peptic-ulcer"},
-  {t:"القولون العصبي",c:"الجهاز الهضمي",d:"اضطراب وظيفي قد يسبب الألم والانتفاخ.",u:"disease.html?disease=ibs"},
-  {t:"التهاب القولون",c:"الجهاز الهضمي",d:"التهاب قد يسبب الإسهال أو النزيف.",u:"disease.html?disease=colitis"},
-  {t:"الإمساك",c:"الجهاز الهضمي",d:"قلة أو صعوبة التبرز.",u:"disease.html?disease=constipation"},
-  {t:"الإسهال",c:"الجهاز الهضمي",d:"زيادة عدد مرات التبرز أو سيولة البراز.",u:"disease.html?disease=diarrhea"},
-  {t:"النزيف الهضمي",c:"الجهاز الهضمي",d:"نزيف من الجهاز الهضمي يحتاج إلى تقييم سريع.",u:"disease.html?disease=gi-bleeding"},
-  {t:"آلام البطن",c:"الجهاز الهضمي",d:"عرض شائع وله أسباب متعددة.",u:"disease.html?disease=abdominal-pain"},
-  {t:"انتفاخ البطن",c:"الجهاز الهضمي",d:"شعور بالامتلاء أو الغازات.",u:"disease.html?disease=bloating"},
-  {t:"عسر الهضم",c:"الجهاز الهضمي",d:"انزعاج أو امتلاء في أعلى البطن.",u:"disease.html?disease=dyspepsia"},
-  {t:"أمراض المرارة",c:"الجهاز الهضمي",d:"تشمل الحصوات والالتهابات واضطرابات أخرى.",u:"disease.html?disease=gallbladder"},
-  {t:"أمراض القنوات الصفراوية",c:"الجهاز الهضمي",d:"قد تسبب الألم أو اليرقان.",u:"disease.html?disease=bile-ducts"},
-
-  {t:"الكبد الدهني",c:"أمراض الكبد",d:"تراكم الدهون في الكبد.",u:"disease.html?disease=fatty-liver"},
-  {t:"التهاب الكبد B",c:"أمراض الكبد",d:"عدوى فيروسية تحتاج إلى متابعة.",u:"disease.html?disease=hepatitis-b"},
-  {t:"التهاب الكبد C",c:"أمراض الكبد",d:"عدوى فيروسية قد تؤثر في الكبد.",u:"disease.html?disease=hepatitis-c"},
-  {t:"ارتفاع إنزيمات الكبد",c:"أمراض الكبد",d:"ارتفاع قد يحدث لأسباب متعددة.",u:"disease.html?disease=elevated-liver-enzymes"},
-  {t:"تليف الكبد",c:"أمراض الكبد",d:"تغيرات مزمنة في أنسجة الكبد.",u:"disease.html?disease=liver-fibrosis"},
-  {t:"تشمع الكبد",c:"أمراض الكبد",d:"مرحلة متقدمة من التليف.",u:"disease.html?disease=cirrhosis"},
-  {t:"اليرقان",c:"أمراض الكبد",d:"اصفرار الجلد والعينين.",u:"disease.html?disease=jaundice"},
-  {t:"تضخم الكبد",c:"أمراض الكبد",d:"زيادة حجم الكبد.",u:"disease.html?disease=hepatomegaly"},
-  {t:"تضخم الطحال",c:"أمراض الكبد",d:"قد يرتبط بأمراض الكبد أو أسباب أخرى.",u:"disease.html?disease=splenomegaly"},
-  {t:"اضطرابات وظائف الكبد",c:"أمراض الكبد",d:"تغيرات في تحاليل وظائف الكبد.",u:"disease.html?disease=liver-function-disorders"},
-  {t:"أورام الكبد",c:"أمراض الكبد",d:"كتل أو أورام تحتاج إلى تقييم دقيق.",u:"disease.html?disease=liver-tumors"},
-  {t:"أمراض القنوات الصفراوية",c:"أمراض الكبد",d:"اضطرابات أو انسدادات بالقنوات الصفراوية.",u:"disease.html?disease=biliary-disease"},
-
-  {t:"السكري",c:"أمراض الباطنة",d:"اضطراب في تنظيم سكر الدم.",u:"disease.html?disease=diabetes"},
-  {t:"ارتفاع ضغط الدم",c:"أمراض الباطنة",d:"ارتفاع مستمر أو متكرر في ضغط الدم.",u:"disease.html?disease=hypertension"},
-  {t:"فقر الدم",c:"أمراض الباطنة",d:"انخفاض في الهيموغلوبين وله أسباب متعددة.",u:"disease.html?disease=anemia"},
-  {t:"اضطرابات الغدة الدرقية",c:"أمراض الباطنة",d:"زيادة أو نقص نشاط الغدة واضطرابات أخرى.",u:"disease.html?disease=thyroid-disorders"},
-  {t:"نقص فيتامين D",c:"أمراض الباطنة",d:"قد يؤثر في صحة العظام والعضلات.",u:"disease.html?disease=vitamin-d"},
-  {t:"نقص فيتامين B12",c:"أمراض الباطنة",d:"قد يؤثر في الدم والأعصاب.",u:"disease.html?disease=vitamin-b12"},
-  {t:"اضطرابات الدهون",c:"أمراض الباطنة",d:"ارتفاع الكوليسترول أو الدهون الثلاثية.",u:"disease.html?disease=dyslipidemia"},
-  {t:"هشاشة العظام",c:"أمراض الباطنة",d:"ضعف في كثافة العظام.",u:"disease.html?disease=osteoporosis"},
-  {t:"الإجهاد والإرهاق المزمن",c:"أمراض الباطنة",d:"إرهاق مستمر وله أسباب متعددة.",u:"disease.html?disease=chronic-fatigue"},
-  {t:"الحمى غير معروفة السبب",c:"أمراض الباطنة",d:"حمى مستمرة أو متكررة تحتاج إلى تقييم.",u:"disease.html?disease=fever-unknown"},
-  {t:"اضطرابات الأملاح",c:"أمراض الباطنة",d:"اختلال الصوديوم أو البوتاسيوم وغيرها.",u:"disease.html?disease=electrolyte-disorders"},
-  {t:"متابعة الحالات المزمنة",c:"أمراض الباطنة",d:"متابعة دورية وتنظيم الفحوصات.",u:"disease.html?disease=chronic-disease-followup"},
-  {t:"اضطرابات التغذية",c:"أمراض الباطنة",d:"مشكلات مرتبطة بالعناصر الغذائية.",u:"disease.html?disease=nutrition-disorders"},
-  {t:"الدوخة والضعف العام",c:"أمراض الباطنة",d:"أعراض شائعة لها أسباب متعددة.",u:"disease.html?disease=dizziness-weakness"},
-  {t:"اضطرابات وظائف الكلى",c:"أمراض الباطنة",d:"تغير مؤشرات وظائف الكلى.",u:"disease.html?disease=kidney-function"},
-
-  {t:"منظار المعدة",c:"المناظير",d:"فحص المريء والمعدة والاثني عشر.",u:"disease.html?disease=gastroscopy"},
-  {t:"منظار القولون",c:"المناظير",d:"فحص القولون والمستقيم.",u:"disease.html?disease=colonoscopy"},
-  {t:"أخذ الخزعات بالمنظار",c:"المناظير",d:"أخذ عينات نسيجية أثناء المنظار.",u:"disease.html?disease=endoscopic-biopsy"},
-  {t:"إزالة اللحميات بالمنظار",c:"المناظير",d:"إزالة بعض اللحميات أو الزوائد.",u:"disease.html?disease=polypectomy"},
-  {t:"إيقاف النزيف بالمنظار",c:"المناظير",d:"تقنيات للمساعدة في السيطرة على بعض مصادر النزيف.",u:"disease.html?disease=endoscopic-hemostasis"},
-  {t:"إزالة الأجسام الغريبة بالمنظار",c:"المناظير",d:"إزالة بعض الأجسام الغريبة من المريء أو المعدة.",u:"disease.html?disease=foreign-body-removal"},
-  {t:"توسعة التضيق بالمنظار",c:"المناظير",d:"توسيع بعض مناطق التضيق عند ملاءمة الحالة.",u:"disease.html?disease=dilation"},
-
-  {t:"عن الدكتور",c:"صفحة",d:"نبذة وتعريف بالعيادة والتخصص.",u:"about.html"},
-  {t:"الخدمات الطبية",c:"صفحة",d:"جميع الخدمات والأقسام.",u:"services.html"},
-  {t:"الأسئلة الشائعة",c:"صفحة",d:"إجابات عن الأسئلة المتكررة.",u:"faq.html"},
-  {t:"التوعية الصحية والمقالات",c:"صفحة",d:"مواضيع طبية توعوية.",u:"articles.html"},
-  {t:"الصور والفيديو",c:"صفحة",d:"معرض العيادة والمحتوى المرئي.",u:"gallery.html"},
-  {t:"حجز موعد",c:"صفحة",d:"إرسال طلب حجز عبر واتساب.",u:"booking.html"},
-  {t:"تواصل معنا",c:"صفحة",d:"العنوان وأرقام التواصل.",u:"contact.html"}
-];
-
-const input = document.getElementById("searchInput");
-const results = document.getElementById("results");
-const count = document.getElementById("resultsCount");
-
-function normalize(s){
-  return (s||"")
-    .toLowerCase()
-    .replace(/[أإآ]/g,"ا")
-    .replace(/ة/g,"ه")
-    .replace(/ى/g,"ي")
-    .replace(/\s+/g," ")
-    .trim();
-}
-
-function render(list){
-  results.innerHTML = "";
-  count.textContent = "عدد النتائج: " + list.length;
-
-  if(!list.length){
-    results.innerHTML = '<div class="empty">لا توجد نتائج مطابقة. جرّب كلمة أخرى.</div>';
-    return;
-  }
-
-  list.forEach(x=>{
-    const a = document.createElement("a");
-    a.className = "result";
-    a.href = x.u;
-    a.innerHTML = `
-      <span class="cat">${x.c}</span>
-      <h3>${x.t}</h3>
-      <p>${x.d}</p>
-    `;
-    results.appendChild(a);
-  });
-}
-
-input.addEventListener("input", ()=>{
-  const q = normalize(input.value);
-  if(!q){ render(items); return; }
-
-  const filtered = items.filter(x=>{
-    const hay = normalize(x.t+" "+x.c+" "+x.d);
-    return hay.includes(q);
-  });
-
-  render(filtered);
-});
-
-render(items);
+const items=[{"t": "ارتجاع المريء", "c": "الجهاز الهضمي", "d": "ارتجاع المريء من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=gerd"}, {"t": "التهاب المريء", "c": "الجهاز الهضمي", "d": "التهاب المريء من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=esophagitis"}, {"t": "صعوبة البلع", "c": "الجهاز الهضمي", "d": "صعوبة البلع من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=dysphagia"}, {"t": "فتق الحجاب الحاجز", "c": "الجهاز الهضمي", "d": "فتق الحجاب الحاجز من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=hiatal-hernia"}, {"t": "التهاب المعدة", "c": "الجهاز الهضمي", "d": "التهاب المعدة من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=gastritis"}, {"t": "جرثومة المعدة", "c": "الجهاز الهضمي", "d": "جرثومة المعدة من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=h-pylori"}, {"t": "قرحة المعدة والاثني عشر", "c": "الجهاز الهضمي", "d": "قرحة المعدة والاثني عشر من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=peptic-ulcer"}, {"t": "القولون العصبي", "c": "الجهاز الهضمي", "d": "القولون العصبي من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=ibs"}, {"t": "التهاب القولون", "c": "الجهاز الهضمي", "d": "التهاب القولون من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=colitis"}, {"t": "الإمساك", "c": "الجهاز الهضمي", "d": "الإمساك من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=constipation"}, {"t": "الإسهال", "c": "الجهاز الهضمي", "d": "الإسهال من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=diarrhea"}, {"t": "النزيف الهضمي", "c": "الجهاز الهضمي", "d": "النزيف الهضمي قد يظهر بقيء دموي أو براز أسود أو دم أحمر، ويحتاج إلى تقييم طبي عاجل بحسب الشدة.", "u": "disease.html?disease=gi-bleeding"}, {"t": "آلام البطن", "c": "الجهاز الهضمي", "d": "آلام البطن من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=abdominal-pain"}, {"t": "انتفاخ البطن", "c": "الجهاز الهضمي", "d": "انتفاخ البطن من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=bloating"}, {"t": "عسر الهضم", "c": "الجهاز الهضمي", "d": "عسر الهضم من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=dyspepsia"}, {"t": "أمراض المرارة", "c": "الجهاز الهضمي", "d": "أمراض المرارة من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=gallbladder"}, {"t": "أمراض القنوات الصفراوية", "c": "الجهاز الهضمي", "d": "أمراض القنوات الصفراوية من الحالات التي قد تؤثر في الجهاز الهضمي وتحتاج إلى تقييم الأعراض ومدتها والعوامل المصاحبة.", "u": "disease.html?disease=bile-ducts"}, {"t": "الكبد الدهني", "c": "أمراض الكبد", "d": "الكبد الدهني من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=fatty-liver"}, {"t": "التهاب الكبد B", "c": "أمراض الكبد", "d": "التهاب الكبد B من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=hepatitis-b"}, {"t": "التهاب الكبد C", "c": "أمراض الكبد", "d": "التهاب الكبد C من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=hepatitis-c"}, {"t": "ارتفاع إنزيمات الكبد", "c": "أمراض الكبد", "d": "ارتفاع إنزيمات الكبد من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=elevated-liver-enzymes"}, {"t": "تليف الكبد", "c": "أمراض الكبد", "d": "تليف الكبد من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=liver-fibrosis"}, {"t": "تشمع الكبد", "c": "أمراض الكبد", "d": "تشمع الكبد من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=cirrhosis"}, {"t": "اليرقان", "c": "أمراض الكبد", "d": "اليرقان من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=jaundice"}, {"t": "تضخم الكبد", "c": "أمراض الكبد", "d": "تضخم الكبد من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=hepatomegaly"}, {"t": "تضخم الطحال", "c": "أمراض الكبد", "d": "تضخم الطحال من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=splenomegaly"}, {"t": "اضطرابات وظائف الكبد", "c": "أمراض الكبد", "d": "اضطرابات وظائف الكبد من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=liver-function-disorders"}, {"t": "أورام الكبد", "c": "أمراض الكبد", "d": "أورام الكبد من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=liver-tumors"}, {"t": "أمراض القنوات الصفراوية", "c": "أمراض الكبد", "d": "أمراض القنوات الصفراوية من حالات الكبد أو القنوات الصفراوية التي قد تُكتشف بالأعراض أو التحاليل أو التصوير.", "u": "disease.html?disease=biliary-disease"}, {"t": "السكري", "c": "أمراض الباطنة", "d": "السكري من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=diabetes"}, {"t": "ارتفاع ضغط الدم", "c": "أمراض الباطنة", "d": "ارتفاع ضغط الدم من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=hypertension"}, {"t": "فقر الدم", "c": "أمراض الباطنة", "d": "فقر الدم من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=anemia"}, {"t": "اضطرابات الغدة الدرقية", "c": "أمراض الباطنة", "d": "اضطرابات الغدة الدرقية من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=thyroid-disorders"}, {"t": "نقص فيتامين D", "c": "أمراض الباطنة", "d": "نقص فيتامين D من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=vitamin-d"}, {"t": "نقص فيتامين B12", "c": "أمراض الباطنة", "d": "نقص فيتامين B12 من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=vitamin-b12"}, {"t": "اضطرابات الدهون", "c": "أمراض الباطنة", "d": "اضطرابات الدهون من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=dyslipidemia"}, {"t": "هشاشة العظام", "c": "أمراض الباطنة", "d": "هشاشة العظام من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=osteoporosis"}, {"t": "الإجهاد والإرهاق المزمن", "c": "أمراض الباطنة", "d": "الإجهاد والإرهاق المزمن من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=chronic-fatigue"}, {"t": "الحمى غير معروفة السبب", "c": "أمراض الباطنة", "d": "الحمى غير معروفة السبب من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=fever-unknown"}, {"t": "اضطرابات الأملاح", "c": "أمراض الباطنة", "d": "اضطرابات الأملاح من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=electrolyte-disorders"}, {"t": "متابعة الحالات المزمنة", "c": "أمراض الباطنة", "d": "متابعة الحالات المزمنة من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=chronic-disease-followup"}, {"t": "اضطرابات التغذية", "c": "أمراض الباطنة", "d": "اضطرابات التغذية من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=nutrition-disorders"}, {"t": "الدوخة والضعف العام", "c": "أمراض الباطنة", "d": "الدوخة والضعف العام من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=dizziness-weakness"}, {"t": "اضطرابات وظائف الكلى", "c": "أمراض الباطنة", "d": "اضطرابات وظائف الكلى من الحالات التي تُتابع في عيادة الباطنة، ويختلف التقييم حسب العمر والأعراض والأمراض المصاحبة.", "u": "disease.html?disease=kidney-function"}, {"t": "منظار المعدة", "c": "المناظير", "d": "منظار المعدة فحص للمريء والمعدة والاثني عشر باستخدام منظار مرن، وقد يكون تشخيصيًا أو علاجيًا.", "u": "disease.html?disease=gastroscopy"}, {"t": "منظار القولون", "c": "المناظير", "d": "منظار القولون فحص للقولون والمستقيم باستخدام منظار مرن، وقد يتيح أخذ خزعات أو إزالة لحميات عند الحاجة.", "u": "disease.html?disease=colonoscopy"}, {"t": "أخذ الخزعات بالمنظار", "c": "المناظير", "d": "أخذ الخزعات بالمنظار إجراء أو خدمة بالمنظار تُستخدم للتشخيص أو العلاج عندما تكون مناسبة للحالة.", "u": "disease.html?disease=endoscopic-biopsy"}, {"t": "إزالة اللحميات بالمنظار", "c": "المناظير", "d": "إزالة اللحميات بالمنظار إجراء أو خدمة بالمنظار تُستخدم للتشخيص أو العلاج عندما تكون مناسبة للحالة.", "u": "disease.html?disease=polypectomy"}, {"t": "إيقاف النزيف بالمنظار", "c": "المناظير", "d": "إيقاف النزيف بالمنظار إجراء أو خدمة بالمنظار تُستخدم للتشخيص أو العلاج عندما تكون مناسبة للحالة.", "u": "disease.html?disease=endoscopic-hemostasis"}, {"t": "إزالة الأجسام الغريبة بالمنظار", "c": "المناظير", "d": "إزالة الأجسام الغريبة بالمنظار إجراء علاجي قد يُستخدم لإزالة أجسام أو لقمة طعام عالقة من المريء أو المعدة.", "u": "disease.html?disease=foreign-body-removal"}, {"t": "توسعة التضيق بالمنظار", "c": "المناظير", "d": "توسعة التضيق بالمنظار إجراء أو خدمة بالمنظار تُستخدم للتشخيص أو العلاج عندما تكون مناسبة للحالة.", "u": "disease.html?disease=dilation"}, {"t": "عن الدكتور", "c": "صفحة", "d": "نبذة عن الدكتور والتخصص.", "u": "about.html"}, {"t": "الخدمات الطبية", "c": "صفحة", "d": "الأقسام والخدمات.", "u": "services.html"}, {"t": "حجز موعد", "c": "صفحة", "d": "إرسال طلب الحجز عبر واتساب.", "u": "booking.html"}, {"t": "التوعية الصحية", "c": "صفحة", "d": "مقالات ومواضيع توعوية.", "u": "articles.html"}, {"t": "الأسئلة الشائعة", "c": "صفحة", "d": "إجابات عن الأسئلة المتكررة.", "u": "faq.html"}, {"t": "الصور والفيديو", "c": "صفحة", "d": "معرض العيادة.", "u": "gallery.html"}, {"t": "تواصل معنا", "c": "صفحة", "d": "العنوان وأرقام التواصل.", "u": "contact.html"}];const q=document.getElementById("q"),r=document.getElementById("results"),c=document.getElementById("count");
+const norm=s=>(s||"").toLowerCase().replace(/[أإآ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي").replace(/\s+/g," ").trim();
+function render(list){r.innerHTML="";c.textContent="عدد النتائج: "+list.length;if(!list.length){r.innerHTML='<div class="info-box">لا توجد نتائج مطابقة.</div>';return}list.forEach(x=>{const a=document.createElement("a");a.className="card";a.href=x.u;a.innerHTML=`<h3>${x.t}</h3><p>${x.d}</p><span class="more">${x.c}</span>`;r.appendChild(a)})}
+q.addEventListener("input",()=>{const s=norm(q.value);render(!s?items:items.filter(x=>norm(x.t+" "+x.c+" "+x.d).includes(s)))});render(items);
 </script>
-
-</body>
-</html>
+<footer><div class="container">
+<div class="footer-grid">
+<div><h3>عيادة الدكتور عبده الباسط</h3><p>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي</p><p>مركز المأمون الطبي التشخيصي – صنعاء – شارع تعز – جولة تعز</p></div>
+<div><h3>الأقسام</h3><a href="internal-medicine.html">أمراض الباطنة</a><a href="liver.html">أمراض الكبد</a><a href="gastroenterology.html">الجهاز الهضمي</a><a href="endoscopy.html">المناظير</a></div>
+<div><h3>روابط</h3><a href="about.html">عن الدكتور</a><a href="booking.html">حجز موعد</a><a href="search.html">البحث</a><a href="privacy.html">الخصوصية</a><a href="medical-disclaimer.html">التنبيه الطبي</a><a href="contact.html">تواصل معنا</a></div>
+</div><div class="copy">جميع الحقوق محفوظة © عيادة الدكتور عبده الباسط</div>
+</div></footer>
+<a href="https://wa.me/967777560603" class="floating-whatsapp" aria-label="واتساب">W</a>
+</body></html>
