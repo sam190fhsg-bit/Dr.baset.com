@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>معلومات طبية | عيادة الدكتور عبده الباسط</title>
+  <meta name="description" content="معلومات طبية توعوية عن أمراض الباطنة والكبد والجهاز الهضمي.">
+
+  <style>
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+      font-family:Tahoma,Arial,sans-serif;
+      background:#f7faf7;
+      color:#263326;
+      line-height:1.9;
+    }
+
+    a{
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(1100px,92%);
+      margin:auto;
+    }
+
+    /* HEADER */
+
+    header{
+      background:#fff;
+      border-bottom:1px solid #e6eee4;
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .nav{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand img{
+      width:52px;
+      height:52px;
+      object-fit:contain;
+    }
+
+    .brand-text strong{
+      display:block;
+      color:#365f34;
+      font-size:16px;
+    }
+
+    .brand-text span{
+      display:block;
+      color:#718071;
+      font-size:12px;
+    }
+
+    .back{
+      background:#477537;
+      color:white;
+      padding:9px 18px;
+      border-radius:10px;
+      font-size:14px;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:45px 0 30px;
+      text-align:center;
+      background:
+      linear-gradient(180deg,#edf5eb,#f7faf7);
+    }
+
+    .category{
+      display:inline-block;
+      background:#e3efe0;
+      color:#477537;
+      padding:5px 15px;
+      border-radius:30px;
+      font-size:13px;
+      margin-bottom:12px;
+    }
+
+    h1{
+      margin:0;
+      color:#315c30;
+      font-size:clamp(26px,5vw,42px);
+      line-height:1.4;
+    }
+
+    .intro{
+      max-width:760px;
+      margin:15px auto 0;
+      color:#657365;
+    }
+
+    /* IMAGE */
+
+    .disease-image{
+      margin-top:30px;
+      width:100%;
+      height:420px;
+      object-fit:cover;
+      border-radius:22px;
+      background:#e8eee7;
+      box-shadow:0 12px 35px rgba(0,0,0,.07);
+    }
+
+    /* CONTENT */
+
+    main{
+      padding:35px 0 70px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .card{
+      background:#fff;
+      padding:25px;
+      border-radius:18px;
+      border:1px solid #e3ebe1;
+      box-shadow:0 8px 25px rgba(0,0,0,.035);
+    }
+
+    .card.full{
+      grid-column:1/-1;
+    }
+
+    .card h2{
+      margin-top:0;
+      color:#477537;
+      font-size:21px;
+      border-bottom:1px solid #edf1ec;
+      padding-bottom:10px;
+    }
+
+    .card p{
+      margin-bottom:0;
+    }
+
+    .card ul{
+      margin:0;
+      padding-right:22px;
+    }
+
+    .card li{
+      margin-bottom:7px;
+    }
+
+    /* FAQ */
+
+    details{
+      background:#f7faf6;
+      border:1px solid #e1e9df;
+      border-radius:12px;
+      padding:14px 17px;
+      margin-bottom:10px;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:bold;
+      color:#365f34;
+    }
+
+    /* CTA */
+
+    .cta{
+      margin-top:30px;
+      background:linear-gradient(135deg,#365f34,#477537);
+      color:#fff;
+      border-radius:22px;
+      padding:32px;
+      text-align:center;
+    }
+
+    .cta h2{
+      margin:0 0 8px;
+      font-size:25px;
+    }
+
+    .cta p{
+      margin:0 0 20px;
+      color:#edf5eb;
+    }
+
+    .buttons{
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:11px 24px;
+      border-radius:10px;
+      font-weight:bold;
+    }
+
+    .btn-white{
+      background:#fff;
+      color:#365f34;
+    }
+
+    .btn-outline{
+      border:1px solid rgba(255,255,255,.6);
+      color:#fff;
+    }
+
+    /* STATUS */
+
+    .loading,
+    .error{
+      text-align:center;
+      padding:80px 20px;
+      font-size:18px;
+    }
+
+    .error{
+      color:#a33;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#10250f;
+      color:#cdd8cb;
+      padding:30px 0;
+      text-align:center;
+      font-size:13px;
+    }
+
+    @media(max-width:700px){
+
+      .grid{
+        grid-template-columns:1fr;
+      }
+
+      .card.full{
+        grid-column:auto;
+      }
+
+      .disease-image{
+        height:260px;
+      }
+
+      .brand-text span{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+
+    <div class="brand">
+
+      <img src="logo.jpg" alt="شعار العيادة">
+
+      <div class="brand-text">
+        <strong>عيادة الدكتور عبده الباسط عبده الحاج مقبل</strong>
+        <span>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي</span>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="back">الرئيسية</a>
+
+  </div>
+</header>
+
+
+<div id="loading" class="loading">
+  جاري تحميل المعلومات الطبية...
+</div>
+
+
+<div id="page" style="display:none;">
+
+<section class="hero">
+
+  <div class="container">
+
+    <span id="category" class="category"></span>
+
+    <h1 id="title"></h1>
+
+    <p id="intro" class="intro"></p>
+
+    <img
+      id="diseaseImage"
+      class="disease-image"
+      src=""
+      alt=""
+      loading="lazy"
+    >
+
+  </div>
+
+</section>
+
+
+<main>
+
+<div class="container">
+
+<div class="grid">
+
+
+<section class="card">
+<h2>نبذة عن الحالة</h2>
+<p id="description"></p>
+</section>
+
+
+<section class="card">
+<h2>الأسباب وعوامل الخطورة</h2>
+<div id="causes"></div>
+</section>
+
+
+<section class="card">
+<h2>الأعراض الشائعة</h2>
+<div id="symptoms"></div>
+</section>
+
+
+<section class="card">
+<h2>التشخيص</h2>
+<p id="diagnosis"></p>
+</section>
+
+
+<section class="card full">
+<h2>خيارات العلاج والمتابعة</h2>
+<p id="treatment"></p>
+</section>
+
+
+<section class="card full">
+<h2>نصائح وإرشادات</h2>
+<div id="tips"></div>
+</section>
+
+
+<section class="card full">
+<h2>متى تحتاج إلى مراجعة الطبيب؟</h2>
+
+<p>
+ينصح بمراجعة الطبيب عند استمرار الأعراض،
+تكرارها، ازدياد شدتها أو تأثيرها في الحياة اليومية.
+كما يجب طلب التقييم الطبي بصورة عاجلة عند ظهور
+أعراض شديدة أو مفاجئة.
+</p>
+
+</section>
+
+
+<section class="card full">
+
+<h2>تنبيه طبي</h2>
+
+<p>
+المعلومات الواردة في هذه الصفحة لأغراض التوعية الصحية
+ولا تغني عن الفحص والتشخيص المباشر لدى الطبيب.
+تختلف طرق التشخيص والعلاج بحسب حالة كل مريض.
+</p>
+
+</section>
+
+</div>
+
+
+<div class="cta">
+
+<h2>هل تحتاج إلى استشارة طبية؟</h2>
+
+<p>
+يمكنك إرسال طلب حجز موعد مع العيادة.
+</p>
+
+<div class="buttons">
+
+<a href="booking.html" class="btn btn-white">
+حجز موعد
+</a>
+
+<a
+href="https://wa.me/967777560603"
+class="btn btn-outline"
+>
+واتساب
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+
+<div id="error" class="error" style="display:none;">
+تعذر تحميل بيانات المرض.
+</div>
+
+
+<footer>
+
+<div class="container">
+
+عيادة الدكتور عبده الباسط عبده الحاج مقبل<br>
+
+مركز المأمون الطبي التشخيصي – صنعاء – شارع تعز – جولة تعز
+
+</div>
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase-config.js"></script>
+
+
+<script>
+
+const params =
+new URLSearchParams(window.location.search);
+
+const slug = params.get("slug");
+
+
+function escapeHTML(value){
+
+  const div = document.createElement("div");
+
+  div.textContent =
+    value == null ? "" : String(value);
+
+  return div.innerHTML;
+
+}
+
+
+function renderList(value){
+
+  if(!value){
+    return "<p>سيتم إضافة المعلومات قريبًا.</p>";
+  }
+
+
+  let items = value;
+
+
+  if(typeof value === "string"){
+
+    try{
+
+      const parsed = JSON.parse(value);
+
+      if(Array.isArray(parsed)){
+        items = parsed;
+      }
+
+    }catch(e){
+
+      items = value
+      .split(/\n|،|,/)
+      .map(x => x.trim())
+      .filter(Boolean);
+
+    }
+
+  }
+
+
+  if(Array.isArray(items)){
+
+    return "<ul>" +
+
+    items
+    .map(item => {
+
+      if(
+        item &&
+        typeof item === "object"
+      ){
+
+        const text =
+          item.text ||
+          item.title ||
+          item.name ||
+          item.answer ||
+          JSON.stringify(item);
+
+        return "<li>" +
+        escapeHTML(text) +
+        "</li>";
+
+      }
+
+      return "<li>" +
+      escapeHTML(item) +
+      "</li>";
+
+    })
+    .join("") +
+
+    "</ul>";
+
+  }
+
+
+  return "<p>" +
+  escapeHTML(items) +
+  "</p>";
+
+}
+
+
+async function loadDisease(){
+
+  if(!slug){
+
+    document.getElementById("loading").style.display="none";
+    document.getElementById("error").style.display="block";
+
+    document.getElementById("error").textContent =
+    "لم يتم تحديد المرض.";
+
+    return;
+
+  }
+
+
+  try{
+
+    const {data,error} =
+    await supabaseClient
+
+    .from("diseases")
+
+    .select("*")
+
+    .eq("slug",slug)
+
+    .eq("is_published",true)
+
+    .maybeSingle();
+
+
+    if(error){
+      throw error;
+    }
+
+
+    if(!data){
+      throw new Error("Disease not found");
+    }
+
+
+    document.getElementById("category").textContent =
+      data.category || "التوعية الصحية";
+
+
+    document.getElementById("title").textContent =
+      data.title_ar || "معلومات طبية";
+
+
+    document.getElementById("intro").textContent =
+      data.intro_ar || "";
+
+
+    document.getElementById("description").textContent =
+      data.intro_ar ||
+      "معلومات توعوية حول هذه الحالة الصحية.";
+
+
+    document.getElementById("causes").innerHTML =
+      renderList(data.causes_ar);
+
+
+    document.getElementById("symptoms").innerHTML =
+      renderList(data.symptoms_ar);
+
+
+    document.getElementById("diagnosis").textContent =
+      data.diagnosis_ar ||
+      "يعتمد التشخيص على التاريخ المرضي والفحص السريري والفحوص المناسبة التي يحددها الطبيب.";
+
+
+    document.getElementById("treatment").textContent =
+      data.treatment_ar ||
+      "تختلف خيارات العلاج والمتابعة بحسب التشخيص وشدة الحالة والحالة الصحية للمريض.";
+
+
+    document.getElementById("tips").innerHTML =
+      renderList(data.tips_ar);
+
+
+    const image =
+      document.getElementById("diseaseImage");
+
+
+    if(data.image_url){
+
+      image.src = data.image_url;
+
+      image.alt =
+        data.title_ar || "صورة توضيحية";
+
+    }else{
+
+      image.style.display="none";
+
+    }
+
+
+    document.title =
+      (data.seo_title || data.title_ar) +
+      " | عيادة الدكتور عبده الباسط";
+
+
+    if(data.seo_description){
+
+      const meta =
+      document.querySelector(
+        'meta[name="description"]'
+      );
+
+      meta.setAttribute(
+        "content",
+        data.seo_description
+      );
+
+    }
+
+
+    document.getElementById("loading").style.display="none";
+
+    document.getElementById("page").style.display="block";
+
+
+  }catch(error){
+
+    console.error(error);
+
+    document.getElementById("loading").style.display="none";
+
+    document.getElementById("error").style.display="block";
+
+  }
+
+}
+
+
+loadDisease();
+
+</script>
+
+</body>
+  </html>
