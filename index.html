@@ -519,6 +519,8 @@ footer p,footer a{
  .brand span{display:none}
  .logo{width:50px;height:50px}
 }
+
+.home-slider{position:relative;overflow:hidden;background:linear-gradient(135deg,#eef7fb,#f7fbf5);min-height:460px}.slide{display:none;min-height:460px}.slide.active{display:block}.slide-grid{min-height:460px;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:35px}.slide-grid img{max-height:430px;max-width:100%;object-fit:contain;align-self:end}.slide-copy span,.slide-center span{color:#4c963d;font-weight:bold}.slide-copy h1,.slide-center h1{font-size:48px;color:#4c963d;margin:4px 0}.slide-copy h2{color:#064b7c;font-size:24px}.slide-copy p,.slide-center p{color:#647985;max-width:720px;margin:12px 0 22px}.slide-center{min-height:460px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}.slide-center h1{color:#064b7c}.slide-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border:0;border-radius:50%;background:rgba(6,75,124,.85);color:#fff;font-size:28px;cursor:pointer}.slide-arrow.prev{right:15px}.slide-arrow.next{left:15px}.slide-dots{position:absolute;bottom:16px;left:0;right:0;text-align:center}.slide-dots button{width:9px;height:9px;border:0;border-radius:50%;margin:0 4px;background:#b9c9d1}.slide-dots button.active{background:#4c963d}@media(max-width:800px){.slide-grid{grid-template-columns:1fr;min-height:430px}.slide-grid img{display:none}.slide-copy h1,.slide-center h1{font-size:34px}.slide,.home-slider{min-height:430px}}
 </style>
 <link rel="stylesheet" href="site-theme.css?v=10">
 </head>
@@ -559,30 +561,13 @@ footer p,footer a{
  </div>
 </header>
 
-<section class="hero">
- <div class="container hero-grid">
-  <div class="hero-content">
-   <div class="hero-kicker">رعاية متخصصة ...</div>
-   <h1>لحياة أفضل</h1>
-   <h2>أمراض الباطنة والكبد ومناظير الجهاز الهضمي</h2>
-   <p>تشخيص دقيق ورعاية طبية متخصصة لمتابعة أمراض الباطنة والكبد والجهاز الهضمي وإجراء المناظير التشخيصية والعلاجية.</p>
-
-   <div class="hero-features">
-    <div class="hero-feature"><b>✓</b>رعاية طبية متخصصة</div>
-    <div class="hero-feature"><b>◷</b>متابعة دقيقة</div>
-    <div class="hero-feature"><b>♟</b>رعاية شاملة</div>
-   </div>
-
-   <div class="buttons">
-    <a class="btn btn-green" href="booking.html">احجز موعدك الآن</a>
-    <a class="btn btn-outline" href="tel:777560603">اتصل بنا</a>
-   </div>
-  </div>
-
-  <div class="hero-doctor">
-   <img src="doctor.jpg?v=6" alt="الدكتور عبده الباسط">
-  </div>
+<section class="home-slider" aria-label="العروض الرئيسية">
+ <div class="slide active">
+  <div class="container slide-grid"><div class="slide-copy"><span>رعاية متخصصة</span><h1>لحياة أفضل</h1><h2>أمراض الباطنة والكبد ومناظير الجهاز الهضمي</h2><p>تشخيص دقيق ورعاية طبية متخصصة ومتابعة مستمرة.</p><div class="buttons"><a class="btn btn-green" href="booking.html">احجز موعدك الآن</a><a class="btn btn-outline" href="about.html">تعرف على الدكتور</a></div></div><img src="doctor.jpg?v=6" alt="الدكتور عبده الباسط"></div>
  </div>
+ <div class="slide"><div class="container slide-center"><span>تشخيص ومتابعة</span><h1>أمراض الكبد</h1><p>متابعة أمراض الكبد واضطرابات وظائفه والتهاباته وفق التقييم الطبي.</p><a class="btn btn-green" href="liver.html">استكشف أمراض الكبد</a></div></div>
+ <div class="slide"><div class="container slide-center"><span>تشخيصي وعلاجي</span><h1>مناظير الجهاز الهضمي</h1><p>خدمات المناظير التشخيصية والعلاجية للحالات المناسبة بعد التقييم.</p><a class="btn btn-green" href="endoscopy.html">خدمات المناظير</a></div></div>
+ <button class="slide-arrow prev" type="button" aria-label="السابق">‹</button><button class="slide-arrow next" type="button" aria-label="التالي">›</button><div class="slide-dots"><button class="active"></button><button></button><button></button></div>
 </section>
 
 <section class="section">
@@ -720,11 +705,14 @@ footer p,footer a{
  </div>
 </section>
 
+<section class="extras-section section-light"><div class="container"><h2 class="extras-title">رسالتنا وهويتنا</h2><div class="extras-line"></div><div class="extras-grid"><div class="extras-card"><h3>رسالتنا</h3><p>تقديم رعاية طبية متخصصة تقوم على التقييم الدقيق، المتابعة، والتوعية الصحية للمراجع.</p></div><div class="extras-card"><h3>رؤيتنا</h3><p>أن تكون العيادة وجهة موثوقة في خدمات الباطنة والكبد ومناظير الجهاز الهضمي.</p></div><div class="extras-card"><h3>أهدافنا</h3><p>تحسين تجربة المراجع، تعزيز الكشف والتشخيص المبكر، وتقديم معلومات طبية واضحة وموثوقة.</p></div></div><div style="text-align:center;margin-top:22px"><a class="btn btn-green" href="identity.html">الرسالة والرؤية والهوية والأهداف</a></div></div></section>
+<section class="extras-section"><div class="container"><h2 class="extras-title">فيديوهات العيادة</h2><div class="extras-line"></div><div style="text-align:center"><p style="color:#687985;margin-bottom:18px">شاهد الفيديوهات التوعوية والطبية المنشورة من العيادة.</p><a class="btn btn-green" href="videos.html">عرض الفيديوهات</a></div></div></section>
+<section class="extras-section section-light"><div class="container"><h2 class="extras-title">موقع العيادة</h2><div class="extras-line"></div><iframe class="map-frame" loading="lazy" src="https://www.google.com/maps?q=%D9%85%D8%B1%D9%83%D8%B2%20%D8%A7%D9%84%D9%85%D8%A3%D9%85%D9%88%D9%86%20%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%20%D8%A7%D9%84%D8%AA%D8%B4%D8%AE%D9%8A%D8%B5%D9%8A%20%D8%B5%D9%86%D8%B9%D8%A7%D8%A1%20%D8%B4%D8%A7%D8%B1%D8%B9%20%D8%AA%D8%B9%D8%B2&output=embed" title="موقع العيادة"></iframe><div style="text-align:center;margin-top:18px"><a class="btn btn-green" href="contact.html">بيانات التواصل والموقع</a></div></div></section>
 <footer>
  <div class="container">
   <div class="footer-grid">
    <div><h3>تواصل معنا</h3><p>☎ 777560603 - 777554626</p><p>✉ baset.clinic@gmail.com</p><p>📍 مركز المأمون الطبي التشخيصي – صنعاء – شارع تعز – جولة تعز</p></div>
-   <div><h3>روابط مهمة</h3><div class="footer-links"><a href="index.html">الرئيسية</a><a href="about.html">عن الدكتور</a><a href="services.html">الخدمات</a><a href="articles.html">المكتبة الطبية</a><a href="faq.html">الأسئلة الشائعة</a><a href="booking.html">الحجز</a></div></div>
+   <div><h3>روابط مهمة</h3><div class="footer-links"><a href="index.html">الرئيسية</a><a href="about.html">عن الدكتور</a><a href="services.html">الخدمات</a><a href="articles.html">المكتبة الطبية</a><a href="faq.html">الأسئلة الشائعة</a><a href="booking.html">الحجز</a><a href="videos.html">الفيديوهات</a><a href="careers.html">التوظيف</a><a href="survey.html">الاستبيان</a><a href="identity.html">هويتنا</a></div></div>
    <div><h3>مواعيد العيادة</h3><p>يتم تحديث مواعيد الدوام حسب جدول العيادة.</p><a class="more" href="contact.html">تواصل معنا</a></div>
   </div>
   <div class="copyright">جميع الحقوق محفوظة © 2026 عيادة الدكتور عبده الباسط عبده الحاج مقبل</div>
@@ -764,5 +752,6 @@ async function loadArticles(){
 loadArticles();
 </script>
 
+<script>(function(){const slides=[...document.querySelectorAll('.home-slider .slide')],dots=[...document.querySelectorAll('.slide-dots button')];if(!slides.length)return;let i=0,t;function show(n){i=(n+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('active',j===i));dots.forEach((x,j)=>x.classList.toggle('active',j===i));}function auto(){clearInterval(t);t=setInterval(()=>show(i+1),5500)}document.querySelector('.slide-arrow.prev')?.addEventListener('click',()=>{show(i-1);auto()});document.querySelector('.slide-arrow.next')?.addEventListener('click',()=>{show(i+1);auto()});dots.forEach((d,j)=>d.addEventListener('click',()=>{show(j);auto()}));auto()})();</script>
 </body>
 </html>
