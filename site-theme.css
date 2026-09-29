@@ -1,0 +1,384 @@
+/* ==================================================
+   Dr. Abdulbaset Clinic — Unified Website Theme
+   ================================================== */
+
+:root{
+  --primary:#064b7c;
+  --primary-dark:#073d68;
+  --primary-deep:#063d67;
+
+  --green:#4c963d;
+  --green-dark:#377d31;
+
+  --white:#ffffff;
+  --background:#f5f9fb;
+  --background-green:#f7faf7;
+
+  --text:#17364e;
+  --text-dark:#243024;
+  --muted:#687985;
+
+  --border:#e3ebef;
+  --shadow:0 7px 24px rgba(0,0,0,.055);
+
+  --radius:10px;
+  --radius-large:18px;
+}
+
+/* ===== GENERAL ===== */
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--white) !important;
+  color:var(--text) !important;
+}
+
+a{
+  text-decoration:none;
+}
+
+.container{
+  width:92%;
+  max-width:1180px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+/* ===== HEADER ===== */
+
+header{
+  background:#fff !important;
+  border-bottom:1px solid var(--border) !important;
+}
+
+.brand-text strong,
+.brand strong{
+  color:var(--primary) !important;
+}
+
+.brand-text span,
+.brand span{
+  color:#687983 !important;
+}
+
+.desktop-links a,
+.links a,
+.menu a{
+  color:#263f50;
+}
+
+.desktop-links a:hover,
+.links a:hover,
+.menu a:hover{
+  color:var(--green) !important;
+}
+
+
+/* ===== MAIN BUTTONS ===== */
+
+.nav-btn,
+.booking,
+.book-nav,
+.btn-primary,
+.btn-green,
+.more{
+  background:var(--green) !important;
+  color:#fff !important;
+  border-color:var(--green) !important;
+}
+
+.nav-btn:hover,
+.booking:hover,
+.book-nav:hover,
+.btn-primary:hover,
+.btn-green:hover,
+.more:hover{
+  background:var(--green-dark) !important;
+}
+
+
+/* ===== INTERNAL PAGE HERO ===== */
+
+.page-hero,
+.hero{
+  background:
+    linear-gradient(
+      135deg,
+      #edf6fa 0%,
+      #f7fbf8 55%,
+      #eef7ec 100%
+    ) !important;
+}
+
+.page-hero span,
+.hero-label,
+.crumb{
+  color:var(--green) !important;
+}
+
+.page-hero h1,
+.hero h1{
+  color:var(--primary) !important;
+}
+
+.page-hero p,
+.hero p{
+  color:#657783 !important;
+}
+
+
+/* ===== SECTIONS ===== */
+
+.section{
+  background:#fff;
+}
+
+.section:nth-of-type(even){
+  background:#f8fbfc;
+}
+
+.section-heading h2,
+.heading h2{
+  color:var(--primary) !important;
+}
+
+.section-heading span{
+  color:var(--green) !important;
+}
+
+.heading-line{
+  background:var(--green) !important;
+}
+
+
+/* ===== CARDS ===== */
+
+.card,
+.disease-card,
+.article-card,
+.content-card,
+.specialty,
+.media-card,
+.info-box{
+  background:#fff !important;
+  border:1px solid var(--border) !important;
+  box-shadow:var(--shadow) !important;
+}
+
+.card:hover,
+.disease-card:hover,
+.article-card:hover,
+.specialty:hover,
+.media-card:hover{
+  border-color:#c5d9e4 !important;
+  box-shadow:0 12px 30px rgba(6,75,124,.10) !important;
+}
+
+.card h2,
+.card h3,
+.card h4,
+.disease-card h2,
+.disease-card h3,
+.article-card h2,
+.article-card h3,
+.content-card h2,
+.specialty h3,
+.media-card h3{
+  color:var(--primary) !important;
+}
+
+.card p,
+.disease-card p,
+.article-card p,
+.content-card p{
+  color:var(--muted) !important;
+}
+
+
+/* ===== LINKS ===== */
+
+.text-link,
+.card-link,
+.read-more{
+  color:var(--green-dark) !important;
+  font-weight:bold;
+}
+
+
+/* ===== ICONS ===== */
+
+.card-icon,
+.service-icon,
+.specialty-icon,
+.icon{
+  color:var(--green) !important;
+}
+
+.service-icon,
+.card-icon{
+  background:#edf6ea !important;
+}
+
+
+/* ===== FORMS ===== */
+
+input,
+select,
+textarea{
+  border:1px solid #dce6eb !important;
+  background:#fff !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  outline:none !important;
+  border-color:var(--primary) !important;
+  box-shadow:0 0 0 3px rgba(6,75,124,.08) !important;
+}
+
+label{
+  color:var(--primary) !important;
+}
+
+
+/* ===== FAQ ===== */
+
+details{
+  background:#fff !important;
+  border:1px solid var(--border) !important;
+  border-radius:10px;
+}
+
+summary{
+  color:var(--primary) !important;
+}
+
+details[open]{
+  border-color:#c8dce6 !important;
+}
+
+
+/* ===== MEDICAL NOTICE ===== */
+
+.info-box,
+.medical-notice,
+.disclaimer{
+  background:#eef7ec !important;
+  border-color:var(--green) !important;
+}
+
+.info-box strong,
+.medical-notice strong{
+  color:var(--primary) !important;
+}
+
+
+/* ===== TABLES ===== */
+
+table{
+  background:#fff;
+  border-color:var(--border);
+}
+
+th{
+  background:var(--primary) !important;
+  color:#fff !important;
+}
+
+td{
+  border-color:var(--border) !important;
+}
+
+
+/* ===== CTA ===== */
+
+.cta-box{
+  background:var(--primary) !important;
+  color:#fff !important;
+}
+
+.cta-box h2,
+.cta-box p{
+  color:#fff !important;
+}
+
+.cta-btn{
+  background:var(--green) !important;
+  color:#fff !important;
+}
+
+
+/* ===== FOOTER ===== */
+
+footer{
+  background:var(--primary-deep) !important;
+  color:#fff !important;
+}
+
+footer h2,
+footer h3,
+footer strong{
+  color:#fff !important;
+}
+
+footer p,
+footer a{
+  color:#d8e5ed !important;
+}
+
+footer a:hover{
+  color:#fff !important;
+}
+
+
+/* ===== WHATSAPP ===== */
+
+.floating-whatsapp{
+  background:var(--green) !important;
+  color:#fff !important;
+}
+
+
+/* ===== LOADING ===== */
+
+.loading,
+.status{
+  color:#667985 !important;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:900px){
+
+  .page-hero{
+    padding:45px 18px !important;
+  }
+
+  .page-hero h1{
+    font-size:29px !important;
+  }
+
+  .grid{
+    gap:15px;
+  }
+}
+
+@media(max-width:600px){
+
+  .page-hero h1{
+    font-size:26px !important;
+  }
+
+  .card,
+  .disease-card,
+  .article-card,
+  .content-card{
+    border-radius:12px !important;
+  }
+}
