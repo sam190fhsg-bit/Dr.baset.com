@@ -561,13 +561,12 @@ footer p,footer a{
  </div>
 </header>
 
-<section class="home-slider" aria-label="العروض الرئيسية">
- <div class="slide active">
-  <div class="container slide-grid"><div class="slide-copy"><span>رعاية متخصصة</span><h1>لحياة أفضل</h1><h2>أمراض الباطنة والكبد ومناظير الجهاز الهضمي</h2><p>تشخيص دقيق ورعاية طبية متخصصة ومتابعة مستمرة.</p><div class="buttons"><a class="btn btn-green" href="booking.html">احجز موعدك الآن</a><a class="btn btn-outline" href="about.html">تعرف على الدكتور</a></div></div><img src="doctor.jpg?v=6" alt="الدكتور عبده الباسط"></div>
- </div>
- <div class="slide"><div class="container slide-center"><span>تشخيص ومتابعة</span><h1>أمراض الكبد</h1><p>متابعة أمراض الكبد واضطرابات وظائفه والتهاباته وفق التقييم الطبي.</p><a class="btn btn-green" href="liver.html">استكشف أمراض الكبد</a></div></div>
- <div class="slide"><div class="container slide-center"><span>تشخيصي وعلاجي</span><h1>مناظير الجهاز الهضمي</h1><p>خدمات المناظير التشخيصية والعلاجية للحالات المناسبة بعد التقييم.</p><a class="btn btn-green" href="endoscopy.html">خدمات المناظير</a></div></div>
- <button class="slide-arrow prev" type="button" aria-label="السابق">‹</button><button class="slide-arrow next" type="button" aria-label="التالي">›</button><div class="slide-dots"><button class="active"></button><button></button><button></button></div>
+<section class="home-slider" aria-label="التخصصات الرئيسية">
+ <div class="slide active"><div class="container slide-grid"><div class="slide-copy"><span>رعاية طبية متخصصة</span><h1>أمراض الباطنة</h1><h2>تشخيص ومتابعة متكاملة</h2><p>متابعة الحالات الباطنية والأمراض المزمنة وفق التقييم الطبي.</p><div class="buttons"><a class="btn btn-green" href="internal-medicine.html">عرض الحالات</a><a class="btn btn-outline" href="booking.html">احجز موعدك</a></div></div><img src="internal-slide.svg" alt="أمراض الباطنة"></div></div>
+ <div class="slide"><div class="container slide-grid"><div class="slide-copy"><span>متابعة دقيقة</span><h1>أمراض الكبد</h1><h2>التشخيص والمتابعة</h2><p>متابعة أمراض الكبد واضطرابات وظائفه والتهاباته.</p><a class="btn btn-green" href="liver.html">عرض أمراض الكبد</a></div><img src="liver-slide.svg" alt="أمراض الكبد"></div></div>
+ <div class="slide"><div class="container slide-grid"><div class="slide-copy"><span>الجهاز الهضمي</span><h1>المعدة والأمعاء والقولون</h1><h2>تقييم الأعراض وتشخيص الحالات</h2><p>متابعة اضطرابات المريء والمعدة والأمعاء والقولون.</p><a class="btn btn-green" href="gastroenterology.html">عرض الحالات</a></div><img src="gastro-slide.svg" alt="أمراض الجهاز الهضمي"></div></div>
+ <div class="slide"><div class="container slide-grid"><div class="slide-copy"><span>تشخيصي وعلاجي</span><h1>مناظير الجهاز الهضمي</h1><h2>منظار المعدة والقولون</h2><p>خدمات المناظير التشخيصية والعلاجية للحالات المناسبة بعد التقييم.</p><a class="btn btn-green" href="endoscopy.html">عرض خدمات المناظير</a></div><img src="endoscopy-slide.svg" alt="مناظير الجهاز الهضمي"></div></div>
+ <button class="slide-arrow prev" type="button" aria-label="السابق">‹</button><button class="slide-arrow next" type="button" aria-label="التالي">›</button><div class="slide-dots"><button class="active" aria-label="1"></button><button aria-label="2"></button><button aria-label="3"></button><button aria-label="4"></button></div>
 </section>
 
 <section class="section">
@@ -616,15 +615,7 @@ footer p,footer a{
 <section class="section section-light">
  <div class="container">
   <div class="heading"><h2>الحالات المرضية التي نعالجها</h2><div class="heading-line"></div></div>
-  <div class="disease-grid" id="diseasesGrid">
-   <div class="disease"><div class="ico">◒</div><h4>أمراض الكبد</h4></div>
-   <div class="disease"><div class="ico">◐</div><h4>ارتفاع إنزيمات الكبد</h4></div>
-   <div class="disease"><div class="ico">▥</div><h4>القولون العصبي</h4></div>
-   <div class="disease"><div class="ico">◉</div><h4>قرحة المعدة</h4></div>
-   <div class="disease"><div class="ico">✣</div><h4>جرثومة المعدة</h4></div>
-   <div class="disease"><div class="ico">◔</div><h4>ارتجاع المريء</h4></div>
-   <div class="disease"><div class="ico">⋯</div><h4>أمراض أخرى</h4></div>
-  </div>
+  <div class="disease-grid" id="diseasesGrid"><div class="disease"><h4>جاري تحميل جميع الحالات المرضية...</h4></div></div>
   <div style="text-align:center;margin-top:20px">
    <a class="btn btn-green" href="services.html">عرض جميع الحالات</a>
   </div>
@@ -722,6 +713,15 @@ footer p,footer a{
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
 <script>
+
+const diseaseIcons = ["🩺","🫀","🧬","🩸","💧","⚕","◎","◉","◒","✚","⌁","◌","▦","✦","●","◐"];
+const diseasesGrid=document.getElementById('diseasesGrid');
+async function loadAllDiseases(){
+ const {data,error}=await supabaseClient.from('diseases').select('slug,title_ar,category,sort_order').eq('is_published',true).order('category').order('sort_order',{ascending:true});
+ if(error||!data?.length){diseasesGrid.innerHTML='<div class="disease"><h4>تعذر تحميل الحالات المرضية</h4></div>';return;}
+ diseasesGrid.innerHTML=data.map((d,i)=>`<a class="disease disease-link tap-card" href="disease.html?slug=${encodeURIComponent(d.slug)}"><div class="ico disease-ico">${diseaseIcons[i%diseaseIcons.length]}</div><h4>${String(d.title_ar||'').replaceAll('<','&lt;').replaceAll('>','&gt;')}</h4><small>عرض التفاصيل</small></a>`).join('');
+}
+loadAllDiseases();
 
 const articlesGrid=document.getElementById('articlesGrid');
 
