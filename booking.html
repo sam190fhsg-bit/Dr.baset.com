@@ -63,7 +63,7 @@ footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;gr
 <div class="form-group"><label>الوقت</label><input id="time" type="time"></div>
 <div class="form-group full"><label>سبب الزيارة</label><input id="reason"></div>
 <div class="form-group full"><label>ملاحظات</label><textarea id="notes" rows="4"></textarea></div>
-</div><button class="submit" type="submit">إرسال طلب الحجز عبر واتساب</button>
+</div><button class="submit" type="submit">إرسال وتأكيد طلب الحجز</button>
 <p style="text-align:center;margin-top:12px;color:#687168">للحجز المباشر: 777560603 – 777554626</p></form></div></div></section>
 <!-- Supabase Library -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -83,6 +83,7 @@ document.getElementById("bookingForm").addEventListener("submit", async function
 
     const bookingData = {
         full_name: document.getElementById("name").value.trim(),
+        patient_name: document.getElementById("name").value.trim(),
         phone: document.getElementById("phone").value.trim(),
         age: document.getElementById("age").value
             ? Number(document.getElementById("age").value)
