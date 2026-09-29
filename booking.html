@@ -64,23 +64,82 @@ footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;gr
 <div class="form-group full"><label>ملاحظات</label><textarea id="notes" rows="4"></textarea></div>
 </div><button class="submit" type="submit">إرسال طلب الحجز عبر واتساب</button>
 <p style="text-align:center;margin-top:12px;color:#687168">للحجز المباشر: 777560603 – 777554626</p></form></div></div></section>
+<!-- Supabase Library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Supabase Configuration -->
+<script src="supabase-config.js"></script>
+
 <script>
-document.getElementById("bookingForm").addEventListener("submit",function(e){
-e.preventDefault();const v=id=>document.getElementById(id).value;
-const msg=`طلب حجز موعد جديد
+document.getElementById("bookingForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-الاسم: ${v("name")}
-رقم الهاتف: ${v("phone")}
-العمر: ${v("age")||"غير محدد"}
-الجنس: ${v("gender")||"غير محدد"}
-الخدمة: ${v("service")}
-التاريخ: ${v("date")||"غير محدد"}
-الوقت: ${v("time")||"غير محدد"}
-سبب الزيارة: ${v("reason")||"غير محدد"}
-الملاحظات: ${v("notes")||"لا توجد"}
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const oldText = submitBtn.textContent;
 
-عيادة الدكتور عبده الباسط`;
-window.open("https://wa.me/967777560603?text="+encodeURIComponent(msg),"_blank");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "جاري إرسال الطلب...";
+
+    const bookingData = {
+        full_name: document.getElementById("name").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        age: document.getElementById("age").value
+            ? Number(document.getElementById("age").value)
+            : null,
+        gender: document.getElementById("gender").value || null,
+        service: document.getElementById("service").value || null,
+        preferred_date: document.getElementById("date").value || null,
+        preferred_time: document.getElementById("time").value || null,
+        reason: document.getElementById("reason").value.trim() || null,
+        notes: document.getElementById("notes").value.trim() || null
+    };
+
+    try {
+
+        const { error } = await supabaseClient
+            .from("bookings")
+            .insert([bookingData]);
+
+        if (error) {
+            throw error;
+        }
+
+        alert("تم إرسال طلب الحجز بنجاح");
+
+        const msg =
+`طلب حجز موعد جديد
+
+الاسم: ${bookingData.full_name}
+رقم الهاتف: ${bookingData.phone}
+العمر: ${bookingData.age || "غير محدد"}
+الجنس: ${bookingData.gender || "غير محدد"}
+الخدمة: ${bookingData.service || "غير محددة"}
+التاريخ: ${bookingData.preferred_date || "غير محدد"}
+الوقت: ${bookingData.preferred_time || "غير محدد"}
+سبب الزيارة: ${bookingData.reason || "غير محدد"}
+الملاحظات: ${bookingData.notes || "لا توجد"}`;
+
+        window.open(
+            "https://wa.me/967777560603?text=" + encodeURIComponent(msg),
+            "_blank"
+        );
+
+        this.reset();
+
+    } catch (error) {
+
+        console.error("Booking error:", error);
+
+        alert(
+            "تعذر حفظ طلب الحجز حاليًا. يرجى المحاولة مرة أخرى."
+        );
+
+    } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = oldText;
+
+    }
 });
 </script>
 <footer><div class="container">
