@@ -2,443 +2,676 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>أمراض الباطنة | عيادة الدكتور عبده الباسط</title>
-<meta name="description" content="معلومات توعوية عن أمراض الباطنة وتشخيص ومتابعة الحالات الباطنية والمزمنة.">
+<title>تفاصيل الخدمة | عيادة الدكتور عبده الباسط</title>
+<meta id="metaDescription" name="description" content="تفاصيل الخدمات الطبية">
+
+<link rel="stylesheet" href="site-theme.css?v=2">
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+:root{
+ --blue:#064b7c;
+ --blue-dark:#073d68;
+ --green:#4c963d;
+ --green-dark:#377d31;
+ --light:#f5f9fb;
+ --text:#17364e;
+ --muted:#687985;
+ --border:#e3ebef;
 }
+
+*{box-sizing:border-box;margin:0;padding:0}
 
 body{
-  font-family:Tahoma,Arial,sans-serif;
-  background:#f7faf7;
-  color:#1f2a1f;
-  line-height:1.8;
+ font-family:Tahoma,Arial,sans-serif;
+ background:#fff;
+ color:var(--text);
+ line-height:1.9;
 }
 
-.container{
-  width:min(1180px,92%);
-  margin:auto;
+a{text-decoration:none;color:inherit}
+.container{width:92%;max-width:1180px;margin:auto}
+
+/* TOP BAR */
+.topbar{
+ background:var(--blue-dark);
+ color:#fff;
+ font-size:12px;
+}
+
+.topbar-inner{
+ min-height:36px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:15px;
+}
+
+.top-contact{
+ display:flex;
+ gap:18px;
+ flex-wrap:wrap;
 }
 
 /* HEADER */
 header{
-  background:#fff;
-  border-bottom:1px solid #e5ece3;
-  position:sticky;
-  top:0;
-  z-index:100;
+ background:#fff!important;
+ border-bottom:1px solid var(--border)!important;
+ position:sticky;
+ top:0;
+ z-index:1000;
 }
 
 .nav{
-  min-height:82px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:20px;
+ min-height:78px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:20px;
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
+ display:flex;
+ align-items:center;
+ gap:10px;
 }
 
-.brand img{
-  width:58px;
-  height:58px;
-  object-fit:contain;
+.logo{
+ width:58px;
+ height:58px;
+ object-fit:contain;
 }
 
 .brand strong{
-  display:block;
-  color:#365b35;
-  font-size:17px;
+ display:block;
+ color:var(--blue)!important;
+ font-size:16px;
 }
 
 .brand span{
-  font-size:12px;
-  color:#687668;
+ display:block;
+ color:#64737d!important;
+ font-size:11px;
 }
 
-nav a{
-  color:#304030;
-  text-decoration:none;
-  margin:0 8px;
-  font-size:14px;
+.menu{
+ display:flex;
+ align-items:center;
+ gap:15px;
+ flex-wrap:wrap;
 }
 
-.booking{
-  background:#477537;
-  color:#fff !important;
-  padding:10px 18px;
-  border-radius:10px;
+.menu a{
+ color:#263f50;
+ font-size:13px;
+ font-weight:bold;
+}
+
+.menu a:hover{color:var(--green)}
+
+.book-nav{
+ background:var(--green)!important;
+ color:#fff!important;
+ padding:9px 14px;
+ border-radius:6px;
 }
 
 /* HERO */
-.hero{
-  padding:65px 0;
-  text-align:center;
-  background:
-    radial-gradient(circle at 15% 20%,rgba(71,117,55,.12),transparent 32%),
-    linear-gradient(180deg,#fff,#f2f7f1);
+.inner-hero{
+ background:linear-gradient(135deg,#edf6fa 0%,#f8fbfc 55%,#eef7ec 100%);
+ padding:62px 20px;
+ text-align:center;
+ border-bottom:1px solid #e7eff2;
 }
 
-.hero small{
-  color:#477537;
-  font-weight:bold;
+.breadcrumb{
+ color:var(--green);
+ font-size:13px;
+ font-weight:bold;
+ margin-bottom:8px;
 }
 
-.hero h1{
-  color:#315b31;
-  font-size:38px;
-  margin:8px 0;
+.inner-hero h1{
+ color:var(--blue)!important;
+ font-size:36px;
+ line-height:1.4;
+ margin-bottom:10px;
 }
 
-.hero p{
-  max-width:750px;
-  margin:auto;
-  color:#647064;
+.inner-hero p{
+ color:#667985;
+ max-width:760px;
+ margin:auto;
+ font-size:15px;
 }
 
 /* CONTENT */
-.section{
-  padding:55px 0 70px;
+.content-section{
+ padding:55px 0 70px;
+ background:#fff;
 }
 
-.section-title{
-  text-align:center;
-  margin-bottom:35px;
+.content-layout{
+ display:grid;
+ grid-template-columns:minmax(0,2fr) 320px;
+ gap:25px;
+ align-items:start;
 }
 
-.section-title h2{
-  color:#365b35;
-  font-size:28px;
+.content-card{
+ background:#fff!important;
+ border:1px solid var(--border)!important;
+ border-radius:12px!important;
+ padding:32px;
+ box-shadow:0 7px 24px rgba(0,0,0,.05)!important;
 }
 
-.section-title p{
-  color:#687668;
+.content-card h2{
+ color:var(--blue)!important;
+ font-size:25px;
+ margin-bottom:14px;
 }
 
-/* GRID */
-.diseases-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:22px;
+.service-body{
+ color:#566b77;
+ font-size:15px;
+ white-space:pre-line;
 }
 
-.disease-card{
-  background:#fff;
-  border:1px solid #e3ebe1;
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 8px 28px rgba(0,0,0,.05);
-  transition:.25s;
+.medical-notice{
+ background:#f2f8ef!important;
+ border-right:4px solid var(--green)!important;
+ padding:17px;
+ border-radius:7px;
+ margin-top:28px;
+ color:#52665a;
+ font-size:13px;
 }
 
-.disease-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 14px 35px rgba(0,0,0,.09);
+.medical-notice strong{
+ color:var(--blue)!important;
 }
 
-.disease-image{
-  width:100%;
-  height:210px;
-  object-fit:cover;
-  background:#edf3e9;
-  display:block;
+/* SIDEBAR */
+.sidebar-card{
+ background:var(--blue);
+ color:#fff;
+ border-radius:10px;
+ padding:25px;
+ margin-bottom:18px;
 }
 
-.card-body{
-  padding:20px;
+.sidebar-card h3{
+ font-size:20px;
+ margin-bottom:7px;
+ color:#fff;
 }
 
-.card-body h3{
-  color:#315b31;
-  margin-bottom:8px;
-  font-size:20px;
+.sidebar-card p{
+ color:#dce9f0;
+ font-size:13px;
+ margin-bottom:17px;
 }
 
-.card-body p{
-  color:#687168;
-  font-size:14px;
-  min-height:52px;
+.side-btn{
+ display:block;
+ text-align:center;
+ background:var(--green);
+ color:#fff;
+ padding:11px;
+ border-radius:6px;
+ font-weight:bold;
+ margin-top:8px;
 }
 
-.details-btn{
-  display:inline-block;
-  margin-top:15px;
-  background:#477537;
-  color:white;
-  text-decoration:none;
-  padding:9px 17px;
-  border-radius:9px;
-  font-size:14px;
+.side-btn-light{
+ display:block;
+ text-align:center;
+ background:#fff;
+ color:var(--blue);
+ padding:10px;
+ border-radius:6px;
+ font-weight:bold;
+ margin-top:9px;
 }
 
-/* STATES */
-.state-box{
-  grid-column:1/-1;
-  background:#fff;
-  padding:35px;
-  text-align:center;
-  border:1px solid #e3ebe1;
-  border-radius:16px;
-  color:#687668;
+.quick-links{
+ background:#f7fafb;
+ border:1px solid var(--border);
+ border-radius:10px;
+ padding:22px;
 }
 
-/* NOTICE */
-.notice{
-  margin-top:35px;
-  background:#edf3e9;
-  border-right:4px solid #477537;
-  padding:18px;
-  border-radius:12px;
-  color:#536253;
+.quick-links h3{
+ color:var(--blue);
+ margin-bottom:12px;
+}
+
+.quick-links a{
+ display:block;
+ padding:9px 0;
+ border-bottom:1px solid #e6edef;
+ color:#526875;
+ font-size:13px;
+}
+
+.quick-links a:last-child{border-bottom:0}
+.quick-links a:hover{color:var(--green)}
+
+/* ACTIONS */
+.actions{
+ display:flex;
+ gap:10px;
+ flex-wrap:wrap;
+ margin-top:25px;
+}
+
+.btn{
+ display:inline-block;
+ padding:10px 19px;
+ border-radius:6px;
+ font-weight:bold;
+ font-size:13px;
+}
+
+.btn-primary{
+ background:var(--green)!important;
+ color:#fff!important;
+}
+
+.btn-outline{
+ border:1px solid #bfd0d9;
+ color:var(--blue);
+ background:#fff;
+}
+
+/* STATUS */
+.status{
+ text-align:center;
+ padding:70px 20px;
+ color:#667985;
+}
+
+/* CTA */
+.cta{
+ background:var(--blue);
+ padding:32px 0;
+ color:#fff;
+}
+
+.cta-inner{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ gap:20px;
+}
+
+.cta h2{
+ color:#fff;
+ font-size:23px;
+}
+
+.cta p{
+ color:#d8e7ef;
+ font-size:13px;
+}
+
+.cta a{
+ background:var(--green);
+ color:#fff;
+ padding:11px 22px;
+ border-radius:6px;
+ font-weight:bold;
 }
 
 /* FOOTER */
 footer{
-  background:#102510;
-  color:#d9e4d7;
-  padding:35px 0;
-  text-align:center;
+ background:#063d67!important;
+ color:#fff!important;
+ padding:40px 0 18px;
 }
 
+.footer-grid{
+ display:grid;
+ grid-template-columns:1.3fr 1fr 1fr;
+ gap:35px;
+}
+
+footer h3{
+ color:#fff!important;
+ margin-bottom:10px;
+}
+
+footer p,
 footer a{
-  color:#d9e4d7;
-  text-decoration:none;
-  margin:0 7px;
+ color:#d8e5ed!important;
+ font-size:12px;
+}
+
+.footer-links{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:7px 15px;
+}
+
+.copyright{
+ border-top:1px solid rgba(255,255,255,.15);
+ margin-top:30px;
+ padding-top:15px;
+ text-align:center;
+ font-size:11px;
+ color:#c7d9e3;
 }
 
 /* MOBILE */
-@media(max-width:900px){
-  .diseases-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  nav{
-    display:none;
-  }
+@media(max-width:950px){
+ .menu{display:none}
+ .content-layout{grid-template-columns:1fr}
 }
 
 @media(max-width:600px){
-  .hero h1{
-    font-size:29px;
-  }
-
-  .diseases-grid{
-    grid-template-columns:1fr;
-  }
-
-  .disease-image{
-    height:220px;
-  }
-
-  .brand strong{
-    font-size:14px;
-  }
+ .topbar-inner{justify-content:center}
+ .topbar-inner>span{display:none}
+ .inner-hero{padding:45px 15px}
+ .inner-hero h1{font-size:27px!important}
+ .content-card{padding:22px}
+ .cta-inner{flex-direction:column;text-align:center}
+ .footer-grid{grid-template-columns:1fr}
+ .brand span{display:none!important}
+ .logo{width:50px;height:50px}
 }
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="container nav">
-
-    <div class="brand">
-      <img src="logo.jpg" alt="شعار العيادة">
-
-      <div>
-        <strong>عيادة الدكتور عبده الباسط عبده الحاج مقبل</strong>
-        <span>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي</span>
-      </div>
-    </div>
-
-    <nav>
-      <a href="index.html">الرئيسية</a>
-      <a href="internal-medicine.html">أمراض الباطنة</a>
-      <a href="liver.html">أمراض الكبد</a>
-      <a href="gastroenterology.html">الجهاز الهضمي</a>
-      <a href="endoscopy.html">المناظير</a>
-      <a href="booking.html" class="booking">حجز موعد</a>
-    </nav>
-
+<div class="topbar">
+ <div class="container topbar-inner">
+  <div class="top-contact">
+   <span>☎ 777560603 - 777554626</span>
+   <span>✉ baset.clinic@gmail.com</span>
   </div>
+  <span>📍 صنعاء – شارع تعز – جولة تعز</span>
+ </div>
+</div>
+
+<header>
+ <div class="container nav">
+
+  <a class="brand" href="index.html">
+   <img src="logo.jpg?v=6" class="logo" alt="شعار العيادة">
+   <div>
+    <strong>عيادة الدكتور عبده الباسط عبده الحاج مقبل</strong>
+    <span>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي</span>
+   </div>
+  </a>
+
+  <nav class="menu">
+   <a href="index.html">الرئيسية</a>
+   <a href="about.html">عن الدكتور</a>
+   <a href="services.html">الخدمات</a>
+   <a href="internal-medicine.html">الباطنة</a>
+   <a href="liver.html">الكبد</a>
+   <a href="gastroenterology.html">الجهاز الهضمي</a>
+   <a href="endoscopy.html">المناظير</a>
+   <a href="articles.html">المكتبة الطبية</a>
+   <a href="faq.html">الأسئلة الشائعة</a>
+   <a href="booking.html" class="book-nav">حجز موعد</a>
+  </nav>
+
+ </div>
 </header>
 
+<main>
 
-<section class="hero">
-  <div class="container">
+<section class="inner-hero">
+ <div class="container">
 
-    <small>التخصصات الطبية</small>
-
-    <h1>أمراض الباطنة</h1>
-
-    <p>
-      معلومات طبية توعوية حول الأمراض الباطنية والحالات المزمنة،
-      وأهمية التشخيص والمتابعة الطبية المناسبة.
-    </p>
-
+  <div class="breadcrumb">
+   الرئيسية / الخدمات الطبية
   </div>
+
+  <h1 id="serviceTitle">
+   جاري تحميل الخدمة...
+  </h1>
+
+  <p id="serviceDescription">
+   جاري تحميل معلومات الخدمة.
+  </p>
+
+ </div>
 </section>
 
+<section class="content-section">
+ <div class="container content-layout">
 
-<main class="section">
-  <div class="container">
-
-    <div class="section-title">
-      <h2>أمراض وحالات الباطنة</h2>
-      <p>اختر الحالة لعرض المعلومات والتفاصيل.</p>
-    </div>
-
-    <div id="diseasesGrid" class="diseases-grid">
-
-      <div class="state-box">
-        جاري تحميل المحتوى...
-      </div>
-
-    </div>
-
-    <div class="notice">
-      <strong>تنبيه طبي:</strong>
-      المعلومات الواردة في الموقع للتوعية الصحية ولا تغني عن الفحص
-      والتشخيص والاستشارة الطبية المباشرة.
-    </div>
-
+  <div id="serviceContent">
+   <div class="status">
+    جاري تحميل التفاصيل...
+   </div>
   </div>
+
+  <aside>
+
+   <div class="sidebar-card">
+    <h3>احجز موعدك</h3>
+    <p>
+     يمكنك إرسال طلب حجز موعد وسيتم التواصل معك لتأكيد الموعد.
+    </p>
+
+    <a href="booking.html" class="side-btn">
+     احجز موعدك الآن
+    </a>
+
+    <a href="tel:777560603" class="side-btn-light">
+     اتصل بنا
+    </a>
+   </div>
+
+   <div class="quick-links">
+    <h3>التخصصات</h3>
+
+    <a href="internal-medicine.html">أمراض الباطنة</a>
+    <a href="liver.html">أمراض الكبد</a>
+    <a href="gastroenterology.html">أمراض الجهاز الهضمي</a>
+    <a href="endoscopy.html">مناظير الجهاز الهضمي</a>
+    <a href="services.html">جميع الخدمات</a>
+   </div>
+
+  </aside>
+
+ </div>
+</section>
+
+<section class="cta">
+ <div class="container cta-inner">
+  <div>
+   <h2>رعاية طبية متخصصة</h2>
+   <p>للاستشارة والمتابعة يمكنك إرسال طلب موعد من خلال الموقع.</p>
+  </div>
+
+  <a href="booking.html">احجز موعدك</a>
+ </div>
+</section>
+
 </main>
 
-
 <footer>
-  <div class="container">
+ <div class="container">
 
-    <p>
-      عيادة الدكتور عبده الباسط عبده الحاج مقبل
-    </p>
+  <div class="footer-grid">
 
-    <p>
-      مركز المأمون الطبي التشخيصي – صنعاء – شارع تعز – جولة تعز
-    </p>
+   <div>
+    <h3>تواصل معنا</h3>
+    <p>☎ 777560603 - 777554626</p>
+    <p>✉ baset.clinic@gmail.com</p>
+    <p>📍 مركز المأمون الطبي التشخيصي – صنعاء – شارع تعز – جولة تعز</p>
+   </div>
 
-    <p>
-      <a href="booking.html">حجز موعد</a>
-      <a href="contact.html">تواصل معنا</a>
-      <a href="privacy.html">الخصوصية</a>
-    </p>
+   <div>
+    <h3>روابط مهمة</h3>
+    <div class="footer-links">
+     <a href="index.html">الرئيسية</a>
+     <a href="about.html">عن الدكتور</a>
+     <a href="services.html">الخدمات</a>
+     <a href="articles.html">المكتبة الطبية</a>
+     <a href="faq.html">الأسئلة الشائعة</a>
+     <a href="contact.html">تواصل معنا</a>
+    </div>
+   </div>
+
+   <div>
+    <h3>التخصصات</h3>
+    <div class="footer-links">
+     <a href="internal-medicine.html">الباطنة</a>
+     <a href="liver.html">الكبد</a>
+     <a href="gastroenterology.html">الجهاز الهضمي</a>
+     <a href="endoscopy.html">المناظير</a>
+    </div>
+   </div>
 
   </div>
+
+  <div class="copyright">
+   جميع الحقوق محفوظة © 2026 عيادة الدكتور عبده الباسط عبده الحاج مقبل
+  </div>
+
+ </div>
 </footer>
 
+<script type="module">
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="supabase-config.js"></script>
+import { supabase } from './supabase-config.js';
 
-<script>
-async function loadInternalDiseases(){
+const params = new URLSearchParams(window.location.search);
+const slug = params.get('slug');
 
-  const grid = document.getElementById("diseasesGrid");
+const titleEl = document.getElementById('serviceTitle');
+const descriptionEl = document.getElementById('serviceDescription');
+const contentEl = document.getElementById('serviceContent');
 
-  try{
-
-    if(typeof supabaseClient === "undefined"){
-      throw new Error("Supabase client is not configured");
-    }
-
-    const {data,error} = await supabaseClient
-      .from("diseases")
-      .select("id,slug,title_ar,intro_ar,image_url,category,sort_order,is_published")
-      .eq("category","internal-medicine")
-      .eq("is_published",true)
-      .order("sort_order",{ascending:true});
-
-    if(error) throw error;
-
-    if(!data || data.length === 0){
-
-      grid.innerHTML = `
-        <div class="state-box">
-          لا توجد حالات منشورة في قسم أمراض الباطنة حاليًا.
-        </div>
-      `;
-
-      return;
-    }
-
-    grid.innerHTML = "";
-
-    data.forEach(function(item){
-
-      const card = document.createElement("article");
-      card.className = "disease-card";
-
-      const image = item.image_url
-        ? `<img class="disease-image"
-                src="${escapeHtml(item.image_url)}"
-                alt="${escapeHtml(item.title_ar || "صورة توضيحية")}"
-                loading="lazy">`
-        : `<div class="disease-image"></div>`;
-
-      card.innerHTML = `
-        ${image}
-
-        <div class="card-body">
-
-          <h3>${escapeHtml(item.title_ar || "حالة طبية")}</h3>
-
-          <p>
-            ${escapeHtml(
-              item.intro_ar ||
-              "تعرف على أهم المعلومات المتعلقة بهذه الحالة."
-            )}
-          </p>
-
-          <a
-            class="details-btn"
-            href="disease.html?slug=${encodeURIComponent(item.slug)}">
-            عرض التفاصيل
-          </a>
-
-        </div>
-      `;
-
-      grid.appendChild(card);
-
-    });
-
-  }catch(error){
-
-    console.error("Diseases loading error:",error);
-
-    grid.innerHTML = `
-      <div class="state-box">
-        تعذر تحميل المحتوى حاليًا. يرجى المحاولة مرة أخرى.
-      </div>
-    `;
-
-  }
+function esc(value=''){
+ return String(value)
+  .replaceAll('&','&amp;')
+  .replaceAll('<','&lt;')
+  .replaceAll('>','&gt;')
+  .replaceAll('"','&quot;')
+  .replaceAll("'",'&#039;');
 }
 
+async function loadService(){
 
-function escapeHtml(value){
+ if(!slug){
+  titleEl.textContent='الخدمة غير محددة';
+  descriptionEl.textContent='اختر إحدى الخدمات الطبية لعرض التفاصيل.';
 
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+  contentEl.innerHTML=`
+   <div class="content-card">
+    <h2>الخدمة غير محددة</h2>
+    <p class="service-body">
+     لم يتم تحديد الخدمة المطلوبة.
+    </p>
+    <div class="actions">
+     <a href="services.html" class="btn btn-primary">
+      عرض الخدمات
+     </a>
+    </div>
+   </div>
+  `;
+  return;
+ }
+
+ const {data,error}=await supabase
+  .from('services')
+  .select('slug,title_ar,short_description_ar,body_ar,is_published')
+  .eq('slug',slug)
+  .eq('is_published',true)
+  .maybeSingle();
+
+ if(error){
+  console.error(error);
+
+  titleEl.textContent='تعذر تحميل الخدمة';
+  descriptionEl.textContent='حدث خطأ أثناء تحميل البيانات.';
+
+  contentEl.innerHTML=`
+   <div class="content-card">
+    <h2>تعذر تحميل المحتوى</h2>
+    <p class="service-body">
+     يرجى المحاولة مرة أخرى.
+    </p>
+   </div>
+  `;
+  return;
+ }
+
+ if(!data){
+  titleEl.textContent='الخدمة غير موجودة';
+  descriptionEl.textContent='لم نعثر على الخدمة المطلوبة.';
+
+  contentEl.innerHTML=`
+   <div class="content-card">
+    <h2>الخدمة غير موجودة</h2>
+    <p class="service-body">
+     يمكنك العودة إلى صفحة الخدمات واختيار خدمة أخرى.
+    </p>
+
+    <div class="actions">
+     <a href="services.html" class="btn btn-primary">
+      العودة إلى الخدمات
+     </a>
+    </div>
+   </div>
+  `;
+  return;
+ }
+
+ const title=data.title_ar || 'الخدمة الطبية';
+ const description=data.short_description_ar || '';
+ const body=data.body_ar || description;
+
+ document.title=title+' | عيادة الدكتور عبده الباسط';
+
+ document
+  .getElementById('metaDescription')
+  .setAttribute('content',description || title);
+
+ titleEl.textContent=title;
+ descriptionEl.textContent=description;
+
+ contentEl.innerHTML=`
+  <article class="content-card">
+
+   <h2>${esc(title)}</h2>
+
+   <div class="service-body">
+    ${esc(body)}
+   </div>
+
+   <div class="medical-notice">
+    <strong>تنبيه طبي:</strong>
+    المعلومات الواردة في الموقع للتوعية العامة ولا تغني عن
+    التقييم الطبي المباشر والتشخيص من قبل الطبيب.
+   </div>
+
+   <div class="actions">
+    <a href="booking.html" class="btn btn-primary">
+     احجز موعدك
+    </a>
+
+    <a href="services.html" class="btn btn-outline">
+     جميع الخدمات
+    </a>
+   </div>
+
+  </article>
+ `;
 
 }
 
+loadService();
 
-loadInternalDiseases();
 </script>
 
 </body>
