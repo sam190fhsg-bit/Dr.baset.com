@@ -131,8 +131,9 @@ document.getElementById("bookingForm").addEventListener("submit", async function
         console.error("Booking error:", error);
 
         alert(
-            "تعذر حفظ طلب الحجز حاليًا. يرجى المحاولة مرة أخرى."
-        );
+  "خطأ Supabase:\n" +
+  (error.message || JSON.stringify(error))
+);
 
     } finally {
 
