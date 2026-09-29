@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدكتور عبده الباسط عبده الحاج مقبل</title>
+<meta name="description" content="عيادة الدكتور عبده الباسط عبده الحاج مقبل - استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي - صنعاء">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Tahoma,Arial,sans-serif;background:#f7f9f7;color:#202520;line-height:1.8}
+a{text-decoration:none}
+img{max-width:100%}
+.container{width:92%;max-width:1180px;margin:auto}
+
+header{background:#fff;border-bottom:1px solid #e9eee7;position:sticky;top:0;z-index:1000;box-shadow:0 4px 16px rgba(0,0,0,.04)}
+.nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px;position:relative}
+.brand-area{display:flex;align-items:center;gap:12px}
+.logo{width:62px;height:62px;object-fit:contain;border-radius:12px;background:#fff}
+.brand-text strong{display:block;color:#356b35;font-size:18px}
+.brand-text span{font-size:12px;color:#667266}
+
+.desktop-links{display:flex;align-items:center;gap:16px}
+.desktop-links a{color:#303830;font-size:14px}
+.desktop-links a:hover{color:#477537}
+.nav-btn{background:#477537;color:#fff!important;padding:9px 16px;border-radius:8px}
+
+.mobile-menu{display:none;position:relative}
+.mobile-menu summary{list-style:none;cursor:pointer;background:#477537;color:#fff;width:46px;height:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:25px}
+.mobile-menu summary::-webkit-details-marker{display:none}
+.mobile-links{position:absolute;top:58px;left:0;width:260px;background:#fff;border-radius:14px;padding:10px;box-shadow:0 12px 35px rgba(0,0,0,.15);z-index:9999}
+.mobile-links a{display:block;padding:12px;color:#303830;border-bottom:1px solid #edf0ec}
+.mobile-links a:last-child{border-bottom:none;background:#477537;color:#fff;border-radius:8px;text-align:center;margin-top:5px}
+
+.hero{background:radial-gradient(circle at 20% 20%,#edf5e9 0,transparent 35%),linear-gradient(135deg,#fff,#f0f6ed);padding:70px 0 50px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:50px}
+.badge{display:inline-block;color:#477537;background:#edf3e9;padding:7px 14px;border-radius:30px;font-size:14px;margin-bottom:14px}
+.hero h1{color:#335f30;font-size:44px;line-height:1.4;margin-bottom:12px}
+.hero h2{font-size:23px;font-weight:normal;color:#343b34;margin-bottom:18px}
+.hero p{color:#657065;font-size:17px;max-width:650px}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:9px;font-weight:bold}
+.btn-primary{background:#477537;color:#fff}
+.btn-outline{border:1.5px solid #477537;color:#477537;background:#fff}
+
+.doctor-card{background:#fff;border-radius:28px;min-height:520px;padding:20px 25px 0;position:relative;box-shadow:0 18px 55px rgba(63,105,54,.12);display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.doctor-card:before{content:"";position:absolute;width:340px;height:340px;border-radius:50%;background:#edf3e9;top:65px;left:50%;transform:translateX(-50%);z-index:0}
+.doctor-image{position:relative;z-index:1;width:100%;height:auto;max-height:500px;object-fit:contain;object-position:center bottom;display:block;margin:0 auto}
+
+section{padding:75px 0}
+.section-heading{text-align:center;margin-bottom:38px}
+.section-heading span{color:#477537;font-size:14px;font-weight:bold}
+.section-heading h2{font-size:32px;color:#2f5f2e;margin:6px 0}
+.section-heading p{color:#727b72}
+
+.services-grid,.quick-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:#fff;padding:28px 22px;border-radius:18px;box-shadow:0 7px 26px rgba(0,0,0,.05);border:1px solid #eef1ed;transition:.2s;color:inherit;display:block}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.card-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#edf3e9;color:#477537;border-radius:14px;font-size:25px;margin-bottom:15px}
+.card h3{color:#376c35;margin-bottom:8px;font-size:20px}
+.card p{color:#687168;font-size:14px}
+.more{display:inline-block;margin-top:12px;color:#477537;font-weight:bold;font-size:14px}
+
+.about{background:#fff}
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}
+.about-logo{background:#f4f8f2;border-radius:24px;min-height:350px;display:flex;align-items:center;justify-content:center;padding:50px}
+.about-logo img{max-width:320px;max-height:300px;object-fit:contain}
+.about-text h2{color:#346433;font-size:31px;margin-bottom:15px}
+.about-text p{color:#657065;margin-bottom:15px}
+.features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.feature{background:#f7faf6;padding:12px;border-radius:10px;color:#405140;border-right:3px solid #477537}
+
+.quick{background:#f6f9f5}
+.contact-strip{background:#477537;color:#fff}
+.contact-strip .container{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.contact-strip h2{font-size:30px}
+.contact-actions{display:flex;gap:10px;flex-wrap:wrap}
+.contact-actions a{background:#fff;color:#477537;padding:12px 18px;border-radius:8px;font-weight:bold}
+
+footer{background:#284f28;color:#fff;padding:35px 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}
+footer h3{margin-bottom:10px}
+footer a{color:#fff;opacity:.9;display:block;margin:6px 0}
+footer p{opacity:.9}
+.copy{text-align:center;margin-top:25px;padding-top:20px;border-top:1px solid rgba(255,255,255,.18)}
+
+.floating-whatsapp{position:fixed;left:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:#477537;color:#fff;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:bold;z-index:1200;box-shadow:0 6px 22px rgba(0,0,0,.2)}
+
+@media(max-width:900px){
+.desktop-links{display:none}.mobile-menu{display:block}
+.hero-grid,.about-grid{grid-template-columns:1fr}
+.hero{text-align:center;padding-top:45px}
+.hero h1{font-size:34px}.hero p{margin:auto}.hero-buttons{justify-content:center}
+.services-grid,.quick-grid{grid-template-columns:1fr 1fr}
+.footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+.brand-text strong{font-size:14px}.brand-text span{display:none}.logo{width:48px;height:48px}
+.hero h1{font-size:27px}.hero h2{font-size:18px}
+.doctor-card{min-height:360px}.doctor-card:before{width:270px;height:270px}.doctor-image{max-height:380px}
+.services-grid,.quick-grid,.features,.footer-grid{grid-template-columns:1fr}
+.section-heading h2{font-size:26px}.mobile-links{width:240px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+  <div class="brand-area">
+    <img src="logo.jpg?v=4" alt="شعار العيادة" class="logo">
+    <div class="brand-text">
+      <strong>عيادة الدكتور عبده الباسط</strong>
+      <span>الباطنة والكبد ومناظير الجهاز الهضمي</span>
+    </div>
+  </div>
+
+  <nav class="desktop-links">
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">عن الدكتور</a>
+    <a href="services.html">الخدمات</a>
+    <a href="articles.html">التوعية</a>
+    <a href="faq.html">الأسئلة الشائعة</a>
+    <a href="gallery.html">الصور والفيديو</a>
+    <a href="search.html">🔍 البحث</a>
+    <a href="contact.html">تواصل معنا</a>
+    <a href="booking.html" class="nav-btn">احجز موعدًا</a>
+  </nav>
+
+  <details class="mobile-menu">
+    <summary>☰</summary>
+    <nav class="mobile-links">
+      <a href="index.html">الرئيسية</a>
+      <a href="about.html">عن الدكتور</a>
+      <a href="services.html">الخدمات</a>
+      <a href="internal-medicine.html">أمراض الباطنة</a>
+      <a href="liver.html">أمراض الكبد</a>
+      <a href="gastroenterology.html">الجهاز الهضمي</a>
+      <a href="endoscopy.html">المناظير</a>
+      <a href="articles.html">التوعية الصحية</a>
+      <a href="faq.html">الأسئلة الشائعة</a>
+      <a href="gallery.html">الصور والفيديو</a>
+      <a href="search.html">🔍 البحث في الموقع</a>
+      <a href="contact.html">تواصل معنا</a>
+      <a href="booking.html">احجز موعدًا</a>
+    </nav>
+  </details>
+</div>
+</header>
+
+<main>
+
+<section class="hero">
+<div class="container hero-grid">
+  <div>
+    <span class="badge">رعاية طبية متخصصة</span>
+    <h1>الدكتور / عبده الباسط عبده الحاج مقبل</h1>
+    <h2>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي</h2>
+    <p>تشخيص ومتابعة أمراض الباطنة والكبد والجهاز الهضمي، وإجراء مناظير الجهاز الهضمي التشخيصية والعلاجية.</p>
+    <div class="hero-buttons">
+      <a href="booking.html" class="btn btn-primary">احجز موعدًا</a>
+      <a href="https://wa.me/967777560603" class="btn btn-outline">واتساب</a>
+      <a href="tel:777560603" class="btn btn-outline">اتصل الآن</a>
+    </div>
+  </div>
+
+  <div class="doctor-card">
+    <img src="doctor.jpg?v=4" alt="الدكتور عبده الباسط عبده الحاج مقبل" class="doctor-image">
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-heading">
+    <span>التخصصات الرئيسية</span>
+    <h2>الخدمات الطبية</h2>
+    <p>اختر القسم لعرض الحالات والخدمات بالتفصيل.</p>
+  </div>
+
+  <div class="services-grid">
+    <a href="internal-medicine.html" class="card">
+      <div class="card-icon">✚</div>
+      <h3>أمراض الباطنة</h3>
+      <p>تشخيص ومتابعة الأمراض الباطنية والحالات المزمنة.</p>
+      <span class="more">عرض التفاصيل ←</span>
+    </a>
+
+    <a href="liver.html" class="card">
+      <div class="card-icon">◆</div>
+      <h3>أمراض الكبد</h3>
+      <p>تقييم وتشخيص ومتابعة أمراض الكبد واضطرابات وظائفه.</p>
+      <span class="more">عرض التفاصيل ←</span>
+    </a>
+
+    <a href="gastroenterology.html" class="card">
+      <div class="card-icon">●</div>
+      <h3>الجهاز الهضمي</h3>
+      <p>المريء والمعدة والأمعاء والقولون والمشكلات الهضمية.</p>
+      <span class="more">عرض التفاصيل ←</span>
+    </a>
+
+    <a href="endoscopy.html" class="card">
+      <div class="card-icon">◉</div>
+      <h3>المناظير</h3>
+      <p>مناظير المعدة والقولون التشخيصية والعلاجية.</p>
+      <span class="more">عرض التفاصيل ←</span>
+    </a>
+  </div>
+</div>
+</section>
+
+<section class="about">
+<div class="container about-grid">
+  <div class="about-logo"><img src="logo.jpg?v=4" alt="شعار العيادة"></div>
+  <div class="about-text">
+    <h2>عن الدكتور</h2>
+    <p>الدكتور عبده الباسط عبده الحاج مقبل، استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي.</p>
+    <p>تقدم العيادة خدمات التشخيص والمتابعة للحالات المتعلقة بأمراض الباطنة والكبد والجهاز الهضمي، إضافة إلى المناظير التشخيصية والعلاجية.</p>
+    <div class="features">
+      <div class="feature">أمراض الباطنة</div>
+      <div class="feature">أمراض الكبد</div>
+      <div class="feature">الجهاز الهضمي</div>
+      <div class="feature">المناظير</div>
+    </div>
+    <div style="margin-top:20px"><a href="about.html" class="btn btn-primary">تعرف على الدكتور</a></div>
+  </div>
+</div>
+</section>
+
+<section class="quick">
+<div class="container">
+  <div class="section-heading">
+    <span>روابط مهمة</span>
+    <h2>كل ما تحتاجه في مكان واحد</h2>
+  </div>
+
+  <div class="quick-grid">
+    <a href="booking.html" class="card"><h3>حجز موعد</h3><p>أرسل طلب الحجز عبر واتساب.</p></a>
+    <a href="articles.html" class="card"><h3>التوعية الصحية</h3><p>مواضيع طبية مبسطة.</p></a>
+    <a href="faq.html" class="card"><h3>الأسئلة الشائعة</h3><p>إجابات عن الأسئلة المتكررة.</p></a>
+    <a href="gallery.html" class="card"><h3>الصور والفيديو</h3><p>معرض العيادة والمحتوى المرئي.</p></a>
+    <a href="search.html" class="card"><h3>البحث في الموقع</h3><p>ابحث عن مرض أو خدمة أو منظار بسرعة.</p></a>
+  </div>
+</div>
+</section>
+
+<section class="contact-strip">
+<div class="container">
+  <div>
+    <h2>للحجز والاستفسار</h2>
+    <p>مركز المأمون الطبي التشخيصي – صنعاء – شارع تعز – جولة تعز</p>
+  </div>
+  <div class="contact-actions">
+    <a href="tel:777560603">777560603</a>
+    <a href="tel:777554626">777554626</a>
+    <a href="https://wa.me/967777560603">واتساب</a>
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container">
+  <div class="footer-grid">
+    <div>
+      <h3>عيادة الدكتور عبده الباسط</h3>
+      <p>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي.</p>
+    </div>
+
+    <div>
+      <h3>الأقسام</h3>
+      <a href="internal-medicine.html">أمراض الباطنة</a>
+      <a href="liver.html">أمراض الكبد</a>
+      <a href="gastroenterology.html">الجهاز الهضمي</a>
+      <a href="endoscopy.html">المناظير</a>
+    </div>
+
+    <div>
+      <h3>روابط</h3>
+      <a href="about.html">عن الدكتور</a>
+      <a href="booking.html">حجز موعد</a>
+      <a href="faq.html">الأسئلة الشائعة</a>
+      <a href="search.html">البحث</a>
+      <a href="contact.html">تواصل معنا</a>
+    </div>
+  </div>
+
+  <div class="copy">جميع الحقوق محفوظة © عيادة الدكتور عبده الباسط عبده الحاج مقبل</div>
+</div>
+</footer>
+
+<a href="https://wa.me/967777560603" class="floating-whatsapp" aria-label="واتساب">W</a>
+
+</body>
+</html>
