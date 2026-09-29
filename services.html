@@ -336,6 +336,7 @@ footer a{
   }
 }
 </style>
+<link rel="stylesheet" href="site-theme.css?v=10">
 </head>
 
 <body>
@@ -468,9 +469,9 @@ footer a{
 </a>
 
 
-<script type="module">
-
-import { supabase } from './supabase-config.js';
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script>
 
 const grid = document.getElementById('servicesGrid');
 
@@ -485,8 +486,7 @@ function escapeHTML(value = '') {
 
 async function loadServices() {
 
-  const { data, error } = await supabase
-    .from('services')
+  const { data, error } = await supabaseClient.from('services')
     .select(
       'slug,title_ar,short_description_ar,sort_order'
     )
