@@ -828,3 +828,23 @@ loadArticles();
 </html>
 
 <!-- PHASE6 slider-media integration 2026-09-30 -->
+<style id="phase7-full-slide-image">
+/* PHASE7 — full-bleed slider images */
+.home-slider{position:relative;overflow:hidden;min-height:clamp(430px,48vw,620px);background:#eef7fb}
+.home-slider .slide{position:relative;min-height:clamp(430px,48vw,620px);overflow:hidden}
+.home-slider .slide-grid{position:relative;z-index:1;width:100%;max-width:none!important;min-height:clamp(430px,48vw,620px);display:flex!important;align-items:center;padding:0 clamp(28px,7vw,110px)!important}
+.home-slider .slide-grid>img{display:block!important;position:absolute;z-index:-2;inset:0;width:100%!important;height:100%!important;max-width:none!important;max-height:none!important;object-fit:cover!important;object-position:center center;filter:none}
+.home-slider .slide-grid::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.52) 48%,rgba(255,255,255,.93) 100%);pointer-events:none}
+.home-slider .slide-copy{position:relative;z-index:2;width:min(620px,92%);padding:36px 30px;border-radius:22px;background:rgba(255,255,255,.18);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.home-slider .slide-copy h1{font-size:clamp(34px,4vw,56px);line-height:1.15;text-wrap:balance}
+.home-slider .slide-copy h2{font-size:clamp(20px,2vw,28px)}
+.home-slider .slide-arrow{z-index:6}.home-slider .slide-dots{z-index:6}
+@media(max-width:800px){
+ .home-slider,.home-slider .slide,.home-slider .slide-grid{min-height:440px}
+ .home-slider .slide-grid{padding:0 22px!important;align-items:flex-end;padding-bottom:54px!important}
+ .home-slider .slide-grid>img{display:block!important;object-fit:cover!important;object-position:center center!important}
+ .home-slider .slide-grid::after{background:linear-gradient(0deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.72) 38%,rgba(255,255,255,.08) 76%)}
+ .home-slider .slide-copy{width:100%;padding:20px 18px;background:rgba(255,255,255,.24)}
+ .home-slider .slide-copy h1{font-size:32px;margin:2px 0}.home-slider .slide-copy h2{font-size:19px;margin:6px 0}.home-slider .slide-copy p{margin:8px 0 14px}
+}
+</style>
