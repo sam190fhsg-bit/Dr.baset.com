@@ -617,10 +617,10 @@ footer p,footer a{
 
 <section class="section section-light">
  <div class="container">
-  <div class="heading"><h2>الحالات المرضية التي نعالجها</h2><div class="heading-line"></div></div>
-  <div class="disease-grid" id="diseasesGrid"><div class="disease"><h4>جاري تحميل جميع الحالات المرضية...</h4></div></div>
+  <div class="heading"><h2>الحالات المرضية الأكثر شيوعًا</h2><div class="heading-line"></div></div>
+  <div class="disease-grid" id="diseasesGrid"><div class="disease"><h4>جاري تحميل الحالات الشائعة...</h4></div></div>
   <div style="text-align:center;margin-top:20px">
-   <a class="btn btn-green" href="services.html">عرض جميع الحالات</a>
+   <a class="btn btn-green" href="conditions.html">عرض جميع الحالات المرضية</a>
   </div>
  </div>
 </section>
@@ -720,7 +720,7 @@ footer p,footer a{
 const diseaseIcons = ["🩺","🫀","🧬","🩸","💧","⚕","◎","◉","◒","✚","⌁","◌","▦","✦","●","◐"];
 const diseasesGrid=document.getElementById('diseasesGrid');
 async function loadAllDiseases(){
- const {data,error}=await supabaseClient.from('diseases').select('slug,title_ar,category,sort_order').eq('is_published',true).order('category').order('sort_order',{ascending:true});
+ const {data,error}=await supabaseClient.from('diseases').select('slug,title_ar,category,sort_order').eq('is_published',true).order('sort_order',{ascending:true}).limit(8);
  if(error){diseasesGrid.innerHTML='<div class="state-box"><h4>تعذر تحميل الحالات المرضية الآن</h4><button type="button" onclick="loadAllDiseases()">إعادة المحاولة</button></div>';return;} if(!data?.length){diseasesGrid.innerHTML='<div class="state-box"><h4>لا توجد حالات مرضية منشورة حاليًا.</h4></div>';return;}
  diseasesGrid.innerHTML=data.map((d,i)=>`<a class="disease disease-link tap-card" href="disease.html?slug=${encodeURIComponent(d.slug)}"><div class="ico disease-ico">${diseaseIcons[i%diseaseIcons.length]}</div><h4>${String(d.title_ar||'').replaceAll('<','&lt;').replaceAll('>','&gt;')}</h4><small>عرض التفاصيل</small></a>`).join('');
 }
