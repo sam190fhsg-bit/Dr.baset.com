@@ -757,6 +757,17 @@ async function loadArticles(){
 loadArticles();
 </script>
 
+<script>
+async function loadDynamicSlider(){
+ const root=document.querySelector('.home-slider'); if(!root)return;
+ const {data,error}=await supabaseClient.from('sliders').select('*').eq('is_published',true).order('sort_order',{ascending:true});
+ if(error||!data?.length)return; // إبقاء السلايدر الافتراضي إذا لم توجد شرائح منشورة.
+ const safe=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ root.innerHTML=data.map((x,i)=>`<div class="slide ${i===0?'active':''}"><div class="container slide-grid"><div class="slide-copy">${x.eyebrow_ar?`<span>${safe(x.eyebrow_ar)}</span>`:''}<h1>${safe(x.title_ar)}</h1>${x.subtitle_ar?`<h2>${safe(x.subtitle_ar)}</h2>`:''}${x.description_ar?`<p>${safe(x.description_ar)}</p>`:''}${x.button_text_ar&&x.button_url?`<a class="btn btn-green" href="${safe(x.button_url)}">${safe(x.button_text_ar)}</a>`:''}</div>${x.image_url?`<img src="${safe(x.image_url)}" alt="${safe(x.title_ar)}" loading="eager">`:''}</div></div>`).join('')+'<button class="slide-arrow prev" type="button" aria-label="السابق">‹</button><button class="slide-arrow next" type="button" aria-label="التالي">›</button><div class="slide-dots">'+data.map((_,i)=>`<button class="${i===0?'active':''}" aria-label="${i+1}"></button>`).join('')+'</div>';
+ const slides=[...root.querySelectorAll('.slide')],dots=[...root.querySelectorAll('.slide-dots button')];let i=0,t;const show=n=>{i=(n+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('active',j===i));dots.forEach((x,j)=>x.classList.toggle('active',j===i))};const auto=()=>{clearInterval(t);t=setInterval(()=>show(i+1),5500)};root.querySelector('.prev').onclick=()=>{show(i-1);auto()};root.querySelector('.next').onclick=()=>{show(i+1);auto()};dots.forEach((d,j)=>d.onclick=()=>{show(j);auto()});auto();
+}
+loadDynamicSlider();
+</script>
 <script>(function(){const slides=[...document.querySelectorAll('.home-slider .slide')],dots=[...document.querySelectorAll('.slide-dots button')];if(!slides.length)return;let i=0,t;function show(n){i=(n+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('active',j===i));dots.forEach((x,j)=>x.classList.toggle('active',j===i));}function auto(){clearInterval(t);t=setInterval(()=>show(i+1),5500)}document.querySelector('.slide-arrow.prev')?.addEventListener('click',()=>{show(i-1);auto()});document.querySelector('.slide-arrow.next')?.addEventListener('click',()=>{show(i+1);auto()});dots.forEach((d,j)=>d.addEventListener('click',()=>{show(j);auto()}));auto()})();</script>
 <script>
 (function(){
