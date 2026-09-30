@@ -28,3 +28,8 @@
 https://sam190fhsg-bit.github.io/Dr.baset.com/
 
 بعد رفع هذه الحزمة يكون الجزء الثابت من الموقع جاهزًا للانتقال إلى Supabase.
+
+PHASE 6 (Slider + Media):
+- Upload/replace index.html, admin-content.html, media-library.html and the PHASE6 files.
+- Run PHASE6-SLIDER-MEDIA-INTEGRATION.sql once in Supabase SQL Editor.
+- Images categorized as slider can appear on the homepage automatically; use the admin slider page for title/order/publish controls.

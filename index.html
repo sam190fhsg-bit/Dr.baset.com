@@ -758,17 +758,62 @@ loadArticles();
 </script>
 
 <script>
-async function loadDynamicSlider(){
- const root=document.querySelector('.home-slider'); if(!root)return;
- const {data,error}=await supabaseClient.from('sliders').select('*').eq('is_published',true).order('sort_order',{ascending:true});
- if(error||!data?.length)return; // إبقاء السلايدر الافتراضي إذا لم توجد شرائح منشورة.
- const safe=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- root.innerHTML=data.map((x,i)=>`<div class="slide ${i===0?'active':''}"><div class="container slide-grid"><div class="slide-copy">${x.eyebrow_ar?`<span>${safe(x.eyebrow_ar)}</span>`:''}<h1>${safe(x.title_ar)}</h1>${x.subtitle_ar?`<h2>${safe(x.subtitle_ar)}</h2>`:''}${x.description_ar?`<p>${safe(x.description_ar)}</p>`:''}${x.button_text_ar&&x.button_url?`<a class="btn btn-green" href="${safe(x.button_url)}">${safe(x.button_text_ar)}</a>`:''}</div>${x.image_url?`<img src="${safe(x.image_url)}" alt="${safe(x.title_ar)}" loading="eager">`:''}</div></div>`).join('')+'<button class="slide-arrow prev" type="button" aria-label="السابق">‹</button><button class="slide-arrow next" type="button" aria-label="التالي">›</button><div class="slide-dots">'+data.map((_,i)=>`<button class="${i===0?'active':''}" aria-label="${i+1}"></button>`).join('')+'</div>';
- const slides=[...root.querySelectorAll('.slide')],dots=[...root.querySelectorAll('.slide-dots button')];let i=0,t;const show=n=>{i=(n+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('active',j===i));dots.forEach((x,j)=>x.classList.toggle('active',j===i))};const auto=()=>{clearInterval(t);t=setInterval(()=>show(i+1),5500)};root.querySelector('.prev').onclick=()=>{show(i-1);auto()};root.querySelector('.next').onclick=()=>{show(i+1);auto()};dots.forEach((d,j)=>d.onclick=()=>{show(j);auto()});auto();
-}
-loadDynamicSlider();
+(function(){
+ const root=document.querySelector('.home-slider');
+ if(!root)return;
+ const safe=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ let timer=null;
+ function activateSlider(){
+  const slides=[...root.querySelectorAll('.slide')],dots=[...root.querySelectorAll('.slide-dots button')];
+  if(!slides.length)return;
+  let i=Math.max(0,slides.findIndex(x=>x.classList.contains('active')));
+  const show=n=>{i=(n+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('active',j===i));dots.forEach((x,j)=>x.classList.toggle('active',j===i));};
+  const auto=()=>{clearInterval(timer);if(slides.length>1)timer=setInterval(()=>show(i+1),5500);};
+  root.querySelector('.slide-arrow.prev')?.addEventListener('click',()=>{show(i-1);auto()});
+  root.querySelector('.slide-arrow.next')?.addEventListener('click',()=>{show(i+1);auto()});
+  dots.forEach((d,j)=>d.addEventListener('click',()=>{show(j);auto()}));
+  show(i);auto();
+ }
+ function rebuildDots(){
+  const slides=[...root.querySelectorAll('.slide')];
+  const dots=root.querySelector('.slide-dots');
+  if(dots)dots.innerHTML=slides.map((_,i)=>`<button class="${i===0?'active':''}" aria-label="${i+1}"></button>`).join('');
+  slides.forEach((x,i)=>x.classList.toggle('active',i===0));
+ }
+ function mediaSlide(m){
+  const title=safe(m.title||m.alt_text||'من العيادة');
+  const alt=safe(m.alt_text||m.title||'صورة من العيادة');
+  return `<div class="slide"><div class="container slide-grid"><div class="slide-copy"><span>عيادة الدكتور عبده الباسط</span><h1>${title}</h1>${m.caption?`<p>${safe(m.caption)}</p>`:''}<a class="btn btn-green" href="booking.html">احجز موعدك</a></div><img src="${safe(m.url)}" alt="${alt}" loading="eager" decoding="async"></div></div>`;
+ }
+ async function load(){
+  try{
+   const [sr,mr]=await Promise.all([
+    supabaseClient.from('sliders').select('*').eq('is_published',true).order('sort_order',{ascending:true}),
+    supabaseClient.from('media').select('id,url,title,alt_text,caption,category,linked_type,linked_id,created_at').eq('category','slider').is('deleted_at',null).order('created_at',{ascending:true})
+   ]);
+   const sliders=sr.error?[]:(sr.data||[]);
+   const media=mr.error?[]:(mr.data||[]);
+   const used=new Set(sliders.map(x=>x.image_url).filter(Boolean));
+   const extra=media.filter(m=>m.url&&!used.has(m.url));
+   if(sliders.length){
+    const all=sliders.map((x,i)=>{
+     const buttonText=x.button_text_ar||x.cta_ar||'';
+     const buttonUrl=x.button_url||x.target_url||'';
+     return `<div class="slide ${i===0?'active':''}"><div class="container slide-grid"><div class="slide-copy">${x.eyebrow_ar?`<span>${safe(x.eyebrow_ar)}</span>`:''}<h1>${safe(x.title_ar||'')}</h1>${x.subtitle_ar?`<h2>${safe(x.subtitle_ar)}</h2>`:''}${x.description_ar?`<p>${safe(x.description_ar)}</p>`:''}${buttonText&&buttonUrl?`<a class="btn btn-green" href="${safe(buttonUrl)}">${safe(buttonText)}</a>`:''}</div>${x.image_url?`<img src="${safe(x.image_url)}" alt="${safe(x.title_ar||'صورة السلايدر')}" loading="eager" decoding="async">`:''}</div></div>`;
+    }).concat(extra.map(mediaSlide));
+    root.innerHTML=all.join('')+'<button class="slide-arrow prev" type="button" aria-label="السابق">‹</button><button class="slide-arrow next" type="button" aria-label="التالي">›</button><div class="slide-dots"></div>';
+    rebuildDots();
+   }else if(extra.length){
+    const next=root.querySelector('.slide-arrow.next');
+    extra.forEach(m=>next?.insertAdjacentHTML('beforebegin',mediaSlide(m)));
+    rebuildDots();
+   }
+  }catch(e){console.warn('Slider load fallback:',e)}
+  activateSlider();
+ }
+ load();
+})();
 </script>
-<script>(function(){const slides=[...document.querySelectorAll('.home-slider .slide')],dots=[...document.querySelectorAll('.slide-dots button')];if(!slides.length)return;let i=0,t;function show(n){i=(n+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('active',j===i));dots.forEach((x,j)=>x.classList.toggle('active',j===i));}function auto(){clearInterval(t);t=setInterval(()=>show(i+1),5500)}document.querySelector('.slide-arrow.prev')?.addEventListener('click',()=>{show(i-1);auto()});document.querySelector('.slide-arrow.next')?.addEventListener('click',()=>{show(i+1);auto()});dots.forEach((d,j)=>d.addEventListener('click',()=>{show(j);auto()}));auto()})();</script>
 <script>
 (function(){
  const targets=document.querySelectorAll('.section,.extras-section,.specialty,.media-card,.article,.booking-box');
@@ -781,3 +826,5 @@ loadDynamicSlider();
 <script src="site-enhancements.js?v=20260930"></script>
 </body>
 </html>
+
+<!-- PHASE6 slider-media integration 2026-09-30 -->
