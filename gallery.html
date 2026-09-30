@@ -54,7 +54,7 @@ footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;gr
 </header>
 <section class="page-hero"><span class="crumb">المعرض</span><h1>الصور والفيديو</h1><p>مساحة مخصصة لصور العيادة والأجهزة والفيديوهات التوعوية.</p></section>
 <section class="section"><div class="container"><div class="grid">
-<div class="empty-media"><strong>صور العيادة</strong><p>لا توجد صور منشورة في هذا القسم حاليًا.</p></div>
+<div id="galleryGrid" class="grid"><div class="empty-media"><strong>جاري تحميل الصور...</strong></div></div>
 <div class="card"><div class="gallery-placeholder">صور الأجهزة</div><h3>الأجهزة</h3><p>مناظير وتجهيزات العيادة.</p></div>
 <div class="empty-media"><strong>الفيديوهات</strong><p>يمكن مشاهدة المحتوى المنشور من صفحة الفيديوهات.</p><a class="more" href="videos.html">فتح مكتبة الفيديوهات ←</a></div>
 </div></div></section>
@@ -67,4 +67,6 @@ footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;gr
 </div></footer>
 <a href="https://wa.me/967777560603" class="floating-whatsapp" aria-label="واتساب">W</a>
 <script src="site-enhancements.js?v=20260930"></script>
-</body></html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script>
+(async()=>{const g=document.getElementById('galleryGrid');if(!g)return;const {data,error}=await supabaseClient.from('media').select('url,title,alt_text,caption,category,created_at').is('deleted_at',null).in('category',['gallery','articles','events','endoscopy']).order('created_at',{ascending:false}).limit(100);if(error){g.innerHTML='<div class="empty-media">تعذر تحميل الصور الآن.</div>';return}if(!data?.length){g.innerHTML='<div class="empty-media">لا توجد صور منشورة حاليًا.</div>';return}g.innerHTML=data.map(x=>`<figure class="card" style="overflow:hidden;padding:0"><img src="${x.url}" alt="${x.alt_text||x.title||''}" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"><figcaption style="padding:12px"><strong>${x.title||x.alt_text||''}</strong>${x.caption?`<p>${x.caption}</p>`:''}</figcaption></figure>`).join('')})();
+</script></body></html>
