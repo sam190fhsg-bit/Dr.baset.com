@@ -557,6 +557,8 @@ footer p,footer a{
    <a href="endoscopy.html">المناظير</a>
    <a href="articles.html">المكتبة الطبية</a>
    <a href="faq.html">الأسئلة الشائعة</a>
+   <a href="events.html">المؤتمرات والفعاليات</a>
+   <a href="search.html" aria-label="البحث" title="البحث">🔍</a>
    <a class="book-nav" href="booking.html">حجز موعد</a>
   </nav>
  </div>
@@ -704,8 +706,8 @@ footer p,footer a{
  <div class="container">
   <div class="footer-grid">
    <div><h3>تواصل معنا</h3><p>☎ 777560603 - 777554626</p><p>✉ baset.clinic@gmail.com</p><p>📍 مركز المأمون الطبي التشخيصي – صنعاء – شارع تعز – جولة تعز</p></div>
-   <div><h3>روابط مهمة</h3><div class="footer-links"><a href="index.html">الرئيسية</a><a href="about.html">عن الدكتور</a><a href="services.html">الخدمات</a><a href="articles.html">المكتبة الطبية</a><a href="faq.html">الأسئلة الشائعة</a><a href="booking.html">الحجز</a><a href="videos.html">الفيديوهات</a><a href="careers.html">التوظيف</a><a href="survey.html">الاستبيان</a><a href="identity.html">هويتنا</a></div></div>
-   <div><h3>مواعيد العيادة</h3><p>يتم تحديث مواعيد الدوام حسب جدول العيادة.</p><a class="more" href="contact.html">تواصل معنا</a></div>
+   <div><h3>روابط مهمة</h3><div class="footer-links"><a href="index.html">الرئيسية</a><a href="about.html">عن الدكتور</a><a href="services.html">الخدمات</a><a href="articles.html">المكتبة الطبية</a><a href="faq.html">الأسئلة الشائعة</a><a href="booking.html">الحجز</a><a href="videos.html">الفيديوهات</a><a href="careers.html">التوظيف</a><a href="survey.html">الاستبيان</a><a href="identity.html">هويتنا</a><a href="events.html">المؤتمرات والفعاليات</a><a href="search.html">البحث</a></div></div>
+   <div><h3>مواعيد العيادة</h3><table class="working-hours"><tr><th>الأيام</th><td>السبت – الخميس</td></tr><tr><th>الصباحية</th><td>9:00 صباحًا – 2:00 ظهرًا</td></tr><tr><th>المسائية</th><td>4:00 عصرًا – 9:00 مساءً</td></tr></table><a class="more" href="contact.html">تواصل معنا</a></div>
   </div>
   <div class="copyright">جميع الحقوق محفوظة © 2026 عيادة الدكتور عبده الباسط عبده الحاج مقبل</div>
  </div>
@@ -719,7 +721,7 @@ const diseaseIcons = ["🩺","🫀","🧬","🩸","💧","⚕","◎","◉","◒"
 const diseasesGrid=document.getElementById('diseasesGrid');
 async function loadAllDiseases(){
  const {data,error}=await supabaseClient.from('diseases').select('slug,title_ar,category,sort_order').eq('is_published',true).order('category').order('sort_order',{ascending:true});
- if(error||!data?.length){diseasesGrid.innerHTML='<div class="disease"><h4>تعذر تحميل الحالات المرضية</h4></div>';return;}
+ if(error){diseasesGrid.innerHTML='<div class="state-box"><h4>تعذر تحميل الحالات المرضية الآن</h4><button type="button" onclick="loadAllDiseases()">إعادة المحاولة</button></div>';return;} if(!data?.length){diseasesGrid.innerHTML='<div class="state-box"><h4>لا توجد حالات مرضية منشورة حاليًا.</h4></div>';return;}
  diseasesGrid.innerHTML=data.map((d,i)=>`<a class="disease disease-link tap-card" href="disease.html?slug=${encodeURIComponent(d.slug)}"><div class="ico disease-ico">${diseaseIcons[i%diseaseIcons.length]}</div><h4>${String(d.title_ar||'').replaceAll('<','&lt;').replaceAll('>','&gt;')}</h4><small>عرض التفاصيل</small></a>`).join('');
 }
 loadAllDiseases();
@@ -763,5 +765,6 @@ loadArticles();
  targets.forEach(el=>io.observe(el));
 })();
 </script>
+<script src="site-enhancements.js?v=20260930"></script>
 </body>
 </html>
