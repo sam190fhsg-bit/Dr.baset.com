@@ -1,0 +1,5 @@
+/* Phase31: eliminate duplicate legacy footer and separate WhatsApp booking */
+footer:not(.phase30-footer), .floating-whatsapp {display:none!important}
+.phase30-wa{position:fixed!important;left:18px!important;right:auto!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;z-index:10050!important;background:#128c49!important;box-shadow:0 8px 25px #0004!important;border:2px solid #fff!important;max-width:170px!important}
+.phase30-wa:hover{background:#0b733a!important}
+@media(max-width:750px){.phase30-wa{left:9px!important;right:auto!important;top:50%!important;bottom:auto!important;padding:12px!important}.phase30-wa span{font-size:11px!important}.phase30-wa svg{width:27px;height:27px}}
