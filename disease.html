@@ -37,7 +37,7 @@ footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;gr
 .disease-visual{display:none;width:92%;max-width:1180px;margin:34px auto 0;border-radius:18px;overflow:hidden;background:#f3f7f5;border:1px solid #e3ebef;box-shadow:0 10px 30px rgba(7,61,104,.08)}
 .disease-visual img{display:block;width:100%;height:clamp(230px,42vw,520px);object-fit:cover;object-position:center}
 @media(max-width:600px){.disease-visual{width:92%;margin-top:22px;border-radius:14px}.disease-visual img{height:240px}}
-</style></head><body>
+</style><link rel="stylesheet" href="phase24.css?v=24"></head><body>
 <header>
 <div class="container nav">
   <div class="brand-area">
@@ -87,6 +87,20 @@ if(d){
  document.getElementById("diagnosis").textContent=d.diagnosis;document.getElementById("treatment").textContent=d.treatment;
  document.getElementById("backLink").href=d.back;
  addList("causes",d.causes);addList("symptoms",d.symptoms);addList("tips",d.tips);
+ const endoNotes={
+ 'upper-endoscopy':'قد يتطلب منظار المعدة الصيام قبل الإجراء؛ ويُستخدم لفحص المريء والمعدة والاثني عشر وقد تُؤخذ خزعات بحسب الحالة.',
+ 'colonoscopy':'يتطلب منظار القولون عادة تحضير الأمعاء مسبقًا. ويمكن أثناءه فحص بطانة القولون وأخذ خزعات أو إزالة زوائد عند الحاجة.',
+ 'biopsy':'تساعد الخزعة على دراسة عينة صغيرة من الأنسجة، ولا تعني بحد ذاتها تشخيص مرض خبيث.',
+ 'polypectomy':'إزالة اللحميات بالمنظار إجراء علاجي لبعض الزوائد، وقد تُرسل العينات للفحص النسيجي.',
+ 'endoscopic-hemostasis':'يستخدم المنظار في بعض حالات نزيف الجهاز الهضمي لتحديد المصدر وإيقافه بوسائل مناسبة.',
+ 'foreign-body-removal':'قد يزيل المنظار جسمًا غريبًا عالقًا؛ ابتلاع بطارية أو جسم حاد أو صعوبة التنفس حالة طارئة.',
+ 'dilation':'قد يساعد التوسيع بالمنظار في علاج أنواع محددة من التضيق بعد التقييم.'};
+ if(d.category==='المناظير'){
+ const detail=endoNotes[key]||'يحدد الطبيب التحضير المناسب للمنظار والحاجة إلى التخدير أو الخزعات أو التدخل العلاجي حسب الحالة.';
+ const note=document.createElement('div');note.className='info-box';note.innerHTML='<h2>معلومات عن الإجراء والتحضير</h2>';
+ const paragraph=document.createElement('p');paragraph.textContent=detail+' أخبر الطبيب بالأدوية والأمراض المصاحبة، واتبع تعليمات التحضير والتعافي.';note.appendChild(paragraph);
+ document.getElementById('content').querySelector('.container')?.appendChild(note);
+ }
  // Load the image linked to this disease from Supabase so admin changes appear automatically.
  (async()=>{
    try{
@@ -112,4 +126,4 @@ if(d){
 </div></footer>
 <a href="https://wa.me/967777560603" class="floating-whatsapp" aria-label="واتساب">W</a>
 <script src="site-enhancements.js?v=20260930"></script>
-<script src="interface-public.js" defer></script></body></html>
+<script src="interface-public.js" defer></script><script src="phase24.js?v=24" defer></script></body></html>

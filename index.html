@@ -539,7 +539,7 @@ a.btn:active,button:active{transform:scale(.97)}
 :focus-visible{outline:3px solid #2388bb!important;outline-offset:3px}
 @media(hover:hover){:is(.service-card,.condition-card,.endoscopy-card,.article,.trust-card,.journey-step,.card):hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(6,75,124,.12)}}
 @media(prefers-reduced-motion:reduce){:is(.service-card,.condition-card,.endoscopy-card,.article,.trust-card,.journey-step,.card){transition:none!important}}
-</style></head>
+</style><link rel="stylesheet" href="phase24.css?v=24"></head>
 
 <body>
 
@@ -832,7 +832,7 @@ loadArticles();
 })();
 </script>
 <script src="site-enhancements.js?v=20260930"></script>
-<script src="phase15-public.js"></script><script defer src="interface-public.js"></script><script src="phase20-media.js?v=20"></script><script id="phase21-booking-script">(()=>{const date=document.getElementById('appointment-date'),service=document.getElementById('appointment-service'),notice=document.getElementById('appointment-notice'),link=document.getElementById('appointment-link'),buttons=[...document.querySelectorAll('[data-booking-time]')];if(!date)return;const today=new Date();const local=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);date.min=local;date.value=local;function update(){const selected=date.value;const friday=selected&&new Date(selected+'T12:00:00').getDay()===5;notice.textContent=friday?'الجمعة إجازة. يرجى اختيار يوم آخر.':'السبت إلى الخميس · أوقات الدوام المعروضة إرشادية وليست توفرًا مؤكدًا.';buttons.forEach(b=>b.disabled=friday||!selected);const params=new URLSearchParams();if(selected)params.set('date',selected);if(service.value)params.set('service',service.value);link.href='booking.html?'+params.toString()}date.addEventListener('change',update);service.addEventListener('change',update);buttons.forEach(b=>b.addEventListener('click',()=>{update();if(b.disabled)return;const u=new URL(link.href,location.href);u.searchParams.set('time',b.dataset.bookingTime);location.href=u.href}));update()})();</script></body>
+<script src="phase15-public.js"></script><script defer src="interface-public.js"></script><script src="phase20-media.js?v=20"></script><script id="phase21-booking-script">(()=>{const date=document.getElementById('appointment-date'),service=document.getElementById('appointment-service'),notice=document.getElementById('appointment-notice'),link=document.getElementById('appointment-link'),buttons=[...document.querySelectorAll('[data-booking-time]')];if(!date)return;const today=new Date();const local=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);date.min=local;date.value=local;function update(){const selected=date.value;const friday=selected&&new Date(selected+'T12:00:00').getDay()===5;notice.textContent=friday?'الجمعة إجازة. يرجى اختيار يوم آخر.':'السبت إلى الخميس · أوقات الدوام المعروضة إرشادية وليست توفرًا مؤكدًا.';buttons.forEach(b=>b.disabled=friday||!selected);const params=new URLSearchParams();if(selected)params.set('date',selected);if(service.value)params.set('service',service.value);link.href='booking.html?'+params.toString()}date.addEventListener('change',update);service.addEventListener('change',update);buttons.forEach(b=>b.addEventListener('click',()=>{update();if(b.disabled)return;const u=new URL(link.href,location.href);u.searchParams.set('time',b.dataset.bookingTime);location.href=u.href}));update()})();</script><script src="phase24.js?v=24" defer></script></body>
 </html>
 
 <!-- PHASE6 slider-media integration 2026-09-30 -->
