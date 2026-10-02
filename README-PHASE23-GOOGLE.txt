@@ -1,0 +1,1 @@
+PHASE23: Removed public clinic email from homepage, preserved other files. Sitemap filters nonexisting and admin URLs. Search Console account email is not published by verification. Google indexing is not guaranteed. Review any public GitHub history and externally indexed pages separately.
