@@ -154,4 +154,4 @@ document.getElementById("bookingForm").addEventListener("submit", async function
 </div></footer>
 <a href="https://wa.me/967777560603" class="floating-whatsapp" aria-label="واتساب">W</a>
 <script src="site-enhancements.js?v=20260930"></script>
-<script src="interface-public.js" defer></script></body></html>
+<script src="interface-public.js" defer></script><script id="phase21-booking-prefill">(()=>{const q=new URLSearchParams(location.search);for(const id of ['date','time']){const e=document.getElementById(id);if(e&&q.has(id))e.value=q.get(id)}if(q.has('service')){const select=[...document.querySelectorAll('select')].find(e=>[...e.options].some(o=>o.value===q.get('service')||o.textContent.trim()===q.get('service')));if(select){const option=[...select.options].find(o=>o.value===q.get('service')||o.textContent.trim()===q.get('service'));if(option)select.value=option.value}}})();</script></body></html>
