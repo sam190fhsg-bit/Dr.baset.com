@@ -628,18 +628,18 @@ footer p,footer a{
 <section class="section">
  <div class="container">
   <div class="heading"><h2>مناظير الجهاز الهضمي</h2><div class="heading-line"></div></div>
-  <div class="endoscopy-grid">
-   <a class="media-card" href="service-details.html?slug=gastroscopy">
-    <div class="media-img">◉</div><div class="body"><h3>منظار المعدة</h3><p>فحص المريء والمعدة والاثني عشر للمساعدة في التشخيص.</p><span class="more">اعرف المزيد</span></div>
+  <div class="endoscopy-grid" id="endoscopyHomeGrid">
+   <a class="media-card" data-service="gastroscopy" href="service-details.html?slug=gastroscopy">
+    <div class="media-img" data-image-slot="gastroscopy"></div><div class="body"><h3>منظار المعدة</h3><p>فحص المريء والمعدة والاثني عشر للمساعدة في التشخيص.</p><span class="more">اعرف المزيد</span></div>
    </a>
-   <a class="media-card" href="service-details.html?slug=colonoscopy">
-    <div class="media-img">▥</div><div class="body"><h3>منظار القولون</h3><p>تقييم القولون والمستقيم وتشخيص العديد من الحالات.</p><span class="more">اعرف المزيد</span></div>
+   <a class="media-card" data-service="colonoscopy" href="service-details.html?slug=colonoscopy">
+    <div class="media-img" data-image-slot="colonoscopy"></div><div class="body"><h3>منظار القولون</h3><p>تقييم القولون والمستقيم وتشخيص العديد من الحالات.</p><span class="more">اعرف المزيد</span></div>
    </a>
-   <a class="media-card" href="service-details.html?slug=endoscopic-biopsy">
-    <div class="media-img">⌁</div><div class="body"><h3>أخذ الخزعات</h3><p>أخذ عينات من الأنسجة أثناء المنظار عند الحاجة.</p><span class="more">اعرف المزيد</span></div>
+   <a class="media-card" data-service="endoscopic-biopsy" href="service-details.html?slug=endoscopic-biopsy">
+    <div class="media-img" data-image-slot="endoscopic-biopsy"></div><div class="body"><h3>أخذ الخزعات</h3><p>أخذ عينات من الأنسجة أثناء المنظار عند الحاجة.</p><span class="more">اعرف المزيد</span></div>
    </a>
-   <a class="media-card" href="service-details.html?slug=therapeutic-endoscopy">
-    <div class="media-img">✚</div><div class="body"><h3>المنظار العلاجي</h3><p>إجراءات منظارية علاجية للحالات المناسبة بعد التقييم.</p><span class="more">اعرف المزيد</span></div>
+   <a class="media-card" data-service="therapeutic-endoscopy" href="service-details.html?slug=therapeutic-endoscopy">
+    <div class="media-img" data-image-slot="therapeutic-endoscopy"></div><div class="body"><h3>المنظار العلاجي</h3><p>إجراءات منظارية علاجية للحالات المناسبة بعد التقييم.</p><span class="more">اعرف المزيد</span></div>
    </a>
   </div>
  </div>
@@ -728,12 +728,13 @@ async function loadAllDiseases(){
 }
 loadAllDiseases();
 
+const escapeP20=v=>String(v||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const articlesGrid=document.getElementById('articlesGrid');
 
 async function loadArticles(){
  const {data,error}=await supabaseClient
  .from('articles')
- .select('slug,title_ar,excerpt_ar')
+ .select('slug,title_ar,excerpt_ar,cover_url')
  .eq('is_published',true)
  .order('published_at',{ascending:false})
  .limit(3);
@@ -744,11 +745,11 @@ async function loadArticles(){
  }
 
  articlesGrid.innerHTML=data.map(a=>`
-  <a class="article" href="articles.html">
-   <div class="article-img">✚</div>
+  <a class="article" href="article-details.html?slug=${encodeURIComponent(a.slug)}">
+   <div class="article-img">${a.cover_url?`<img src="${escapeP20(a.cover_url)}" alt="${escapeP20(a.title_ar)}" loading="lazy" style="width:100%;height:100%;object-fit:cover">`:""}</div>
    <div class="article-body">
-    <h3>${a.title_ar||''}</h3>
-    <p>${a.excerpt_ar||''}</p>
+    <h3>${escapeP20(a.title_ar)}</h3>
+    <p>${escapeP20(a.excerpt_ar)}</p>
    </div>
   </a>
  `).join('');
@@ -825,7 +826,7 @@ loadArticles();
 })();
 </script>
 <script src="site-enhancements.js?v=20260930"></script>
-<script src="phase15-public.js"></script><script defer src="interface-public.js"></script></body>
+<script src="phase15-public.js"></script><script defer src="interface-public.js"></script><script src="phase20-media.js?v=20"></script></body>
 </html>
 
 <!-- PHASE6 slider-media integration 2026-09-30 -->
