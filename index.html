@@ -524,7 +524,7 @@ footer p,footer a{
 </style>
 <link rel="stylesheet" href="site-theme.css?v=10">
 <link rel="stylesheet" href="site-theme.css?v=20260930">
-</head>
+<style>.home-slider::before,.home-slider::after,.home-slider .slide::before,.home-slider .slide::after{box-shadow:none!important;filter:none!important;animation:none!important}</style></head>
 
 <body>
 
@@ -768,7 +768,7 @@ loadArticles();
   if(!slides.length)return;
   let i=Math.max(0,slides.findIndex(x=>x.classList.contains('active')));
   const show=n=>{i=(n+slides.length)%slides.length;slides.forEach((x,j)=>x.classList.toggle('active',j===i));dots.forEach((x,j)=>x.classList.toggle('active',j===i));};
-  const auto=()=>{clearInterval(timer);if(slides.length>1)timer=setInterval(()=>show(i+1),5500);};
+  const auto=()=>{clearInterval(timer);if(slides.length>1)timer=setInterval(()=>show(i+1),Math.max(1500,Number(root.dataset.interval)||5500));};
   root.querySelector('.slide-arrow.prev')?.addEventListener('click',()=>{show(i-1);auto()});
   root.querySelector('.slide-arrow.next')?.addEventListener('click',()=>{show(i+1);auto()});
   dots.forEach((d,j)=>d.addEventListener('click',()=>{show(j);auto()}));
@@ -787,6 +787,7 @@ loadArticles();
  }
  async function load(){
   try{
+   const {data:settings}=await supabaseClient.from("site_sections").select("content").eq("section_key","slider_settings").maybeSingle();if(settings?.content){root.dataset.interval=settings.content.interval||5500;}
    const [sr,mr]=await Promise.all([
     supabaseClient.from('sliders').select('*').eq('is_published',true).order('sort_order',{ascending:true}),
     supabaseClient.from('media').select('id,url,title,alt_text,caption,category,linked_type,linked_id,created_at').eq('category','slider').is('deleted_at',null).order('created_at',{ascending:true})
@@ -824,7 +825,7 @@ loadArticles();
 })();
 </script>
 <script src="site-enhancements.js?v=20260930"></script>
-</body>
+<script src="phase15-public.js"></script></body>
 </html>
 
 <!-- PHASE6 slider-media integration 2026-09-30 -->
