@@ -1,0 +1,15 @@
+/* Phase29: override earlier conflicting full-bleed and Phase28 slide declarations */
+.home-slider,.home-slider .slide,.home-slider .slide-grid{height:auto!important;min-height:0!important}
+.home-slider .slide-grid{display:grid!important;grid-template-columns:1fr!important;position:relative!important;padding:0!important;width:100%!important;max-width:none!important;min-height:0!important;align-items:stretch!important}
+.home-slider .slide-grid>img{display:block!important;position:relative!important;inset:auto!important;z-index:0!important;width:100%!important;height:auto!important;max-width:none!important;max-height:none!important;object-fit:contain!important;object-position:center!important;filter:none!important;aspect-ratio:16/7;background:#eef5f9}
+.home-slider .slide-grid::after{display:none!important}
+.home-slider .slide-copy{position:absolute!important;z-index:2!important;inset:auto 6% 12% auto!important;max-width:min(480px,60%)!important;width:auto!important;padding:14px 18px!important;background:rgba(255,255,255,.84)!important;border-radius:14px!important;text-align:right!important}
+.home-slider .slide-arrow,.home-slider .slide-dots{z-index:8!important}
+.phase29-events{padding:55px 0;background:#f6faf8}.phase29-events-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.phase29-event{border:1px solid #dfe8e6;border-radius:18px;overflow:hidden;background:white}.phase29-event img{width:100%;height:190px;object-fit:cover}.phase29-event-body{padding:16px}.phase29-event h3{color:#064b7c;margin:8px 0}.phase29-events-link{text-align:center;margin-top:24px}
+@media(max-width:800px){.home-slider .slide-grid{display:grid!important;grid-template-columns:1fr!important;padding:0!important}.home-slider .slide-grid>img{aspect-ratio:4/5!important;max-height:70vh!important;object-fit:contain!important}.home-slider .slide-copy{inset:auto 4% 10% 4%!important;max-width:none!important;width:auto!important;padding:9px 12px!important;background:rgba(255,255,255,.88)!important}.home-slider .slide-copy h1{font-size:clamp(18px,5vw,26px)!important}.home-slider .slide-copy h2{font-size:16px!important}.home-slider .slide-copy p{font-size:13px!important}.phase29-events-grid{grid-template-columns:1fr}}
+
+/* Hide the requested public information footer without changing administrative pages */
+body > footer,body > .site-footer,body > #site-footer,body .footer-main,body .global-footer{display:none!important}
+/* Keep fixed booking button accessible but not over content */
+@media(max-width:800px){.home-slider .slide-grid>img{width:100%!important;height:auto!important;aspect-ratio:auto!important;max-height:72vh!important;object-fit:contain!important}.home-slider .slide-copy{position:relative!important;inset:auto!important;max-width:100%!important;background:#f7fbfc!important;margin:0 12px 42px!important}.home-slider .slide-grid{display:flex!important;flex-direction:column!important}.home-slider .slide-arrow{top:36%!important}}
+@media(min-width:801px){.home-slider .slide-grid>img{max-height:650px!important;aspect-ratio:auto!important;object-fit:contain!important}.home-slider .slide-grid{min-height:320px!important}}
