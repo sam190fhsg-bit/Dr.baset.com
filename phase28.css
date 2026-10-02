@@ -1,0 +1,7 @@
+/* Phase 28: fluid, non-cropped slide media */
+.home-slider,.home-slider .slide{height:auto!important;min-height:0!important}
+.home-slider .slide-grid{min-height:0!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;align-items:center;overflow:hidden}
+.home-slider .slide-grid img{display:block!important;width:100%!important;height:auto!important;max-width:100%!important;max-height:450px!important;object-fit:contain!important;object-position:center!important}
+.home-slider .slide-grid>*{min-width:0}
+@media(max-width:800px){.home-slider .slide-grid{display:flex!important;flex-direction:column-reverse!important;gap:12px!important;padding:12px 14px 55px!important}.home-slider .slide-grid img{height:auto!important;max-height:55vh!important;min-height:0!important;object-fit:contain!important}.home-slider .slide-copy{width:100%;text-align:center;padding:5px 0}.home-slider .slide-copy h1{font-size:clamp(22px,6vw,32px)}.home-slider .slide-copy h2{font-size:19px}.home-slider .slide-copy p{margin:8px auto}.home-slider .slide-arrow{top:45%}.home-slider .slide-center{min-height:260px}.appointment-overview{padding:36px 0}.appointment-overview .container{width:100%;padding:0 12px}#homeBookingForm{min-height:900px}}
+.phase28-lang{display:inline-flex;align-items:center;gap:4px;padding:6px 9px;border:1px solid #c7ded2;border-radius:8px;background:#fff;color:#075077;font-weight:bold;cursor:pointer;white-space:nowrap}

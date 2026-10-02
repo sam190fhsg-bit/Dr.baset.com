@@ -1,0 +1,1 @@
+PHASE28: Homepage weekly timetable removed and full existing booking form embedded using booking-embed.html; original Supabase submission handler reused. Slide responsive media fixed. AR/EN toggle translates common interface labels only; full medical-content translation requires separate editorial translation. Test Supabase booking on live deployment.

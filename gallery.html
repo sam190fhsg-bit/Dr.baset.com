@@ -33,7 +33,7 @@ footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;gr
 @media(max-width:950px){.desktop-links{display:none}.mobile-menu{display:block}.grid,.grid.two,.grid.four{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.brand-text strong{font-size:14px}.brand-text span{display:none}.logo{width:48px;height:48px}.page-hero h1{font-size:28px}.grid,.grid.two,.grid.four,.footer-grid,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.mobile-links{width:245px}.form-box{padding:20px}}
 </style><link rel="stylesheet" href="site-theme.css?v=10">
-<link rel="stylesheet" href="phase24.css?v=24"><link rel="stylesheet" href="phase27.css?v=27"></head><body>
+<link rel="stylesheet" href="phase24.css?v=24"><link rel="stylesheet" href="phase27.css?v=27"><link rel="stylesheet" href="phase28.css?v=28"></head><body>
 <header>
 <div class="container nav">
   <div class="brand-area">
@@ -69,4 +69,4 @@ footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;gr
 <script src="site-enhancements.js?v=20260930"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script>
 (async()=>{const g=document.getElementById('galleryGrid');if(!g)return;const {data,error}=await supabaseClient.from('media').select('url,title,alt_text,caption,category,created_at').is('deleted_at',null).in('category',['gallery','articles','events','endoscopy']).order('created_at',{ascending:false}).limit(100);if(error){g.innerHTML='<div class="empty-media">تعذر تحميل الصور الآن.</div>';return}if(!data?.length){g.innerHTML='<div class="empty-media">لا توجد صور منشورة حاليًا.</div>';return}g.innerHTML=data.map(x=>`<figure class="card" style="overflow:hidden;padding:0"><img src="${x.url}" alt="${x.alt_text||x.title||''}" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block"><figcaption style="padding:12px"><strong>${x.title||x.alt_text||''}</strong>${x.caption?`<p>${x.caption}</p>`:''}</figcaption></figure>`).join('')})();
-</script><script src="interface-public.js" defer></script><script src="phase24.js?v=24" defer></script><script src="phase27.js?v=27" defer></script></body></html>
+</script><script src="interface-public.js" defer></script><script src="phase24.js?v=24" defer></script><script src="phase27.js?v=27" defer></script><script src="phase28.js?v=28" defer></script></body></html>

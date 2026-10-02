@@ -1,0 +1,9 @@
+(function(){
+window.addEventListener('message',function(e){if(e.origin!==location.origin||e.data?.type!=='phase28-booking-height')return;const f=document.getElementById('homeBookingForm');if(f&&e.source===f.contentWindow)f.style.height=Math.max(700,Math.ceil(e.data.height)+12)+'px';});
+const dict={'الرئيسية':'Home','عن الدكتور':'About','الباطنة':'Internal Medicine','الكبد':'Liver','الجهاز الهضمي':'Gastroenterology','المناظير':'Endoscopy','المكتبة الطبية':'Medical Library','الأسئلة الشائعة':'FAQ','المؤتمرات والفعاليات':'Events','حجز موعد':'Book Appointment','احجز موعدك':'Book Appointment','تخصصاتنا':'Specialties','رحلة المراجع':'Patient Journey','التواصل':'Contact','البحث':'Search','تواصل معنا':'Contact Us'};
+function init(){const nav=document.querySelector('header .nav,header .container');if(!nav)return;const b=document.createElement('button');b.className='phase28-lang';b.type='button';b.setAttribute('aria-label','Switch interface language');const saved=localStorage.getItem('clinic-language')||'ar';let lang=saved;
+const nodes=[...document.querySelectorAll('header a,.section-title-premium,.appointment-overview h2')].filter(n=>!n.children.length&&dict[n.textContent.trim()]);nodes.forEach(n=>n.dataset.arOriginal=n.textContent.trim());
+function apply(){document.documentElement.lang=lang;b.textContent=lang==='ar'?'EN':'عربي';nodes.forEach(n=>{n.textContent=lang==='en'?dict[n.dataset.arOriginal]:n.dataset.arOriginal});}
+b.addEventListener('click',()=>{lang=lang==='ar'?'en':'ar';localStorage.setItem('clinic-language',lang);apply()});nav.append(b);apply();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();

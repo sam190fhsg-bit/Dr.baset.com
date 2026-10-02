@@ -1,0 +1,101 @@
+<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box}body{margin:0;background:transparent;color:#123e54;font:16px Arial,Tahoma,sans-serif;direction:rtl}.form-box{background:#fff;padding:25px;border:1px solid #e1ece6;border-radius:22px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.form-group{display:flex;flex-direction:column;gap:8px}.form-group label{font-weight:bold}.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px;border:1px solid #dce7e0;border-radius:11px;font:inherit;background:white;min-width:0}.full{grid-column:1/-1}.submit{width:100%;padding:16px;background:#4c963d;border:0;border-radius:12px;color:white;font:inherit;font-weight:bold;cursor:pointer;margin-top:18px}@media(max-width:600px){.form-grid{grid-template-columns:1fr}.full{grid-column:auto}.form-box{padding:16px}}</style><meta name="robots" content="noindex"></head><body><div class="form-box"><form id="bookingForm"><div class="form-grid">
+<div class="form-group"><label>الاسم الكامل</label><input id="name" required></div>
+<div class="form-group"><label>رقم الهاتف</label><input id="phone" type="tel" required></div>
+<div class="form-group"><label>العمر</label><input id="age" type="number" min="1" max="120"></div>
+<div class="form-group"><label>الجنس</label><select id="gender"><option value="">اختر</option><option>ذكر</option><option>أنثى</option></select></div>
+<div class="form-group"><label>الخدمة</label><select id="service" required><option value="">اختر الخدمة</option><option>أمراض الباطنة</option><option>أمراض الكبد</option><option>أمراض الجهاز الهضمي</option><option>منظار المعدة</option><option>منظار القولون</option><option>استشارة طبية</option></select></div>
+<div class="form-group"><label>التاريخ</label><input id="date" type="date"></div>
+<div class="form-group"><label>الوقت</label><input id="time" type="time"></div>
+<div class="form-group full"><label>سبب الزيارة</label><input id="reason"></div>
+<div class="form-group full"><label>ملاحظات</label><textarea id="notes" rows="4"></textarea></div>
+</div><button class="submit" type="submit">إرسال وتأكيد طلب الحجز</button>
+<p style="text-align:center;margin-top:12px;color:#687168">للحجز المباشر: 777560603 – 777554626</p></form></div><!-- Supabase Library -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<!-- Supabase Configuration -->
+<script src="supabase-config.js"></script>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const oldText = submitBtn.textContent;
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "جاري إرسال الطلب...";
+
+    const bookingData = {
+        full_name: document.getElementById("name").value.trim(),
+        patient_name: document.getElementById("name").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        age: document.getElementById("age").value
+            ? Number(document.getElementById("age").value)
+            : null,
+        gender: document.getElementById("gender").value || null,
+        service: document.getElementById("service").value || null,
+        preferred_date: document.getElementById("date").value || null,
+        preferred_time: document.getElementById("time").value || null,
+        reason: document.getElementById("reason").value.trim() || null,
+        notes: document.getElementById("notes").value.trim() || null
+    };
+
+    try {
+
+        const { error } = await supabaseClient
+            .from("bookings")
+            .insert([bookingData]);
+
+        if (error) {
+            throw error;
+        }
+
+        alert("تم إرسال طلب الحجز بنجاح");
+
+        const msg =
+`طلب حجز موعد جديد
+
+الاسم: ${bookingData.full_name}
+رقم الهاتف: ${bookingData.phone}
+العمر: ${bookingData.age || "غير محدد"}
+الجنس: ${bookingData.gender || "غير محدد"}
+الخدمة: ${bookingData.service || "غير محددة"}
+التاريخ: ${bookingData.preferred_date || "غير محدد"}
+الوقت: ${bookingData.preferred_time || "غير محدد"}
+سبب الزيارة: ${bookingData.reason || "غير محدد"}
+الملاحظات: ${bookingData.notes || "لا توجد"}`;
+
+        window.open(
+            "https://wa.me/967777560603?text=" + encodeURIComponent(msg),
+            "_blank"
+        );
+
+        this.reset();
+
+    } catch (error) {
+
+        console.error("Booking error:", error);
+
+        alert(
+  "خطأ Supabase:\n" +
+  (error.message || JSON.stringify(error))
+);
+
+    } finally {
+
+        submitBtn.disabled = false;
+        submitBtn.textContent = oldText;
+
+    }
+});
+</script>
+<footer><div class="container">
+<div class="footer-grid">
+<div><h3>عيادة الدكتور عبده الباسط</h3><p>استشاري أمراض الباطنة والكبد ومناظير الجهاز الهضمي</p><p>مركز المأمون الطبي التشخيصي – صنعاء – شارع تعز – جولة تعز</p></div>
+<div><h3>الأقسام</h3><a href="internal-medicine.html">أمراض الباطنة</a><a href="liver.html">أمراض الكبد</a><a href="gastroenterology.html">الجهاز الهضمي</a><a href="endoscopy.html">المناظير</a></div>
+<div><h3>روابط</h3><a href="about.html">عن الدكتور</a><a href="booking.html">حجز موعد</a><a href="search.html">البحث</a><a href="privacy.html">الخصوصية</a><a href="medical-disclaimer.html">التنبيه الطبي</a><a href="contact.html">تواصل معنا</a></div>
+</div><div class="copy">جميع الحقوق محفوظة © عيادة الدكتور عبده الباسط</div>
+</div></footer>
+<a href="https://wa.me/967777560603" class="floating-whatsapp" aria-label="واتساب">W</a>
+<script src="site-enhancements.js?v=20260930"></script>
+<script>const sendHeight=()=>parent.postMessage({type:'phase28-booking-height',height:document.documentElement.scrollHeight},location.origin);addEventListener('load',sendHeight);new ResizeObserver(sendHeight).observe(document.body);</script></body></html>
