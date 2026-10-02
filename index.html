@@ -524,7 +524,22 @@ footer p,footer a{
 </style>
 <link rel="stylesheet" href="site-theme.css?v=10">
 <link rel="stylesheet" href="site-theme.css?v=20260930">
-<style>.home-slider::before,.home-slider::after,.home-slider .slide::before,.home-slider .slide::after{box-shadow:none!important;filter:none!important;animation:none!important}</style><style id="phase21-style">.journey-refresh{background:linear-gradient(125deg,#edf6f1 0%,#f8fcfa 52%,#e4f0e8 100%)!important;position:relative}.journey-refresh .journey-step{background:#fff;border:1px solid #d9e9df;box-shadow:0 12px 28px rgba(42,101,65,.06)}.appointment-overview{padding:65px 0;background:#f7faf8}.appointment-layout{display:grid;grid-template-columns:minmax(220px,1fr) 2fr;gap:24px;margin-top:30px}.appointment-controls,.appointment-period{background:#fff;border:1px solid #e1ece6;border-radius:20px;padding:24px;box-shadow:0 8px 28px rgba(20,70,45,.05)}.appointment-controls{display:flex;flex-direction:column;gap:12px}.appointment-controls label{font-weight:700;color:#164968}.appointment-controls input,.appointment-controls select{width:100%;padding:13px;border:1px solid #dce8e0;border-radius:10px;font:inherit;background:#fff}.appointment-periods{display:grid;grid-template-columns:1fr 1fr;gap:16px}.appointment-period{text-align:center}.appointment-symbol{font-size:32px;color:#498e3b}.appointment-period h3{color:#164968;margin:12px 0}.appointment-period strong{display:block;color:#315a42}.appointment-period p,.appointment-note{color:#63796d;font-size:14px}.appointment-period button,.appointment-link{display:block;background:#4d963c;color:#fff;border:0;border-radius:10px;padding:12px 16px;text-align:center;text-decoration:none;font:inherit;cursor:pointer;margin-top:18px}.appointment-period button{width:100%}.appointment-period button:disabled{background:#a5b8ac;cursor:not-allowed}@media(max-width:760px){.appointment-layout,.appointment-periods{grid-template-columns:1fr}.appointment-overview{padding:42px 0}}</style></head>
+<style>.home-slider::before,.home-slider::after,.home-slider .slide::before,.home-slider .slide::after{box-shadow:none!important;filter:none!important;animation:none!important}</style><style id="phase21-style">.journey-refresh{background:linear-gradient(125deg,#edf6f1 0%,#f8fcfa 52%,#e4f0e8 100%)!important;position:relative}.journey-refresh .journey-step{background:#fff;border:1px solid #d9e9df;box-shadow:0 12px 28px rgba(42,101,65,.06)}.appointment-overview{padding:65px 0;background:#f7faf8}.appointment-layout{display:grid;grid-template-columns:minmax(220px,1fr) 2fr;gap:24px;margin-top:30px}.appointment-controls,.appointment-period{background:#fff;border:1px solid #e1ece6;border-radius:20px;padding:24px;box-shadow:0 8px 28px rgba(20,70,45,.05)}.appointment-controls{display:flex;flex-direction:column;gap:12px}.appointment-controls label{font-weight:700;color:#164968}.appointment-controls input,.appointment-controls select{width:100%;padding:13px;border:1px solid #dce8e0;border-radius:10px;font:inherit;background:#fff}.appointment-periods{display:grid;grid-template-columns:1fr 1fr;gap:16px}.appointment-period{text-align:center}.appointment-symbol{font-size:32px;color:#498e3b}.appointment-period h3{color:#164968;margin:12px 0}.appointment-period strong{display:block;color:#315a42}.appointment-period p,.appointment-note{color:#63796d;font-size:14px}.appointment-period button,.appointment-link{display:block;background:#4d963c;color:#fff;border:0;border-radius:10px;padding:12px 16px;text-align:center;text-decoration:none;font:inherit;cursor:pointer;margin-top:18px}.appointment-period button{width:100%}.appointment-period button:disabled{background:#a5b8ac;cursor:not-allowed}@media(max-width:760px){.appointment-layout,.appointment-periods{grid-template-columns:1fr}.appointment-overview{padding:42px 0}}</style><style id="phase22-style">
+/* PHASE22: brand-consistent journey, header transition and service feedback */
+.journey-refresh{background:linear-gradient(130deg,#073d67 0%,#075180 52%,#0c6792 100%)!important}
+.journey-refresh .section-title-premium,.journey-refresh .section-sub-premium{color:#fff!important}
+.journey-refresh .journey-step{background:#fff!important;border:1px solid #c9e2ef!important;box-shadow:0 14px 30px rgba(0,27,57,.17)!important}
+header{box-shadow:0 5px 18px rgba(5,54,89,.08)}
+.home-slider{background:linear-gradient(135deg,#e7f3fa 0%,#f5fbff 60%,#e6f4ef 100%)!important}
+.home-slider:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(5,70,113,.08),transparent 55%);pointer-events:none}
+:is(.service-card,.condition-card,.endoscopy-card,.article,.trust-card,.journey-step,.card,a.btn,button){-webkit-tap-highlight-color:transparent}
+:is(.service-card,.condition-card,.endoscopy-card,.article,.trust-card,.journey-step,.card){transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+:is(.service-card,.condition-card,.endoscopy-card,.article,.trust-card,.journey-step,.card):active{transform:scale(.975);box-shadow:0 3px 12px rgba(6,75,124,.14)!important}
+a.btn:active,button:active{transform:scale(.97)}
+:focus-visible{outline:3px solid #2388bb!important;outline-offset:3px}
+@media(hover:hover){:is(.service-card,.condition-card,.endoscopy-card,.article,.trust-card,.journey-step,.card):hover{transform:translateY(-4px);box-shadow:0 12px 25px rgba(6,75,124,.12)}}
+@media(prefers-reduced-motion:reduce){:is(.service-card,.condition-card,.endoscopy-card,.article,.trust-card,.journey-step,.card){transition:none!important}}
+</style></head>
 
 <body>
 
@@ -685,17 +700,7 @@ footer p,footer a{
    </div>
   </div>
 
-  <div class="booking-box">
-   <h2>احجز موعدك الآن</h2>
-   <p>أرسل طلب الموعد وسيتم التواصل معك.</p>
-   <form action="booking.html">
-    <input type="text" placeholder="الاسم الكامل">
-    <input type="tel" placeholder="رقم الهاتف">
-    <select><option>اختر نوع الزيارة</option><option>أمراض الباطنة</option><option>أمراض الكبد</option><option>الجهاز الهضمي</option><option>المناظير</option></select>
-    <input type="date">
-    <button type="submit">احجز موعدك الآن</button>
-   </form>
-  </div>
+
  </div>
 </section>
 
