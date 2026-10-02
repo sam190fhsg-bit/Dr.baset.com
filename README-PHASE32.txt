@@ -1,0 +1,1 @@
+PHASE32: removes legacy duplicate white footer by structural detection, moves WhatsApp left center, updates WhatsApp destination to +967777554626. Full bilingual translation of database-backed medical content is NOT implemented; requires verified bilingual content and database schema. Test on staging before publishing.

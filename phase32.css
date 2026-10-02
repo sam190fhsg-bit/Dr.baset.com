@@ -1,0 +1,3 @@
+/* Phase32: remove only obsolete duplicate public footer, not page content */
+.phase30-wa{left:16px!important;right:auto!important;top:50%!important;bottom:auto!important;transform:translateY(-50%)!important;z-index:10050!important}
+@media(max-width:750px){.phase30-wa{left:8px!important;right:auto!important;top:50%!important;bottom:auto!important}}
