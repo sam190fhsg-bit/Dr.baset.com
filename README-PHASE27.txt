@@ -1,0 +1,1 @@
+PHASE27: Mobile menu compact; homepage booking date/service controls removed, booking button opens existing booking.html; service query preselection supported on primary specialty pages. Preserve existing Supabase booking workflow. Upload contents of Dr.baset.com-main to GitHub. Test on deployed site.
