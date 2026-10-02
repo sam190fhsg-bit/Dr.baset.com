@@ -9,7 +9,7 @@
 @media(max-width:800px){.home-slider .slide-grid{display:grid!important;grid-template-columns:1fr!important;padding:0!important}.home-slider .slide-grid>img{aspect-ratio:4/5!important;max-height:70vh!important;object-fit:contain!important}.home-slider .slide-copy{inset:auto 4% 10% 4%!important;max-width:none!important;width:auto!important;padding:9px 12px!important;background:rgba(255,255,255,.88)!important}.home-slider .slide-copy h1{font-size:clamp(18px,5vw,26px)!important}.home-slider .slide-copy h2{font-size:16px!important}.home-slider .slide-copy p{font-size:13px!important}.phase29-events-grid{grid-template-columns:1fr}}
 
 /* Hide the requested public information footer without changing administrative pages */
-body > footer,body > .site-footer,body > #site-footer,body .footer-main,body .global-footer{display:none!important}
+/* PHASE30: original footer restored; unified footer managed by phase30.js */
 /* Keep fixed booking button accessible but not over content */
 @media(max-width:800px){.home-slider .slide-grid>img{width:100%!important;height:auto!important;aspect-ratio:auto!important;max-height:72vh!important;object-fit:contain!important}.home-slider .slide-copy{position:relative!important;inset:auto!important;max-width:100%!important;background:#f7fbfc!important;margin:0 12px 42px!important}.home-slider .slide-grid{display:flex!important;flex-direction:column!important}.home-slider .slide-arrow{top:36%!important}}
 @media(min-width:801px){.home-slider .slide-grid>img{max-height:650px!important;aspect-ratio:auto!important;object-fit:contain!important}.home-slider .slide-grid{min-height:320px!important}}
