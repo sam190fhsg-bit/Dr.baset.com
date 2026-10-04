@@ -114,7 +114,42 @@ if(d){
      }
    }catch(err){console.error('Disease image load failed:',err)}
  })();
-} else {document.getElementById("notFound").style.display="block";}
+} else {
+ // PHASE34: Dynamic diseases added through Supabase are not in the legacy static dictionary.
+ (async function loadDynamicDisease(){
+   try {
+     if (!key || typeof supabaseClient === 'undefined') throw new Error('Missing slug or Supabase client');
+     const {data,error}=await supabaseClient.from('diseases')
+       .select('slug,title_ar,category,intro_ar,causes_ar,symptoms_ar,diagnosis_ar,treatment_ar,tips_ar,image_url,seo_title,seo_description')
+       .eq('slug',key).eq('is_published',true).maybeSingle();
+     if(error) throw error;
+     if(!data){document.getElementById('notFound').style.display='block';return;}
+     const categories={'internal-medicine':['أمراض الباطنة','internal-medicine.html'],liver:['أمراض الكبد','liver.html'],gastroenterology:['أمراض الجهاز الهضمي','gastroenterology.html'],endoscopy:['المناظير','endoscopy.html']};
+     const info=categories[data.category]||['الحالات المرضية','conditions.html'];
+     document.title=(data.seo_title||data.title_ar)+' | عيادة الدكتور عبده الباسط';
+     document.getElementById('hero').style.display='block';
+     document.getElementById('content').style.display='block';
+     document.getElementById('category').textContent=info[0];
+     document.getElementById('title').textContent=data.title_ar||'';
+     document.getElementById('intro').textContent=data.intro_ar||'';
+     document.getElementById('intro2').textContent=data.intro_ar||'';
+     document.getElementById('diagnosis').textContent=data.diagnosis_ar||'';
+     document.getElementById('treatment').textContent=data.treatment_ar||'';
+     document.getElementById('backLink').href=info[1];
+     function toArray(v){if(Array.isArray(v))return v;if(!v)return [];if(typeof v==='string'){try{const j=JSON.parse(v);return Array.isArray(j)?j:[v]}catch{return [v]}}return []}
+     for(const [id,value] of [['causes',data.causes_ar],['symptoms',data.symptoms_ar],['tips',data.tips_ar]]){
+       const el=document.getElementById(id);el.replaceChildren();
+       for(const item of toArray(value)){
+         const li=document.createElement('li');
+         li.textContent=typeof item==='string'?item:(item?.text||item?.title||item?.name||'');
+         if(li.textContent)el.appendChild(li);
+       }
+     }
+     if(data.image_url){const img=document.getElementById('diseaseImage');img.src=data.image_url;img.alt=data.title_ar||'';document.getElementById('diseaseVisual').style.display='block';}
+     if(data.seo_description){const meta=document.querySelector('meta[name="description"]');if(meta)meta.setAttribute('content',data.seo_description);}
+   }catch(err){console.error('Dynamic disease details:',err);document.getElementById('notFound').style.display='block';}
+ })();
+}
 </script>
 
 
