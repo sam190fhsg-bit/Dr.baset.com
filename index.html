@@ -720,9 +720,10 @@ a.btn:active,button:active{transform:scale(.97)}
 const diseaseIcons = ["🩺","🫀","🧬","🩸","💧","⚕","◎","◉","◒","✚","⌁","◌","▦","✦","●","◐"];
 const diseasesGrid=document.getElementById('diseasesGrid');
 async function loadAllDiseases(){
- const {data,error}=await supabaseClient.from('diseases').select('slug,title_ar,category,sort_order,image_url').eq('is_published',true).order('sort_order',{ascending:true}).limit(8);
+ const {data,error}=await supabaseClient.from('diseases').select('slug,title_ar,category,sort_order,image_url').eq('is_published',true).neq('category','endoscopy').order('sort_order',{ascending:true}).limit(60);
  if(error){diseasesGrid.innerHTML='<div class="state-box"><h4>تعذر تحميل الحالات المرضية الآن</h4><button type="button" onclick="loadAllDiseases()">إعادة المحاولة</button></div>';return;} if(!data?.length){diseasesGrid.innerHTML='<div class="state-box"><h4>لا توجد حالات مرضية منشورة حاليًا.</h4></div>';return;}
- diseasesGrid.innerHTML=data.map((d,i)=>`<a class="disease disease-link tap-card" href="disease.html?slug=${encodeURIComponent(d.slug)}"><img class="disease-card-image" src="${String(d.image_url||({liver:'liver-slide.svg','internal-medicine':'internal-slide.svg',gastroenterology:'gastro-slide.svg',endoscopy:'endoscopy-slide.svg'}[d.category]||'gastro-slide.svg')).replaceAll('&','&amp;').replaceAll('\"','&quot;')}" alt="${String(d.title_ar||'').replaceAll('&','&amp;').replaceAll('\"','&quot;')}" loading="lazy"><h4>${String(d.title_ar||'').replaceAll('<','&lt;').replaceAll('>','&gt;')}</h4><small>عرض التفاصيل</small></a>`).join('');
+ const norm=s=>String(s||'').trim().replace(/\s+/g,' ').toLowerCase(); const seen=new Set(); const unique=(data||[]).filter(d=>{const k=norm(d.title_ar)||norm(d.slug);if(!k||seen.has(k))return false;seen.add(k);return true}).slice(0,8);
+ diseasesGrid.innerHTML=unique.map((d,i)=>`<a class="disease disease-link tap-card" href="disease.html?slug=${encodeURIComponent(d.slug)}"><img class="disease-card-image" src="${String(d.image_url||({liver:'liver-slide.svg','internal-medicine':'internal-slide.svg',gastroenterology:'gastro-slide.svg',endoscopy:'endoscopy-slide.svg'}[d.category]||'gastro-slide.svg')).replaceAll('&','&amp;').replaceAll('\"','&quot;')}" alt="${String(d.title_ar||'').replaceAll('&','&amp;').replaceAll('\"','&quot;')}" loading="lazy"><h4>${String(d.title_ar||'').replaceAll('<','&lt;').replaceAll('>','&gt;')}</h4><small>عرض التفاصيل</small></a>`).join('');
 }
 loadAllDiseases();
 
