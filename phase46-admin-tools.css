@@ -1,0 +1,25 @@
+/* PHASE46: additive administration tools, no changes to the public theme. */
+.p46-tools{border:1px solid #dfe9ed;border-radius:14px;background:#fff;padding:14px;margin:12px 0;box-shadow:0 4px 14px rgba(0,50,75,.035)}
+.p46-tools h3{font-size:17px;color:#284e29;margin:0 0 10px}
+.p46-toolrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0}
+.p46-tools button,.p46-formtools button,.p46-draft button{border:1px solid #c4d6c6;border-radius:9px;background:#edf3e9;color:#315229;padding:9px 12px;font:inherit;cursor:pointer}
+.p46-tools button:hover,.p46-formtools button:hover,.p46-draft button:hover{background:#dcebd7}
+.p46-tools button[disabled]{opacity:.5;cursor:not-allowed}
+.p46-tools .p46-danger{background:#fff7ed;color:#844913;border-color:#ebd7be}
+.p46-tools select,.p46-tools input[type=search]{border:1px solid #d1dfe4;border-radius:9px;padding:9px;font:inherit;max-width:100%;background:#fff;color:inherit}
+.p46-note{color:#64757d;font-size:12px;line-height:1.8;margin:7px 0}
+.p46-notice{color:#34542b;font-size:13px;line-height:1.8;min-height:1.4em}
+.p46-notice.error{color:#982727}
+.p46-selection{width:19px;height:19px;accent-color:#477537;flex:none}
+.p46-select-label{display:inline-flex;align-items:center;gap:5px;font-size:13px;white-space:nowrap}
+.p46-draft{background:#fffae9;border:1px solid #eee0aa;border-radius:10px;margin:8px 0;padding:10px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.p46-formtools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:10px 0}
+.p46-dialog{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:12000;display:flex;justify-content:center;align-items:center;padding:16px}
+.p46-dialog[hidden]{display:none!important}
+.p46-dialog-inner{background:#fff;border-radius:15px;padding:20px;max-width:720px;width:100%;max-height:85vh;overflow:auto;box-shadow:0 18px 70px rgba(0,0,0,.2)}
+.p46-dialog-inner img{max-width:100%;max-height:260px;object-fit:contain}
+.p46-dialog-inner pre{white-space:pre-wrap;overflow-wrap:anywhere;font:inherit;line-height:1.9}
+.p46-row-meta{display:inline-flex;margin-inline-start:10px;color:#527043;font-size:12px}
+@media(max-width:690px){.p46-tools{padding:10px}.p46-tools button{font-size:13px}.p46-toolrow>*{max-width:100%}}
+
+.p46-tools [hidden]{display:none!important}

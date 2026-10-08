@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>اللوحة الذكية – إدارة العيادة</title>
+<link rel="stylesheet" href="site-theme.css">
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f8f9;color:#17394d;font-family:Tahoma,Arial,sans-serif}
+main{max-width:1120px;margin:25px auto;padding:17px}a{color:#23613a}.intro{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}.card{background:#fff;border:1px solid #dae9e8;padding:17px;border-radius:15px;margin:13px 0}.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.tile{background:#fff;border:1px solid #deebe4;padding:16px;border-radius:14px;min-width:0}.tile h3{margin:0 0 14px;font-size:16px;color:#477537}.count{font-size:29px;font-weight:700;color:#233f2a}.sub{font-size:12px;color:#52685d;margin-top:5px;line-height:1.8}.action{background:#477537;color:white;padding:11px 17px;border:0;border-radius:9px;cursor:pointer;font:inherit;text-decoration:none;display:inline-block}.nav{display:flex;flex-wrap:wrap;gap:9px}.nav a{border:1px solid #cfe0d2;padding:10px;border-radius:10px;text-decoration:none}.err{color:#a22}.status{color:#466e38;min-height:1.5em}button[disabled]{opacity:.5}
+</style>
+</head>
+<body><main>
+<div class="intro"><div><a href="admin.html">← العودة إلى لوحة الإدارة</a><h1>اللوحة الذكية للعيادة</h1><p>إحصاءات مباشرة وفق صلاحيات حساب الإدارة، من دون عرض معلومات المرضى.</p></div><a class="action" href="clinic-diagnostics.html">فحص اتصال الموقع</a></div>
+<div id="gate" class="card" role="status">جارٍ التحقق من جلسة الإدارة والصلاحيات...</div>
+<div id="dashboard" hidden><div class="card"><div class="intro"><h2>ملخص المحتوى</h2><button class="action" id="refresh" type="button">تحديث الإحصاءات</button></div><p id="status" class="status" role="status"></p><p class="sub">الأرقام تعتمد على الجداول المسموح قراءتها. لا يتم تعديل أي محتوى عند التحديث.</p></div><div class="tiles" id="tiles"></div>
+<div class="card"><h2>إدارة مباشرة</h2><nav class="nav"><a href="admin-data.html#diseases">الحالات المرضية</a><a href="admin-data.html#services">الخدمات</a><a href="admin-data.html#articles">المكتبة الطبية</a><a href="admin-data.html#bookings">الحجوزات</a><a href="admin-endoscopy.html">المناظير</a><a href="admin-content.html#events">الفعاليات</a><a href="admin-content.html#sliders">السلايدر</a><a href="media-library.html">الوسائط</a><a href="admin-health.html">فحص الصلاحيات</a></nav></div></div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="document.write('<script src=&quot;https://unpkg.com/@supabase/supabase-js@2&quot;><\/script>')"></script>
+<script src="supabase-config.js"></script>
+<script>
+(function(){'use strict';
+const gate=document.getElementById('gate'),dashboard=document.getElementById('dashboard'),tiles=document.getElementById('tiles'),status=document.getElementById('status');
+const categories=[
+ ['diseases','الحالات المرضية','admin-data.html#diseases',true],
+ ['services','الخدمات','admin-data.html#services',true],
+ ['articles','المكتبة الطبية','admin-data.html#articles',true],
+ ['faqs','الأسئلة الشائعة','admin-data.html#faqs',true],
+ ['events','الفعاليات','admin-content.html#events',true],
+ ['sliders','السلايدر','admin-content.html#sliders',true],
+ ['videos','الفيديوهات','admin-content.html#videos',true],
+ ['media','ملفات الوسائط','media-library.html',false],
+ ['bookings','الحجوزات (العدد فقط)','admin-data.html#bookings',false]
+];
+async function checkAuth(){
+ if(typeof supabaseClient==='undefined'||!supabaseClient){gate.textContent='تعذّر تحميل Supabase. افتح صفحة فحص الاتصال.';return false;}
+ try{
+  const session=await supabaseClient.auth.getSession();
+  if(session.error||!session.data?.session){gate.innerHTML='يلزم <a href="admin.html">تسجيل الدخول</a> لعرض لوحة المؤشرات.';return false;}
+  const editor=await supabaseClient.rpc('is_content_editor');
+  if(editor.error||editor.data!==true){gate.textContent='حسابك لا يملك صلاحية إدارة المحتوى.';return false;}
+  gate.hidden=true;dashboard.hidden=false;return true;
+ }catch(e){gate.textContent='تعذر التحقق من جلسة الإدارة: '+(e.message||e);return false;}
+}
+async function count(table,published){
+ let q=supabaseClient.from(table).select('id',{count:'exact',head:true});
+ if(published!==undefined)q=q.eq('is_published',published);
+ const res=await q;
+ if(res.error)throw res.error;
+ return res.count||0;
+}
+async function render(){
+ status.textContent='جارٍ تحميل مؤشرات الجداول...';tiles.replaceChildren();document.getElementById('refresh').disabled=true;
+ const results=await Promise.all(categories.map(async ([table,label,href,publish])=>{
+  try{const total=await count(table);let live=null;
+   if(publish)live=await count(table,true);
+   return {label,href,total,live};
+  }catch(e){return {label,href,error:(e.message||String(e))};}
+ }));
+ let successes=0;
+ results.forEach(row=>{
+  const section=document.createElement('section');section.className='tile';
+  const heading=document.createElement('h3');const link=document.createElement('a');link.href=row.href;link.textContent=row.label;heading.append(link);section.append(heading);
+  const num=document.createElement('div');num.className='count';num.textContent=row.error?'—':new Intl.NumberFormat('ar').format(row.total);section.append(num);
+  const details=document.createElement('div');details.className='sub';
+  if(row.error){details.classList.add('err');details.textContent='تعذر قراءة هذا الجدول: '+row.error;}
+  else{successes++;details.textContent=row.live===null?'الإجمالي المسموح بقراءته':`منشور: ${row.live} • مخفي: ${row.total-row.live}`;}
+  section.append(details);tiles.append(section);
+ });
+ status.textContent=`تم تحديث ${successes} من ${categories.length} مؤشرات – ${new Date().toLocaleString('ar-YE')}.`;
+ document.getElementById('refresh').disabled=false;
+}
+document.getElementById('refresh').addEventListener('click',render);
+checkAuth().then(ok=>{if(ok)render()});
+})();
+</script>
+</body></html>
