@@ -10,11 +10,11 @@ function init(){document.querySelectorAll('.phase28-lang').forEach(b=>b.addEvent
  root.innerHTML='<p class="phase48-loading">جارٍ تحميل صور المؤتمرات والفعاليات...</p>';
  (async()=>{try{
  if(typeof supabaseClient==='undefined'||!supabaseClient)throw Error('connection');
- const {data,error}=await supabaseClient.from('events').select('id,title_ar,title_en,description_ar,description_en,event_date,cover_url,is_published').eq('is_published',true).order('event_date',{ascending:false}).limit(6);
+ const {data,error}=await supabaseClient.from('events').select('id,title_ar,description_ar,event_date,cover_url,is_published').eq('is_published',true).order('event_date',{ascending:false}).limit(6);
  if(error)throw error;
  const visible=await window.phase56Filter('events',data||[]);
  root.innerHTML=visible.length?visible.map((x,i)=>{const title=(currentLang()&&x.title_en)||x.title_ar||'فعالية طبية';const desc=(currentLang()&&x.description_en)||x.description_ar||'';const src=validImg(x.cover_url);return `<article class="phase29-event phase48-event"><a class="phase48-event-media" href="events.html" aria-label="${safe(title)}">${src?`<img src="${safe(src)}" alt="${safe(title)}" loading="${i<2?'eager':'lazy'}" decoding="async" ${i<2?'fetchpriority=\"low\"':''} onerror="window.phase50EventImageFailed(this)">`:'<span class="phase48-event-placeholder" aria-hidden="true">✦</span>'}</a><div class="phase29-event-body"><time datetime="${safe(x.event_date||'')}">${safe(x.event_date||'')}</time><h3>${safe(title)}</h3><p>${safe(desc).slice(0,190)}</p><a class="phase48-event-more" href="events.html">عرض الصور والتفاصيل ←</a></div></article>`}).join(''):'<p class="phase48-empty">لا توجد فعاليات منشورة حاليًا. ستظهر الصور هنا فور نشر فعالية مع صورة غلاف من لوحة التحكم.</p>';
- }catch(e){root.innerHTML='<p class="phase48-empty">تعذر تحميل صور الفعاليات. <a href="events.html">افتح صفحة المؤتمرات والفعاليات</a></p>';}})();
+ }catch(e){console.error('Home events load failed:',e);root.innerHTML='<p class="phase48-empty">تعذر تحميل صور الفعاليات. <a href="events.html">افتح صفحة المؤتمرات والفعاليات</a></p>';}})();
  }
  const obs=new MutationObserver(()=>{if(localStorage.getItem('clinic-language')!=='en')return;clearTimeout(window.__p29Timer);window.__p29Timer=setTimeout(translate,400)});obs.observe(document.body,{childList:true,subtree:true});}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();})();
