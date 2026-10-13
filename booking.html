@@ -55,16 +55,16 @@ footer{background:#284f28;color:#fff;padding:38px 0}.footer-grid{display:grid;gr
 </header>
 <section class="page-hero"><span class="crumb">الحجز</span><h1>حجز موعد</h1><p>املأ البيانات وسيتم إرسال الطلب عبر واتساب.</p></section>
 <section class="section"><div class="container"><div class="form-box"><form id="bookingForm"><div class="form-grid">
-<div class="form-group"><label>الاسم الكامل</label><input id="name" required></div>
-<div class="form-group"><label>رقم الهاتف</label><input id="phone" type="tel" required></div>
+<div class="form-group"><label for="name">الاسم الكامل</label><input id="name" autocomplete="name" minlength="3" maxlength="100" required></div>
+<div class="form-group"><label for="phone">رقم الهاتف</label><input id="phone" type="tel" inputmode="tel" autocomplete="tel" minlength="7" maxlength="20" required></div>
 <div class="form-group"><label>العمر</label><input id="age" type="number" min="1" max="120"></div>
 <div class="form-group"><label>الجنس</label><select id="gender"><option value="">اختر</option><option>ذكر</option><option>أنثى</option></select></div>
 <div class="form-group"><label>الخدمة</label><select id="service" required><option value="">اختر الخدمة</option><option>أمراض الباطنة</option><option>أمراض الكبد</option><option>أمراض الجهاز الهضمي</option><option>منظار المعدة</option><option>منظار القولون</option><option>استشارة طبية</option></select></div>
-<div class="form-group"><label>التاريخ</label><input id="date" type="date"></div>
+<div class="form-group"><label for="date">التاريخ</label><input id="date" type="date" required></div>
 <div class="form-group"><label>الوقت</label><input id="time" type="time"></div>
 <div class="form-group full"><label>سبب الزيارة</label><input id="reason"></div>
 <div class="form-group full"><label>ملاحظات</label><textarea id="notes" rows="4"></textarea></div>
-</div><button class="submit" type="submit">إرسال وتأكيد طلب الحجز</button>
+</div><div style="margin:16px 0;padding:13px;border-radius:12px;background:#eef6fb;color:#154867"><label for="bookingConsent" style="display:flex;gap:10px;align-items:flex-start;cursor:pointer"><input type="checkbox" id="bookingConsent" required style="margin-top:7px;accent-color:#477537"><span>أوافق على استخدام بيانات الطلب بغرض التواصل وتنسيق الموعد وفق <a href="privacy.html" target="_blank" rel="noopener noreferrer" style="color:#073d68;text-decoration:underline">سياسة الخصوصية</a>. لا يُعد إرسال الطلب تأكيدًا نهائيًا للحجز.</span></label></div><p id="bookingFeedback" role="status" aria-live="polite" style="min-height:26px;color:#073d68;font-weight:700"></p><button class="submit" type="submit">إرسال طلب الحجز</button>
 <p style="text-align:center;margin-top:12px;color:#687168">للحجز المباشر: 777560603 – 777554626</p></form></div></div></section>
 <!-- Supabase Library -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" onerror="document.write('<script src=&quot;https://unpkg.com/@supabase/supabase-js@2&quot;><\/script>')"></script>
@@ -79,6 +79,15 @@ document.getElementById("bookingForm").addEventListener("submit", async function
     const submitBtn = this.querySelector('button[type="submit"]');
     const oldText = submitBtn.textContent;
 
+    const feedback=document.getElementById('bookingFeedback');
+    feedback.textContent='';
+    const dateValue=document.getElementById('date').value;
+    const now=new Date();
+    const today=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);
+    if(!dateValue || dateValue < today){feedback.textContent='يرجى اختيار تاريخ اليوم أو تاريخ لاحق.';return;}
+    if(new Date(dateValue+'T12:00:00').getDay()===5){feedback.textContent='الجمعة إجازة؛ يرجى اختيار يوم آخر.';return;}
+    if(!document.getElementById('bookingConsent').checked){feedback.textContent='يرجى الموافقة على سياسة الخصوصية أولًا.';return;}
+    if(!/^\+?[0-9\s-]{7,20}$/.test(document.getElementById('phone').value.trim())){feedback.textContent='يرجى إدخال رقم هاتف صحيح.';return;}
     submitBtn.disabled = true;
     submitBtn.textContent = "جاري إرسال الطلب...";
 
@@ -107,7 +116,7 @@ document.getElementById("bookingForm").addEventListener("submit", async function
             throw error;
         }
 
-        alert("تم إرسال طلب الحجز بنجاح");
+        feedback.textContent="تم إرسال طلب الحجز إلى العيادة، وسيتم التواصل معك لتأكيد الموعد.";
 
         const msg =
 `طلب حجز موعد جديد
@@ -122,10 +131,9 @@ document.getElementById("bookingForm").addEventListener("submit", async function
 سبب الزيارة: ${bookingData.reason || "غير محدد"}
 الملاحظات: ${bookingData.notes || "لا توجد"}`;
 
-        window.open(
-            "https://wa.me/967777560603?text=" + encodeURIComponent(msg),
-            "_blank"
-        );
+        const whatsappUrl="https://wa.me/967777560603?text=" + encodeURIComponent(msg);
+        const opened=window.open(whatsappUrl,"_blank","noopener,noreferrer");
+        if(!opened){feedback.textContent+=' يمكنك فتح واتساب يدويًا عند الحاجة.';}
 
         this.reset();
 
@@ -133,10 +141,7 @@ document.getElementById("bookingForm").addEventListener("submit", async function
 
         console.error("Booking error:", error);
 
-        alert(
-  "خطأ Supabase:\n" +
-  (error.message || JSON.stringify(error))
-);
+        feedback.textContent='تعذر إرسال طلب الحجز. يرجى المحاولة مرة أخرى أو الاتصال بالعيادة.';
 
     } finally {
 
@@ -145,6 +150,7 @@ document.getElementById("bookingForm").addEventListener("submit", async function
 
     }
 });
+(()=>{const date=document.getElementById('date');if(!date)return;const now=new Date();date.min=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);})();
 </script>
 
 
