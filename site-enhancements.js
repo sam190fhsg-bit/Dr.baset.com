@@ -8,10 +8,28 @@
  document.querySelectorAll('footer').forEach(f=>{if(f.querySelector('[data-socials]'))return;const d=document.createElement('div');d.dataset.socials='1';d.innerHTML='<h3>منصات التواصل</h3><div class="social-row"><a class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook" href="'+social.facebook+'">f</a><a class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube" href="'+social.youtube+'">▶</a><a class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram" href="'+social.instagram+'">◎</a></div>';const grid=f.querySelector('.footer-grid');(grid||f).appendChild(d)});
  if(!document.querySelector('.sticky-booking')){const a=document.createElement('a');a.className='sticky-booking';a.href='booking.html';a.textContent='احجز موعدك';a.setAttribute('aria-label','حجز موعد');document.body.appendChild(a)}
  document.querySelectorAll('a[target="_blank"]').forEach(a=>{a.rel='noopener noreferrer'});document.querySelectorAll('img').forEach(img=>{if(!img.loading&&!img.closest('.hero'))img.loading='lazy';img.decoding='async'});
- // canonical + OpenGraph defaults
- const canonical=location.origin+location.pathname;
- if(!document.querySelector('link[rel="canonical"]')){const l=document.createElement('link');l.rel='canonical';l.href=canonical;head.appendChild(l)}
- const metas=[['property','og:title',document.title],['property','og:description',document.querySelector('meta[name="description"]')?.content||'عيادة الدكتور عبده الباسط عبده الحاج مقبل'],['property','og:type','website'],['property','og:url',canonical],['name','twitter:card','summary_large_image']];metas.forEach(([a,n,c])=>{if(!document.querySelector('meta['+a+'="'+n+'"]')){const m=document.createElement('meta');m.setAttribute(a,n);m.content=c;head.appendChild(m)}});
- if(!document.querySelector('script[data-clinic-schema]')){const sc=document.createElement('script');sc.type='application/ld+json';sc.dataset.clinicSchema='1';sc.textContent=JSON.stringify({'@context':'https://schema.org','@type':['MedicalClinic','Physician'],'name':'عيادة الدكتور عبده الباسط عبده الحاج مقبل','medicalSpecialty':['InternalMedicine','Gastroenterologic'],'telephone':['+967777560603','+967777554626'],'address':{'@type':'PostalAddress','streetAddress':'شارع تعز – جولة تعز – مركز المأمون الطبي التشخيصي','addressLocality':'صنعاء','addressCountry':'YE'},'url':'https://dr-abdulbasit.netlify.app/'});head.appendChild(sc)}
+ // SEO-72 V2: canonical from HTML, never drop disease/service query parameters.
+ const existingCanonical=document.querySelector('link[rel="canonical"]');
+ const canonical=existingCanonical?.href||location.origin+location.pathname;
+ if(!existingCanonical){const l=document.createElement('link');l.rel='canonical';l.href=canonical;head.appendChild(l)}
+ const findMeta=(kind,key)=>document.querySelector('meta['+kind+'="'+key+'"]');
+ const ensureMeta=(kind,key,content)=>{let m=findMeta(kind,key);if(!m){m=document.createElement('meta');m.setAttribute(kind,key);head.appendChild(m)}m.content=content;return m;};
+ window.clinicSeoUpdate=(opts={})=>{
+   const title=opts.title||document.title;
+   const description=opts.description||findMeta('name','description')?.content||'';
+   if(opts.title)document.title=title;
+   if(description)ensureMeta('name','description',description);
+   ensureMeta('property','og:title',title);
+   ensureMeta('property','og:description',description);
+   ensureMeta('property','og:url',opts.canonical||canonical);
+   ensureMeta('name','twitter:title',title);
+   ensureMeta('name','twitter:description',description);
+ };
+ ensureMeta('property','og:type',location.pathname.endsWith('disease.html')?'article':'website');
+ ensureMeta('property','og:locale','ar_YE');
+ ensureMeta('name','twitter:card','summary_large_image');
+ window.clinicSeoUpdate();
+ // Structured data lives in the static HTML of verified pages or on the disease URL.
+ // Do not inject duplicate MedicalClinic/Physician markup on every page.
  if('serviceWorker' in navigator && location.protocol==='https:') navigator.serviceWorker.register('sw.js').catch(()=>{});
 })();
