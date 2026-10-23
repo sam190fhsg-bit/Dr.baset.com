@@ -1,7 +1,7 @@
 {
   "name": "عيادة الدكتور عبده الباسط عبده الحاج مقبل",
   "short_name": "عيادة د. عبده الباسط",
-  "start_url": "./index.html",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#477537",

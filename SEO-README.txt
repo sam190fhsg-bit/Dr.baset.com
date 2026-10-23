@@ -1,15 +1,27 @@
-ملفات تحسين الموقع قبل Supabase
+فهرسة موقع الدكتور عبدالباسط – نسخة Netlify
 
-ارفع هذه الملفات الأربعة إلى جذر مستودع GitHub:
-404.html
-robots.txt
-sitemap.xml
-site.webmanifest
+العنوان الأساسي:
+https://dr-abdulbasit.netlify.app/
 
-ثم أضف داخل <head> في index.html لاحقًا:
-<link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#477537">
+ما تم إصلاحه:
+1. خريطة الموقع وملف robots.txt يشيران إلى Netlify بدل GitHub.
+2. وسوم canonical وصفحات SEO الأساسية وروابط Open Graph.
+3. استبعاد صفحات الإدارة والاختبار والبحث الداخلي من الفهرسة.
+4. تعديل روابط الحالات المرضية القياسية.
+5. معالجة canonical الذي كان يُنشأ عبر JavaScript بالنطاق القديم.
+6. إضافة بيانات منظمة للعيادة في الصفحة الرئيسية.
 
-ملاحظة:
-تم إعداد sitemap على رابط GitHub Pages الحالي:
-https://sam190fhsg-bit.github.io/Dr.baset.com/
+تعليمات النشر:
+- ارفع جميع الملفات من هذا المجلد إلى موقع Netlify المرتبط بهذا العنوان، وليس مجلدًا أبًا إضافيًا.
+- يجب أن تكون index.html وrobots.txt وsitemap.xml في جذر النشر.
+- تحقق من فتح الرابطين التاليين بعد النشر:
+  https://dr-abdulbasit.netlify.app/robots.txt
+  https://dr-abdulbasit.netlify.app/sitemap.xml
+- في Google Search Console، اختر خاصية https://dr-abdulbasit.netlify.app/ وأرسل sitemap.xml.
+- افحص عنوان الصفحة الرئيسية. إذا ظهرت حصة طلب الفهرسة اليومية، لا تكرر المحاولة باستمرار؛ انتظر تجددها.
+
+مهم:
+- هذه نسخة ملفات معدلة وليست نشرًا مباشرًا على Netlify أو طلب فهرسة مرسلًا إلى Google.
+- فهرسة جوجل ليست فورية أو مضمونة.
+- صفحات المقالات والخدمات المعتمدة على Supabase تُنشأ بمحتوى JavaScript، وقد تتطلب تطويرًا إضافيًا (صفحات ثابتة/عرض مسبق) لتحسين اكتشافها في جوجل.
+- إذا بقيت نسخة GitHub القديمة عامة، فالأفضل تحويلها إلى Netlify بإعادة توجيه دائمة من الاستضافة القديمة أو ضبط canonical على جميع نسخها؛ هذه الحزمة لا تغيّر الموقع القديم عن بُعد.

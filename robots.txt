@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin
 
-Sitemap: https://sam190fhsg-bit.github.io/Dr.baset.com/sitemap.xml
+Sitemap: https://dr-abdulbasit.netlify.app/sitemap.xml
