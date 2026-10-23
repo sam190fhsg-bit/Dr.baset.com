@@ -1,0 +1,11 @@
+نسخة جاهزة لرفعها على Netlify – عيادة الدكتور عبدالباسط
+
+1) افتح لوحة Netlify للموقع dr-abdulbasit.netlify.app.
+2) استخدم خيار نشر نسخة جديدة Manual deploy إذا كنت لا تستخدم ربط GitHub، أو ارفع الملفات المستخرجة إلى مستودع GitHub إذا كان Netlify ينشر منه تلقائيًا.
+3) تجنب إنشاء مجلد داخلي فوق index.html: يجب أن يظهر ملف index.html في جذر الموقع عند نشره.
+4) افتح https://dr-abdulbasit.netlify.app/sitemap.xml وتحقق من ظهور الروابط الجديدة.
+5) افتح https://dr-abdulbasit.netlify.app/robots.txt وتحقق من صحة الرابط.
+6) افتح Google Search Console ← ملفات Sitemap ← أضف sitemap.xml ← إرسال.
+7) افتح فحص عنوان URL ← الصق https://dr-abdulbasit.netlify.app/ ← عرض الاختبار المباشر؛ ثم طلب الفهرسة حين تتوفر الحصة.
+
+تنبيه: إذا كان هناك تعديل أحدث على Netlify لم يصل إلى ملف ZIP القديم، فإن استبدال الموقع بالكامل قد يعيد النسخة القديمة. قارن النسخ قبل الاستبدال.
