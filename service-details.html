@@ -15,6 +15,15 @@
 })();
 </script>
 <meta id="metaDescription" name="description" content="تفاصيل الخدمات الطبية في عيادة الدكتور عبده الباسط.">
+<script data-seo-service-info>
+(function(){
+const slug=new URLSearchParams(location.search).get('slug');
+const M={"gastroscopy":{"title":"منظار المعدة | د. عبدالباسط – صنعاء","description":"فحص المريء والمعدة والاثني عشر بالمنظار للمساعدة في تشخيص المشكلات الهضمية، وفق تقييم الطبيب."},"colonoscopy":{"title":"منظار القولون | د. عبدالباسط – صنعاء","description":"فحص بطانة القولون والمستقيم بالمنظار للمساعدة في التشخيص، ويمكن أخذ عينات عند الحاجة."},"endoscopic-biopsy":{"title":"أخذ الخزعات بالمنظار | د. عبدالباسط – صنعاء","description":"أخذ عينات نسيجية أثناء إجراء المنظار إذا رأى الطبيب الحاجة إلى فحصها مخبريًا."},"therapeutic-endoscopy":{"title":"المنظار العلاجي | د. عبدالباسط – صنعاء","description":"إجراءات علاجية بالمنظار لبعض الحالات المناسبة، بعد التقييم الطبي وتحديد نوع الإجراء المطلوب."}};
+if(!slug||!M[slug])return;
+document.title=M[slug].title;
+const desc=document.getElementById('metaDescription');if(desc)desc.content=M[slug].description;
+})();
+</script>
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
