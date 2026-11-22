@@ -1,5 +1,5 @@
 (function(){
- const social={facebook:'https://www.facebook.com/Dr.Abdulbaset.clinic',youtube:'https://youtube.com/@dr.abdulbaset_clinic?si=IYsRFIycho-GM1yV',instagram:'https://www.instagram.com/almamooncenter?stkn=YzByaTI5dTVwMnJr'};
+ const social={facebook:'https://www.facebook.com/Dr.Abdulbaset.clinic',youtube:'https://youtube.com/@dr.abdulbaset_clinic?si=IYsRFIycho-GM1yV',instagram:'https://www.instagram.com/dr.abdulbaset_clinic?avpt=MXY3c3d1cTV4c3hzaQ=='};
  const head=document.head;if(head&&!document.querySelector('link[href*="site-enhancements.css"]')){const l=document.createElement('link');l.rel='stylesheet';l.href='site-enhancements.css?v=20260930p2';head.appendChild(l)}
  if(document.body&&!document.querySelector('.skip-link')){const a=document.createElement('a');a.className='skip-link';a.href='#main-content';a.textContent='تجاوز إلى المحتوى';document.body.prepend(a);const main=document.querySelector('main, section.page-hero, .hero');if(main&&!main.id)main.id='main-content'}
  const nav=document.querySelector('.menu,.desktop-links');
