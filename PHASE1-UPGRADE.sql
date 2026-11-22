@@ -28,5 +28,5 @@ insert into public.working_hours(day_key,day_ar,day_en,morning_from,morning_to,e
 ('sat','السبت','Saturday','09:00','14:00','16:00','21:00',1),('sun','الأحد','Sunday','09:00','14:00','16:00','21:00',2),('mon','الاثنين','Monday','09:00','14:00','16:00','21:00',3),('tue','الثلاثاء','Tuesday','09:00','14:00','16:00','21:00',4),('wed','الأربعاء','Wednesday','09:00','14:00','16:00','21:00',5),('thu','الخميس','Thursday','09:00','14:00','16:00','21:00',6)
 on conflict(day_key) do update set morning_from=excluded.morning_from,morning_to=excluded.morning_to,evening_from=excluded.evening_from,evening_to=excluded.evening_to,updated_at=now();
 insert into public.social_links(platform,url,sort_order) values
-('facebook','https://www.facebook.com/Dr.Abdulbaset.clinic',1),('youtube','https://youtube.com/@dr.abdulbaset_clinic?si=IYsRFIycho-GM1yV',2),('instagram','https://www.instagram.com/almamooncenter?stkn=YzByaTI5dTVwMnJr',3)
+('facebook','https://www.facebook.com/Dr.Abdulbaset.clinic',1),('youtube','https://youtube.com/@dr.abdulbaset_clinic?si=IYsRFIycho-GM1yV',2),('instagram','https://www.instagram.com/dr.abdulbaset_clinic?avpt=MXY3c3d1cTV4c3hzaQ==',3)
 on conflict(platform) do update set url=excluded.url,is_active=true,updated_at=now();
